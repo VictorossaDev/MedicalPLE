@@ -1,0 +1,57 @@
+@model MedicalPLE.Models.ViewModels.CiudadVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h3 class="text-center"> Crear Ciudad</h3>
+<!-- Creo un formulario que buscara el metodo Create del controlador que va por post-->
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="row px-2 mx-2 border">
+       <!-- Vaidacion de campos del formulario, traera los mensajes que se tengan en el modelo-->
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-10 offset-1 mt-4">
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Ciudad.NombreCiudad"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Ciudad.NombreCiudad" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Ciudad.NombreCiudad" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <!-- Vista parcial reutilizada en distintos formularios para Volver -->
+                    <partial name="_VistaCrearVolver" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="https://cdn.tiny.cloud/1/qukxrn62f4bz0iv6z7enaelkkzuzugir28y709xit9xm659s/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
+    </script>
+}
+
+
+
+
+
+
+

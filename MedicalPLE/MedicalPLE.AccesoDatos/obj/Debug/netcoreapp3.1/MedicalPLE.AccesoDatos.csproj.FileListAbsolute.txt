@@ -1,0 +1,14 @@
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.deps.json
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.dll
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.pdb
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.Models.dll
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.Utilidades.dll
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.Models.pdb
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.Utilidades.pdb
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.csprojAssemblyReference.cache
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.AssemblyInfoInputs.cache
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.AssemblyInfo.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.csproj.CopyComplete
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.dll
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.pdb

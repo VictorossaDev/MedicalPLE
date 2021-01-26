@@ -8,10 +8,15 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
-using MedicalPLE.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MedicalPLE.AccesoDatos.Data;
+using MedicalPLE.AccesoDatos.Data.Repository;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using MedicalPLE.Utilidades;
+using MedicalPLE.Models;
+using MedicalPLE.AccesoDatos.Data.Inicializador;
 
 namespace MedicalPLE
 {
@@ -28,16 +33,25 @@ namespace MedicalPLE
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
+                options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
-           services.AddRazorPages();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoleManager<RoleManager<IdentityRole>>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddSingleton<IEmailSender, EmailSender>();
+
+            services.AddScoped<IContenedorTrabajo, ContenedorTrabajo>();
+            // Importa la inicializacion de la aplicacion cuando se hace por primera vez o se despliega
+            services.AddScoped<IInicializadorDB, InicializadorDB>();
+            // Runtime para compilacion, en etapa de desarrollo para ir viendo reflejados los cambios
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IInicializadorDB dbInicial)
         {
             if (env.IsDevelopment())
             {
@@ -54,7 +68,7 @@ namespace MedicalPLE
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            dbInicial.Inicializar();
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -62,9 +76,10 @@ namespace MedicalPLE
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{area=Cliente}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
     }
 }
+

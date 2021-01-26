@@ -1,0 +1,446 @@
+<!-- Tabla Dependiente => Paciente-->
+@model MedicalPLE.Models.ViewModels.PacienteVM
+@{
+    ViewData["Title"] = "Editar paciente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h3 class="text-center"> Editar paciente</h3>
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden"  asp-for="Paciente.PacienteId"/>
+    <div class="row px-2 mx-2 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-8 mt-4">
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.NumeroDocumento"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.NumeroDocumento" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.NumeroDocumento" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.NombresApellidos"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.NombresApellidos" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.NombresApellidos" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Fechanacimiento"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Fechanacimiento" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Fechanacimiento" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Edad"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Edad" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Edad" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Lugarnacimiento"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Lugarnacimiento" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Lugarnacimiento" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Nacionalidad"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Nacionalidad" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Nacionalidad" class="text-danger"></span>
+                </div>
+            </div>
+
+Embarazo
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.UltimaMestruacion"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.UltimaMestruacion" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.UltimaMestruacion" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Semanaembarazo"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Semanaembarazo" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Semanaembarazo" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Numeroembarazo"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Numeroembarazo" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Numeroembarazo" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Direccion"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Direccion" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Direccion" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Barrio"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Barrio" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Barrio" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Correo"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Correo" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Correo" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Fijo"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Fijo" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Fijo" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Celular"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.Celular" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.Celular" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.NombreResponsable"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.NombreResponsable" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.NombreResponsable" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.FijoResponsable"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.FijoResponsable" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.FijoResponsable" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.CelularResponsable"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.CelularResponsable" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.CelularResponsable" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.ParentescoResponsable"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.ParentescoResponsable" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.ParentescoResponsable" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.NombreReferida"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.NombreReferida" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.NombreReferida" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.FijoReferido"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.FijoReferido" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.FijoReferido" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.CelularReferido"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.CelularReferido" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.CelularReferido" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.ReferidoPor"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.ReferidoPor" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.ReferidoPor" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.NombreAcompanante"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.NombreAcompanante" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.NombreAcompanante" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.FijoAcompanante"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.FijoAcompanante" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.FijoAcompanante" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.CelularAcompanante"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.CelularAcompanante" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.CelularAcompanante" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.ParentescoAcompanante"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.ParentescoAcompanante" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.ParentescoAcompanante" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.NombreMadreMenor"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.NombreMadreMenor" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.NombreMadreMenor" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.CedulaMadreMenor"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.CedulaMadreMenor" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.CedulaMadreMenor" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.TelefonoMadreMenor"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.TelefonoMadreMenor" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.TelefonoMadreMenor" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.OcupacionMadreMenor"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.OcupacionMadreMenor" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.OcupacionMadreMenor" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.NombrePadreCuidadorMenor"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.NombrePadreCuidadorMenor" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.NombrePadreCuidadorMenor" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.CedulaPadreCuidadorMenor"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.CedulaPadreCuidadorMenor" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.CedulaPadreCuidadorMenor" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.TelefonoPadreCuidadorMenor"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.TelefonoPadreCuidadorMenor" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.TelefonoPadreCuidadorMenor" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.OcupacionPadreCuidadorMenor"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.OcupacionPadreCuidadorMenor" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.OcupacionPadreCuidadorMenor" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.ParentescoPadreCuidador"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Paciente.ParentescoPadreCuidador" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="Paciente.ParentescoPadreCuidador" class="text-danger"></span>
+                </div>
+            </div>
+
+            
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.TipodocId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.TipodocId, Model.ListaTipodoc,
+                     "-Porfavor seleccione Tipodoc-", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.TiposangreId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.TiposangreId, Model.ListaTiposangre,
+                     "-Porfavor seleccione Tiposangre-", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.EstadocivilId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.EstadocivilId, Model.ListaEstadocivil,
+                     "-Porfavor seleccione Estadocivil-", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.GeneroId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.GeneroId, Model.ListaGenero,
+                     "-Porfavor seleccione Genero-", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.EpsId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.EpsId, Model.ListaEps,
+                     "-Porfavor seleccione Eps-", new { @class = "form-control" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model.Paciente.PacienteId">Actualizar</button>
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success form-control">Volver a lista</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="https://cdn.tiny.cloud/1/qukxrn62f4bz0iv6z7enaelkkzuzugir28y709xit9xm659s/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
+    </script>
+}
+
