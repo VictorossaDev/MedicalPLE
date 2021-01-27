@@ -1,12 +1,13 @@
-//  Independiente => Departamento
+// Tabla Independiente => Departamento
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using MedicalPLE.AccesoDatos.Data.Repository;
-using MedicalPLE.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
+
+using MedicalPLE.Models;
+using MedicalPLE.AccesoDatos.Data.Repository;
 
 namespace MedicalPLE.Areas.Admin.Controllers
 {
@@ -18,72 +19,76 @@ namespace MedicalPLE.Areas.Admin.Controllers
     {
         // Instanciamos el contenedor de trabajo que es donde tenemos todos los repositorios
         private readonly IContenedorTrabajo _contenedorTrabajo;
+        // En caso de que el modelo tenga un campo tipo imagen
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         // Contructor de la clase para acceder a todas las entidades
-        public DepartamentoController(IContenedorTrabajo contenedorTrabajo)
+        public DepartamentoController(IContenedorTrabajo contenedorTrabajo, IWebHostEnvironment hostingEnvironment)
         {
             _contenedorTrabajo = contenedorTrabajo;
+            _hostingEnvironment = hostingEnvironment;
         }
 
+        // Inicio de Formulario
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        // Create que pinta el formulario
+        // Inicio de Formulario de Creacion
         [HttpGet]
         public IActionResult Create()
-        {
+        {           
             return View();
         }
 
-        //--===============================================================--
-        //     Crear Departamento
-       
-        // Create Con validacion de token para evitar que hakeen el formulario y para crear el registro
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Departamento departamento)
         {
-            // Valida el modelo, desde el modelo se determian lo requerido
             if (ModelState.IsValid)
-            { 
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
+            {             
 
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-                // Invocamos el contenedor de trabajo para Departamento   
                 _contenedorTrabajo.Departamento.Add(departamento);
                 _contenedorTrabajo.Save();
 
-                // En caso de guardar la informacion retorna al index de la vista
                 return RedirectToAction(nameof(Index));
+
             }
-            // En caso de que no retorna a la misma vista
-            return View(departamento);
+            return View();
         }
-
-        //--===============================================================--
-        //     Editar1 Departamento
-
-        [HttpGet]
-        public IActionResult Edit(int DepartamentoId)
+        // Metodo para Crear Imagen
+        private void ConCreacionDeImagen(Departamento departamento)
         {
-            Departamento departamento = new Departamento();
-            departamento = _contenedorTrabajo.Departamento.Get(DepartamentoId);
-            if (departamento == null)
+            string rutaPrincipal = _hostingEnvironment.WebRootPath;
+            var archivos = HttpContext.Request.Form.Files;
+
+            //Nueva Imagen de Departamento
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\departamento");
+            var extension = Path.GetExtension(archivos[0].FileName);
+
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + extension), FileMode.Create))
             {
-                return NotFound();
+                archivos[0].CopyTo(fileStreams);
             }
 
-            return View(departamento);
+
         }
 
-        //--===============================================================--
-        //     Editar2 Departamento
+        // Carga El formulario de edicion 
+        [HttpGet]
+        public IActionResult Edit(int? DepartamentoId)
+        {          
+            if (DepartamentoId != null)
+            {
+                var departamento = _contenedorTrabajo.Departamento.Get(DepartamentoId.GetValueOrDefault());
+                return View(departamento);
+            }
+            return View();
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -91,6 +96,24 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                string rutaPrincipal = _hostingEnvironment.WebRootPath;
+                var archivos = HttpContext.Request.Form.Files;
+
+                var departamentoDesdeDb = _contenedorTrabajo.Departamento.Get(departamento.DepartamentoId);
+
+                if (archivos.Count() > 0)
+                {
+
+                    _contenedorTrabajo.Departamento.Update(departamento);
+                    _contenedorTrabajo.Save();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    //Aquí es cuando la imagen ya existe se conserva la misma
+
+                }
 
                 _contenedorTrabajo.Departamento.Update(departamento);
                 _contenedorTrabajo.Save();
@@ -99,34 +122,41 @@ namespace MedicalPLE.Areas.Admin.Controllers
             return View();
         }
 
+        // Actualiza imagen que este en base de datos
+        private static void EditarImagenGuardada(Departamento departamento, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, Departamento departamentoDesdeDb)
+        {
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\departamento");
+            var nuevaExtension = Path.GetExtension(archivos[0].FileName);
+
+            //Aquí subimos nuevamente el archivo
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
+            {
+                archivos[0].CopyTo(fileStreams);
+            }
+
+        }       
+        
+        #region LLAMADAS A LA API TABLA Departamento
         [HttpGet]
         public IActionResult GetAll()
         {
             return Json(new { data = _contenedorTrabajo.Departamento.GetAll() });
         }
 
-        //--===============================================================--
-        //  Eliminar Departamento
-
         [HttpDelete]
         public IActionResult Delete(int DepartamentoId)
         {
-            // Buscamos primero el registro segun el id que llego como parametro para eliminar el adecuado
-            var departamentoDesdeDb = _contenedorTrabajo.Departamento.Get(DepartamentoId);
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-            if (departamentoDesdeDb  == null)
+            var objFromDb = _contenedorTrabajo.Departamento.Get(DepartamentoId);
+            if (objFromDb == null)
             {
-                return Json(new { success = false, message = "Error al borrar departamento"});
+                return Json(new { success = false, message = "Error borrando Departamento" });
             }
-            _contenedorTrabajo.Departamento.Remove(departamentoDesdeDb );
+            _contenedorTrabajo.Departamento.Remove(objFromDb);
             _contenedorTrabajo.Save();
             return Json(new { success = true, message = "Departamento borrado correctamente" });
         }
+        #endregion
     }
 }
-
-        //--===============================================================--
-
 

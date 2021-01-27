@@ -1,12 +1,13 @@
-//  Independiente => Tiposangre
+// Tabla Independiente => Tiposangre
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using MedicalPLE.AccesoDatos.Data.Repository;
-using MedicalPLE.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
+
+using MedicalPLE.Models;
+using MedicalPLE.AccesoDatos.Data.Repository;
 
 namespace MedicalPLE.Areas.Admin.Controllers
 {
@@ -18,72 +19,76 @@ namespace MedicalPLE.Areas.Admin.Controllers
     {
         // Instanciamos el contenedor de trabajo que es donde tenemos todos los repositorios
         private readonly IContenedorTrabajo _contenedorTrabajo;
+        // En caso de que el modelo tenga un campo tipo imagen
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         // Contructor de la clase para acceder a todas las entidades
-        public TiposangreController(IContenedorTrabajo contenedorTrabajo)
+        public TiposangreController(IContenedorTrabajo contenedorTrabajo, IWebHostEnvironment hostingEnvironment)
         {
             _contenedorTrabajo = contenedorTrabajo;
+            _hostingEnvironment = hostingEnvironment;
         }
 
+        // Inicio de Formulario
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        // Create que pinta el formulario
+        // Inicio de Formulario de Creacion
         [HttpGet]
         public IActionResult Create()
-        {
+        {           
             return View();
         }
 
-        //--===============================================================--
-        //     Crear Tiposangre
-       
-        // Create Con validacion de token para evitar que hakeen el formulario y para crear el registro
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Tiposangre tiposangre)
         {
-            // Valida el modelo, desde el modelo se determian lo requerido
             if (ModelState.IsValid)
-            { 
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
+            {             
 
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-                // Invocamos el contenedor de trabajo para Tiposangre   
                 _contenedorTrabajo.Tiposangre.Add(tiposangre);
                 _contenedorTrabajo.Save();
 
-                // En caso de guardar la informacion retorna al index de la vista
                 return RedirectToAction(nameof(Index));
+
             }
-            // En caso de que no retorna a la misma vista
-            return View(tiposangre);
+            return View();
         }
-
-        //--===============================================================--
-        //     Editar1 Tiposangre
-
-        [HttpGet]
-        public IActionResult Edit(int TiposangreId)
+        // Metodo para Crear Imagen
+        private void ConCreacionDeImagen(Tiposangre tiposangre)
         {
-            Tiposangre tiposangre = new Tiposangre();
-            tiposangre = _contenedorTrabajo.Tiposangre.Get(TiposangreId);
-            if (tiposangre == null)
+            string rutaPrincipal = _hostingEnvironment.WebRootPath;
+            var archivos = HttpContext.Request.Form.Files;
+
+            //Nueva Imagen de Tiposangre
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\tiposangre");
+            var extension = Path.GetExtension(archivos[0].FileName);
+
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + extension), FileMode.Create))
             {
-                return NotFound();
+                archivos[0].CopyTo(fileStreams);
             }
 
-            return View(tiposangre);
+
         }
 
-        //--===============================================================--
-        //     Editar2 Tiposangre
+        // Carga El formulario de edicion 
+        [HttpGet]
+        public IActionResult Edit(int? TiposangreId)
+        {          
+            if (TiposangreId != null)
+            {
+                var tiposangre = _contenedorTrabajo.Tiposangre.Get(TiposangreId.GetValueOrDefault());
+                return View(tiposangre);
+            }
+            return View();
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -91,6 +96,24 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                string rutaPrincipal = _hostingEnvironment.WebRootPath;
+                var archivos = HttpContext.Request.Form.Files;
+
+                var tiposangreDesdeDb = _contenedorTrabajo.Tiposangre.Get(tiposangre.TiposangreId);
+
+                if (archivos.Count() > 0)
+                {
+
+                    _contenedorTrabajo.Tiposangre.Update(tiposangre);
+                    _contenedorTrabajo.Save();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    //Aquí es cuando la imagen ya existe se conserva la misma
+
+                }
 
                 _contenedorTrabajo.Tiposangre.Update(tiposangre);
                 _contenedorTrabajo.Save();
@@ -99,28 +122,41 @@ namespace MedicalPLE.Areas.Admin.Controllers
             return View();
         }
 
-        //--===============================================================--
-        //  Eliminar Tiposangre
+        // Actualiza imagen que este en base de datos
+        private static void EditarImagenGuardada(Tiposangre tiposangre, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, Tiposangre tiposangreDesdeDb)
+        {
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\tiposangre");
+            var nuevaExtension = Path.GetExtension(archivos[0].FileName);
+
+            //Aquí subimos nuevamente el archivo
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
+            {
+                archivos[0].CopyTo(fileStreams);
+            }
+
+        }       
+        
+        #region LLAMADAS A LA API TABLA Tiposangre
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Json(new { data = _contenedorTrabajo.Tiposangre.GetAll() });
+        }
 
         [HttpDelete]
         public IActionResult Delete(int TiposangreId)
         {
-            // Buscamos primero el registro segun el id que llego como parametro para eliminar el adecuado
-            var tiposangreDesdeDb = _contenedorTrabajo.Tiposangre.Get(TiposangreId);
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-            if (tiposangreDesdeDb  == null)
+            var objFromDb = _contenedorTrabajo.Tiposangre.Get(TiposangreId);
+            if (objFromDb == null)
             {
-                return Json(new { success = false, message = "Error al borrar tiposangre"});
+                return Json(new { success = false, message = "Error borrando Tiposangre" });
             }
-            _contenedorTrabajo.Tiposangre.Remove(tiposangreDesdeDb );
+            _contenedorTrabajo.Tiposangre.Remove(objFromDb);
             _contenedorTrabajo.Save();
             return Json(new { success = true, message = "Tiposangre borrado correctamente" });
         }
+        #endregion
     }
 }
-
-        //--===============================================================--
-
 

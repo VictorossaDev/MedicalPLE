@@ -1,14 +1,12 @@
-//  Dependiente => Paciente
+// Tabla Dependiente => Paciente
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using MedicalPLE.AccesoDatos.Data.Repository;
-using MedicalPLE.Models.ViewModels;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
+using MedicalPLE.Models.ViewModels;
+using MedicalPLE.AccesoDatos.Data.Repository;
 
 namespace MedicalPLE.Areas.Admin.Controllers
 {
@@ -24,17 +22,12 @@ namespace MedicalPLE.Areas.Admin.Controllers
             _contenedorTrabajo = contenedorTrabajo;
             _hostingEnvironment = hostingEnvironmen;
         }
-        // --===============================================================--
-        //      Carga Vista Paciente
 
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-
-       //--===============================================================--
-       //     Carga Paciente
 
         [HttpGet]
         public IActionResult Create()
@@ -47,36 +40,48 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 ListaEstadocivil = _contenedorTrabajo.Estadocivil.GetListaEstadocivil(),
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
                 ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
+
             };
-            return View(pacientevm );
+            return View(pacientevm);
         }
 
-        //--===============================================================--
-        //     Crear Paciente
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(PacienteVM pacienteVM)
+        public IActionResult Create(PacienteVM pacientevm)
         {
-
-            // Valida el Modelo para hacer un primer filtro
             if (ModelState.IsValid)
             {
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
+                string rutaPrincipal = _hostingEnvironment.WebRootPath;
+                var archivos = HttpContext.Request.Form.Files;
 
-      //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-      //------------------------------------------------------------------------------------------------------------------------------------------------------
-                    _contenedorTrabajo.Paciente.Add(pacienteVM.Paciente);
+                if (pacientevm.Paciente.PacienteId == 0)
+                {
+ 
+ 
+                    _contenedorTrabajo.Paciente.Add(pacientevm.Paciente);
                     _contenedorTrabajo.Save();
-
-                    return RedirectToAction(nameof(Index));                
+                    return RedirectToAction(nameof(Index));
+                }
             }
             return View();
         }
 
-        //--===============================================================--
-        //     Editar1 Paciente
+        private static void CrearImagenPaciente(PacienteVM pacientevm, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos)
+        {
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\paciente");
+            var extension = Path.GetExtension(archivos[0].FileName);
+
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + extension), FileMode.Create))
+            {
+                archivos[0].CopyTo(fileStreams);
+            }
+
+        }
+
+
 
         [HttpGet]
         public IActionResult Edit(int? PacienteId)
@@ -91,47 +96,72 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
 
             };
-
             if (PacienteId != null)
             {
-                pacientevm.Paciente= _contenedorTrabajo.Paciente.Get(PacienteId.GetValueOrDefault());
+                pacientevm.Paciente = _contenedorTrabajo.Paciente.Get(PacienteId.GetValueOrDefault());
             }
             return View(pacientevm);
         }
 
-        //--===============================================================--
-        //     Editar2 Paciente
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(PacienteVM pacienteVM)
+        public IActionResult Edit(PacienteVM pacientevm)
         {
             if (ModelState.IsValid)
             {
-      //------------------------------------------------------------------------------------------------------------------------------------------------------
+                string rutaPrincipal = _hostingEnvironment.WebRootPath;
+                var archivos = HttpContext.Request.Form.Files;
 
-      //------------------------------------------------------------------------------------------------------------------------------------------------------
+                var pacienteDesdeDb = _contenedorTrabajo.Paciente.Get(pacientevm.Paciente.PacienteId);
+                if (archivos.Count() > 0)
+                {
+ 
 
-      //------------------------------------------------------------------------------------------------------------------------------------------------------
+                    _contenedorTrabajo.Paciente.Update(pacientevm.Paciente);
+                    _contenedorTrabajo.Save();
 
-     //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-                _contenedorTrabajo.Paciente.Update(pacienteVM.Paciente);
+                    return RedirectToAction(nameof(Index));
+                }
+ 
+                _contenedorTrabajo.Paciente.Update(pacientevm.Paciente);
                 _contenedorTrabajo.Save();
                 return RedirectToAction(nameof(Index));
             }
             return View();
         }
 
+        private static void EditarImagenPaciente(PacienteVM pacientevm, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, Models.Paciente pacienteDesdeDb)
+        {
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\paciente");
+            var extension = Path.GetExtension(archivos[0].FileName);
+            var nuevaExtension = Path.GetExtension(archivos[0].FileName);
+
+ 
+
+            //subimos nuevamente el archivo
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
+            {
+                archivos[0].CopyTo(fileStreams);
+            }
+ 
+        }
+
 
         [HttpDelete]
         public IActionResult Delete(int PacienteId)
         {
-
             var pacienteDesdeDb = _contenedorTrabajo.Paciente.Get(PacienteId);
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
+            string rutaDirectorioPrincipal = _hostingEnvironment.WebRootPath;
 
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+
+            if (pacienteDesdeDb == null)
+            {
+                return Json(new { success = false, message = "Error borrando artículo"});
+            }
+
             _contenedorTrabajo.Paciente.Remove(pacienteDesdeDb);
             _contenedorTrabajo.Save();
             return Json(new { success = true, message = "Paciente borrado con éxito" });
@@ -139,15 +169,13 @@ namespace MedicalPLE.Areas.Admin.Controllers
         }
 
 
-        #region LLAMADAS A LA API
-        // Para poder utilizar Datatables y consultar estos por ajax
+        #region LLAMADAS A LA API Paciente
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new { data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Categoria") });
-        }
-        #endregion        
+            return Json(new { data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Tipodoc,Tiposangre,Estadocivil,Genero,Eps") });
+        }        
+        #endregion
+
     }
 }
-
-

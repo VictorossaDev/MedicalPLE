@@ -1,12 +1,13 @@
-//  Independiente => Genero
+// Tabla Independiente => Genero
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using MedicalPLE.AccesoDatos.Data.Repository;
-using MedicalPLE.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
+
+using MedicalPLE.Models;
+using MedicalPLE.AccesoDatos.Data.Repository;
 
 namespace MedicalPLE.Areas.Admin.Controllers
 {
@@ -18,72 +19,76 @@ namespace MedicalPLE.Areas.Admin.Controllers
     {
         // Instanciamos el contenedor de trabajo que es donde tenemos todos los repositorios
         private readonly IContenedorTrabajo _contenedorTrabajo;
+        // En caso de que el modelo tenga un campo tipo imagen
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         // Contructor de la clase para acceder a todas las entidades
-        public GeneroController(IContenedorTrabajo contenedorTrabajo)
+        public GeneroController(IContenedorTrabajo contenedorTrabajo, IWebHostEnvironment hostingEnvironment)
         {
             _contenedorTrabajo = contenedorTrabajo;
+            _hostingEnvironment = hostingEnvironment;
         }
 
+        // Inicio de Formulario
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        // Create que pinta el formulario
+        // Inicio de Formulario de Creacion
         [HttpGet]
         public IActionResult Create()
-        {
+        {           
             return View();
         }
 
-        //--===============================================================--
-        //     Crear Genero
-       
-        // Create Con validacion de token para evitar que hakeen el formulario y para crear el registro
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Genero genero)
         {
-            // Valida el modelo, desde el modelo se determian lo requerido
             if (ModelState.IsValid)
-            { 
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
+            {             
 
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-                // Invocamos el contenedor de trabajo para Genero   
                 _contenedorTrabajo.Genero.Add(genero);
                 _contenedorTrabajo.Save();
 
-                // En caso de guardar la informacion retorna al index de la vista
                 return RedirectToAction(nameof(Index));
+
             }
-            // En caso de que no retorna a la misma vista
-            return View(genero);
+            return View();
         }
-
-        //--===============================================================--
-        //     Editar1 Genero
-
-        [HttpGet]
-        public IActionResult Edit(int GeneroId)
+        // Metodo para Crear Imagen
+        private void ConCreacionDeImagen(Genero genero)
         {
-            Genero genero = new Genero();
-            genero = _contenedorTrabajo.Genero.Get(GeneroId);
-            if (genero == null)
+            string rutaPrincipal = _hostingEnvironment.WebRootPath;
+            var archivos = HttpContext.Request.Form.Files;
+
+            //Nueva Imagen de Genero
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\genero");
+            var extension = Path.GetExtension(archivos[0].FileName);
+
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + extension), FileMode.Create))
             {
-                return NotFound();
+                archivos[0].CopyTo(fileStreams);
             }
 
-            return View(genero);
+
         }
 
-        //--===============================================================--
-        //     Editar2 Genero
+        // Carga El formulario de edicion 
+        [HttpGet]
+        public IActionResult Edit(int? GeneroId)
+        {          
+            if (GeneroId != null)
+            {
+                var genero = _contenedorTrabajo.Genero.Get(GeneroId.GetValueOrDefault());
+                return View(genero);
+            }
+            return View();
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -91,6 +96,24 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                string rutaPrincipal = _hostingEnvironment.WebRootPath;
+                var archivos = HttpContext.Request.Form.Files;
+
+                var generoDesdeDb = _contenedorTrabajo.Genero.Get(genero.GeneroId);
+
+                if (archivos.Count() > 0)
+                {
+
+                    _contenedorTrabajo.Genero.Update(genero);
+                    _contenedorTrabajo.Save();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    //Aquí es cuando la imagen ya existe se conserva la misma
+
+                }
 
                 _contenedorTrabajo.Genero.Update(genero);
                 _contenedorTrabajo.Save();
@@ -99,28 +122,41 @@ namespace MedicalPLE.Areas.Admin.Controllers
             return View();
         }
 
-        //--===============================================================--
-        //  Eliminar Genero
+        // Actualiza imagen que este en base de datos
+        private static void EditarImagenGuardada(Genero genero, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, Genero generoDesdeDb)
+        {
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\genero");
+            var nuevaExtension = Path.GetExtension(archivos[0].FileName);
+
+            //Aquí subimos nuevamente el archivo
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
+            {
+                archivos[0].CopyTo(fileStreams);
+            }
+
+        }       
+        
+        #region LLAMADAS A LA API TABLA Genero
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Json(new { data = _contenedorTrabajo.Genero.GetAll() });
+        }
 
         [HttpDelete]
         public IActionResult Delete(int GeneroId)
         {
-            // Buscamos primero el registro segun el id que llego como parametro para eliminar el adecuado
-            var generoDesdeDb = _contenedorTrabajo.Genero.Get(GeneroId);
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-            if (generoDesdeDb  == null)
+            var objFromDb = _contenedorTrabajo.Genero.Get(GeneroId);
+            if (objFromDb == null)
             {
-                return Json(new { success = false, message = "Error al borrar genero"});
+                return Json(new { success = false, message = "Error borrando Genero" });
             }
-            _contenedorTrabajo.Genero.Remove(generoDesdeDb );
+            _contenedorTrabajo.Genero.Remove(objFromDb);
             _contenedorTrabajo.Save();
             return Json(new { success = true, message = "Genero borrado correctamente" });
         }
+        #endregion
     }
 }
-
-        //--===============================================================--
-
 

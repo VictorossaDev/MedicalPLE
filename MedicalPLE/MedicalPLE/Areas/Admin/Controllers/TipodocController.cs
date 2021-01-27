@@ -39,7 +39,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         // Inicio de Formulario de Creacion
         [HttpGet]
         public IActionResult Create()
-        {
+        {           
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         public IActionResult Create(Tipodoc tipodoc)
         {
             if (ModelState.IsValid)
-            {
+            {             
 
                 _contenedorTrabajo.Tipodoc.Add(tipodoc);
                 _contenedorTrabajo.Save();
@@ -80,7 +80,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         // Carga El formulario de edicion 
         [HttpGet]
         public IActionResult Edit(int? TipodocId)
-        {
+        {          
             if (TipodocId != null)
             {
                 var tipodoc = _contenedorTrabajo.Tipodoc.Get(TipodocId.GetValueOrDefault());
@@ -111,7 +111,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 }
                 else
                 {
-                    //Aquí es cuando la imagen ya existe se conserva la misma
+                    //AquÃ­ es cuando la imagen ya existe se conserva la misma
 
                 }
 
@@ -129,14 +129,14 @@ namespace MedicalPLE.Areas.Admin.Controllers
             var subidas = Path.Combine(rutaPrincipal, @"imagenes\tipodoc");
             var nuevaExtension = Path.GetExtension(archivos[0].FileName);
 
-            //Aquí subimos nuevamente el archivo
+            //AquÃ­ subimos nuevamente el archivo
             using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
             {
                 archivos[0].CopyTo(fileStreams);
             }
 
-        }
-
+        }       
+        
         #region LLAMADAS A LA API TABLA Tipodoc
         [HttpGet]
         public IActionResult GetAll()
