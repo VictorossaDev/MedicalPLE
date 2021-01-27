@@ -1,12 +1,13 @@
-//  Independiente => Tipodoc
+// Tabla Independiente => Tipodoc
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using MedicalPLE.AccesoDatos.Data.Repository;
-using MedicalPLE.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
+
+using MedicalPLE.Models;
+using MedicalPLE.AccesoDatos.Data.Repository;
 
 namespace MedicalPLE.Areas.Admin.Controllers
 {
@@ -18,72 +19,76 @@ namespace MedicalPLE.Areas.Admin.Controllers
     {
         // Instanciamos el contenedor de trabajo que es donde tenemos todos los repositorios
         private readonly IContenedorTrabajo _contenedorTrabajo;
+        // En caso de que el modelo tenga un campo tipo imagen
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         // Contructor de la clase para acceder a todas las entidades
-        public TipodocController(IContenedorTrabajo contenedorTrabajo)
+        public TipodocController(IContenedorTrabajo contenedorTrabajo, IWebHostEnvironment hostingEnvironment)
         {
             _contenedorTrabajo = contenedorTrabajo;
+            _hostingEnvironment = hostingEnvironment;
         }
 
+        // Inicio de Formulario
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        // Create que pinta el formulario
+        // Inicio de Formulario de Creacion
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        //--===============================================================--
-        //     Crear Tipodoc
-       
-        // Create Con validacion de token para evitar que hakeen el formulario y para crear el registro
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Tipodoc tipodoc)
         {
-            // Valida el modelo, desde el modelo se determian lo requerido
             if (ModelState.IsValid)
-            { 
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
+            {
 
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-                // Invocamos el contenedor de trabajo para Tipodoc   
                 _contenedorTrabajo.Tipodoc.Add(tipodoc);
                 _contenedorTrabajo.Save();
 
-                // En caso de guardar la informacion retorna al index de la vista
                 return RedirectToAction(nameof(Index));
+
             }
-            // En caso de que no retorna a la misma vista
-            return View(tipodoc);
+            return View();
         }
-
-        //--===============================================================--
-        //     Editar1 Tipodoc
-
-        [HttpGet]
-        public IActionResult Edit(int TipodocId)
+        // Metodo para Crear Imagen
+        private void ConCreacionDeImagen(Tipodoc tipodoc)
         {
-            Tipodoc tipodoc = new Tipodoc();
-            tipodoc = _contenedorTrabajo.Tipodoc.Get(TipodocId);
-            if (tipodoc == null)
+            string rutaPrincipal = _hostingEnvironment.WebRootPath;
+            var archivos = HttpContext.Request.Form.Files;
+
+            //Nueva Imagen de Tipodoc
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\tipodoc");
+            var extension = Path.GetExtension(archivos[0].FileName);
+
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + extension), FileMode.Create))
             {
-                return NotFound();
+                archivos[0].CopyTo(fileStreams);
             }
 
-            return View(tipodoc);
+
         }
 
-        //--===============================================================--
-        //     Editar2 Tipodoc
+        // Carga El formulario de edicion 
+        [HttpGet]
+        public IActionResult Edit(int? TipodocId)
+        {
+            if (TipodocId != null)
+            {
+                var tipodoc = _contenedorTrabajo.Tipodoc.Get(TipodocId.GetValueOrDefault());
+                return View(tipodoc);
+            }
+            return View();
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -91,6 +96,24 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                string rutaPrincipal = _hostingEnvironment.WebRootPath;
+                var archivos = HttpContext.Request.Form.Files;
+
+                var tipodocDesdeDb = _contenedorTrabajo.Tipodoc.Get(tipodoc.TipodocId);
+
+                if (archivos.Count() > 0)
+                {
+
+                    _contenedorTrabajo.Tipodoc.Update(tipodoc);
+                    _contenedorTrabajo.Save();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    //Aquí es cuando la imagen ya existe se conserva la misma
+
+                }
 
                 _contenedorTrabajo.Tipodoc.Update(tipodoc);
                 _contenedorTrabajo.Save();
@@ -99,34 +122,41 @@ namespace MedicalPLE.Areas.Admin.Controllers
             return View();
         }
 
+        // Actualiza imagen que este en base de datos
+        private static void EditarImagenGuardada(Tipodoc tipodoc, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, Tipodoc tipodocDesdeDb)
+        {
+            string nombreArchivo = Guid.NewGuid().ToString();
+            var subidas = Path.Combine(rutaPrincipal, @"imagenes\tipodoc");
+            var nuevaExtension = Path.GetExtension(archivos[0].FileName);
+
+            //Aquí subimos nuevamente el archivo
+            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
+            {
+                archivos[0].CopyTo(fileStreams);
+            }
+
+        }
+
+        #region LLAMADAS A LA API TABLA Tipodoc
         [HttpGet]
         public IActionResult GetAll()
         {
             return Json(new { data = _contenedorTrabajo.Tipodoc.GetAll() });
         }
 
-        //--===============================================================--
-        //  Eliminar Tipodoc
-
         [HttpDelete]
         public IActionResult Delete(int TipodocId)
         {
-            // Buscamos primero el registro segun el id que llego como parametro para eliminar el adecuado
-            var tipodocDesdeDb = _contenedorTrabajo.Tipodoc.Get(TipodocId);
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-       //------------------------------------------------------------------------------------------------------------------------------------------------------
-            if (tipodocDesdeDb  == null)
+            var objFromDb = _contenedorTrabajo.Tipodoc.Get(TipodocId);
+            if (objFromDb == null)
             {
-                return Json(new { success = false, message = "Error al borrar tipodoc"});
+                return Json(new { success = false, message = "Error borrando Tipodoc" });
             }
-            _contenedorTrabajo.Tipodoc.Remove(tipodocDesdeDb );
+            _contenedorTrabajo.Tipodoc.Remove(objFromDb);
             _contenedorTrabajo.Save();
             return Json(new { success = true, message = "Tipodoc borrado correctamente" });
         }
+        #endregion
     }
 }
-
-        //--===============================================================--
-
 

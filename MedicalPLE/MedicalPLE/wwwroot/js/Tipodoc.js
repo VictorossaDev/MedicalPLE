@@ -12,10 +12,10 @@ function cargarDatatable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "TipodocId", "width": "5%" },
-            { "data": "NombreTipodoc", "width": "10%" },
+            { "data": "tipodocId", "width": "5%" },
+            { "data": "nombreTipodoc", "width": "10%" },
             {
-                "data": "TipodocId",
+                "data": "tipodocId",
                 "render": function (data) {
                     return `<div class="text-center">
                                 <a href="/Admin/Tipodoc/Edit/${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
