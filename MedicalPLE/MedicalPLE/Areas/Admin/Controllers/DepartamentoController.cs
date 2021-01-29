@@ -77,13 +77,13 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         }
 
-        // Carga El formulario de edicion 
+        // Carga El Formulario de Edicion por convencion el parametro debera llamarce id si que si....
         [HttpGet]
-        public IActionResult Edit(int? DepartamentoId)
+        public IActionResult Edit(int? id)
         {          
-            if (DepartamentoId != null)
+            if (id != null)
             {
-                var departamento = _contenedorTrabajo.Departamento.Get(DepartamentoId.GetValueOrDefault());
+                var departamento = _contenedorTrabajo.Departamento.Get(id.GetValueOrDefault());
                 return View(departamento);
             }
             return View();
@@ -143,11 +143,11 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             return Json(new { data = _contenedorTrabajo.Departamento.GetAll() });
         }
-
+        // Para la eliminacion por convencion el parametro debera llamarce id si que si....
         [HttpDelete]
-        public IActionResult Delete(int DepartamentoId)
+        public IActionResult Delete(int id)
         {
-            var objFromDb = _contenedorTrabajo.Departamento.Get(DepartamentoId);
+            var objFromDb = _contenedorTrabajo.Departamento.Get(id);
             if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error borrando Departamento" });

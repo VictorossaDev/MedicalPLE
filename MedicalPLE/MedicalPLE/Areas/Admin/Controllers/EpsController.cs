@@ -77,13 +77,13 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         }
 
-        // Carga El formulario de edicion 
+        // Carga El Formulario de Edicion por convencion el parametro debera llamarce id si que si....
         [HttpGet]
-        public IActionResult Edit(int? EpsId)
+        public IActionResult Edit(int? id)
         {          
-            if (EpsId != null)
+            if (id != null)
             {
-                var eps = _contenedorTrabajo.Eps.Get(EpsId.GetValueOrDefault());
+                var eps = _contenedorTrabajo.Eps.Get(id.GetValueOrDefault());
                 return View(eps);
             }
             return View();
@@ -143,11 +143,11 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             return Json(new { data = _contenedorTrabajo.Eps.GetAll() });
         }
-
+        // Para la eliminacion por convencion el parametro debera llamarce id si que si....
         [HttpDelete]
-        public IActionResult Delete(int EpsId)
+        public IActionResult Delete(int id)
         {
-            var objFromDb = _contenedorTrabajo.Eps.Get(EpsId);
+            var objFromDb = _contenedorTrabajo.Eps.Get(id);
             if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error borrando Eps" });

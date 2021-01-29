@@ -77,13 +77,13 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         }
 
-        // Carga El formulario de edicion 
+        // Carga El Formulario de Edicion por convencion el parametro debera llamarce id si que si....
         [HttpGet]
-        public IActionResult Edit(int? GeneroId)
+        public IActionResult Edit(int? id)
         {          
-            if (GeneroId != null)
+            if (id != null)
             {
-                var genero = _contenedorTrabajo.Genero.Get(GeneroId.GetValueOrDefault());
+                var genero = _contenedorTrabajo.Genero.Get(id.GetValueOrDefault());
                 return View(genero);
             }
             return View();
@@ -143,11 +143,11 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             return Json(new { data = _contenedorTrabajo.Genero.GetAll() });
         }
-
+        // Para la eliminacion por convencion el parametro debera llamarce id si que si....
         [HttpDelete]
-        public IActionResult Delete(int GeneroId)
+        public IActionResult Delete(int id)
         {
-            var objFromDb = _contenedorTrabajo.Genero.Get(GeneroId);
+            var objFromDb = _contenedorTrabajo.Genero.Get(id);
             if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error borrando Genero" });

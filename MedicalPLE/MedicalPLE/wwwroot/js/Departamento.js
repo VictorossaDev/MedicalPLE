@@ -4,48 +4,48 @@ $(document).ready(function () {
     cargarDatatable();
 });
 
-
 function cargarDatatable() {
-    dataTable = $("#tblDepartamentos").DataTable({
+    dataTable = $("#tbldepartamento").DataTable({
         "ajax": {
-            "url": "/admin/departamento/GetAll",
+            "url": "/admin/Departamento/GetAll",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "DepartamentoId", "width": "15" },
-            { "data": "NombreDepartamento", "width": "15" }
-,{
-                "data": "DepartamentoId",
+            { "data": "departamentoId", "width": "5%" },
+            { "data": "nombreDepartamento", "width": "10%" },
+
+            {
+                "data": "departamentoId",
                 "render": function (data) {
                     return `<div class="text-center">
-                            <a href='/Admin/Departamentos/Edit/${data}' class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
-                            <i class='fas fa-edit'></i> Editar
-                            </a>
-                            &nbsp;
-                            <a onclick=Delete("/Admin/Departamentos/Delete/${data}") class='btn btn-danger text-white' style='cursor:pointer; width:100px;'>
-                            <i class='fas fa-trash-alt'></i> Borrar
-                            </a>
+                                <a href="/Admin/Departamento/Edit/${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
+                                    <i class='far fa-edit'></i> Editar
+                                </a>
+                                &nbsp;
+                                <a onclick=Delete("/Admin/Departamento/Delete/${data}") class='btn btn-danger text-white' style='cursor:pointer; width:100px;'>
+                                    <i class='far fa-trash-alt'></i> Borrar
+                                </a>
+                            </div>
                             `;
                 }, "width": "30%"
-            }
+            },
         ],
         "language": {
-            "emptyTable": "No hay registros en la tabla Departamento"
+            "emptyTable": "No hay registros."
         },
         "width": "100%"
     });
 }
 
-
 function Delete(url) {
     swal({
-        title: "Esta seguro de borrar este registro?",
-        text: "Este contenido una vez borrado no se podra recuperar!",
+        title: "Esta seguro de borrar?",
+        text: "Este contenido no se puede recuperar!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Si, borrar el registro!",
+        confirmButtonText: "Si, borrar!",
         closeOnconfirm: true
     }, function () {
         $.ajax({
@@ -63,9 +63,4 @@ function Delete(url) {
         });
     });
 }
-
-
-
-
-
 

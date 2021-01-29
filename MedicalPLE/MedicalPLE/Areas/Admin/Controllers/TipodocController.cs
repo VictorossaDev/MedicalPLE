@@ -77,13 +77,13 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         }
 
-        // Carga El formulario de edicion 
+        // Carga El Formulario de Edicion por convencion el parametro debera llamarce id si que si....
         [HttpGet]
-        public IActionResult Edit(int? TipodocId)
+        public IActionResult Edit(int? id)
         {          
-            if (TipodocId != null)
+            if (id != null)
             {
-                var tipodoc = _contenedorTrabajo.Tipodoc.Get(TipodocId.GetValueOrDefault());
+                var tipodoc = _contenedorTrabajo.Tipodoc.Get(id.GetValueOrDefault());
                 return View(tipodoc);
             }
             return View();
@@ -143,11 +143,11 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             return Json(new { data = _contenedorTrabajo.Tipodoc.GetAll() });
         }
-
+        // Para la eliminacion por convencion el parametro debera llamarce id si que si....
         [HttpDelete]
-        public IActionResult Delete(int TipodocId)
+        public IActionResult Delete(int id)
         {
-            var objFromDb = _contenedorTrabajo.Tipodoc.Get(TipodocId);
+            var objFromDb = _contenedorTrabajo.Tipodoc.Get(id);
             if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error borrando Tipodoc" });

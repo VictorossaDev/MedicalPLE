@@ -77,13 +77,13 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         }
 
-        // Carga El formulario de edicion 
+        // Carga El Formulario de Edicion por convencion el parametro debera llamarce id si que si....
         [HttpGet]
-        public IActionResult Edit(int? EstadocivilId)
+        public IActionResult Edit(int? id)
         {          
-            if (EstadocivilId != null)
+            if (id != null)
             {
-                var estadocivil = _contenedorTrabajo.Estadocivil.Get(EstadocivilId.GetValueOrDefault());
+                var estadocivil = _contenedorTrabajo.Estadocivil.Get(id.GetValueOrDefault());
                 return View(estadocivil);
             }
             return View();
@@ -143,11 +143,11 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             return Json(new { data = _contenedorTrabajo.Estadocivil.GetAll() });
         }
-
+        // Para la eliminacion por convencion el parametro debera llamarce id si que si....
         [HttpDelete]
-        public IActionResult Delete(int EstadocivilId)
+        public IActionResult Delete(int id)
         {
-            var objFromDb = _contenedorTrabajo.Estadocivil.Get(EstadocivilId);
+            var objFromDb = _contenedorTrabajo.Estadocivil.Get(id);
             if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error borrando Estadocivil" });

@@ -77,13 +77,13 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         }
 
-        // Carga El formulario de edicion 
+        // Carga El Formulario de Edicion por convencion el parametro debera llamarce id si que si....
         [HttpGet]
-        public IActionResult Edit(int? TiposangreId)
+        public IActionResult Edit(int? id)
         {          
-            if (TiposangreId != null)
+            if (id != null)
             {
-                var tiposangre = _contenedorTrabajo.Tiposangre.Get(TiposangreId.GetValueOrDefault());
+                var tiposangre = _contenedorTrabajo.Tiposangre.Get(id.GetValueOrDefault());
                 return View(tiposangre);
             }
             return View();
@@ -143,11 +143,11 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             return Json(new { data = _contenedorTrabajo.Tiposangre.GetAll() });
         }
-
+        // Para la eliminacion por convencion el parametro debera llamarce id si que si....
         [HttpDelete]
-        public IActionResult Delete(int TiposangreId)
+        public IActionResult Delete(int id)
         {
-            var objFromDb = _contenedorTrabajo.Tiposangre.Get(TiposangreId);
+            var objFromDb = _contenedorTrabajo.Tiposangre.Get(id);
             if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error borrando Tiposangre" });
