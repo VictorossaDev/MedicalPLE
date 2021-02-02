@@ -9,6 +9,8 @@ namespace MedicalPLE.Models.ViewModels
     public class DepartamentoVM
     {
         public Departamento Departamento { get; set; }
+
+        public IEnumerable<SelectListItem> ListaDepartamento { get; set; }
     }
 }
 

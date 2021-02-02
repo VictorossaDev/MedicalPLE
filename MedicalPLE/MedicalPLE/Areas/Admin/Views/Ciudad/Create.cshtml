@@ -1,8 +1,6 @@
 @model MedicalPLE.Models.ViewModels.CiudadVM
-@{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@{ ViewData["Title"] = "Create";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <br />
 <br />
@@ -10,11 +8,11 @@
 <!-- Creo un formulario que buscara el metodo Create del controlador que va por post-->
 <form method="post" asp-action="Create" enctype="multipart/form-data">
     <div class="row px-2 mx-2 border">
-       <!-- Vaidacion de campos del formulario, traera los mensajes que se tengan en el modelo-->
+        <!-- Vaidacion de campos del formulario, traera los mensajes que se tengan en el modelo-->
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-10 offset-1 mt-4">
 
-           <div class="form-group row">
+            <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="Ciudad.NombreCiudad"></label>
                 </div>
@@ -24,8 +22,15 @@
                 </div>
             </div>
 
-
-
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Ciudad.DepartamentoId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Ciudad.DepartamentoId, Model.ListaDepartamento,
+                          "-Por favor seleccione Departamento-", new { @class = "form-control" })
+                </div>
+            </div>
 
 
             <div class="form-group row">
@@ -38,16 +43,7 @@
     </div>
 </form>
 
-@section Scripts{
-    <script src="https://cdn.tiny.cloud/1/qukxrn62f4bz0iv6z7enaelkkzuzugir28y709xit9xm659s/tinymce/5/tinymce.min.js"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'lists',
-            menubar: 'file edit format'
-        });
-    </script>
-}
+
 
 
 
