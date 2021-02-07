@@ -1,10 +1,8 @@
 // Tabla Dependiente Ciudad
-using System;
 using System.Linq;
-using System.Text;
 using System.Collections.Generic;
-using MedicalPLE.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MedicalPLE.Models;
 using MedicalPLE.AccesoDatos.Data.Repository;
 
 namespace MedicalPLE.AccesoDatos.Data

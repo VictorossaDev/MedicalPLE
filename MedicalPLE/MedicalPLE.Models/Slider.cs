@@ -10,12 +10,12 @@ namespace MedicalPLE.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Ingrese un Titulo para el slider")]
+        [Required(ErrorMessage = "Ingrese un nombre para el slider")]
         [Display(Name = "Titulo Slider")]
         public string Titulo { get; set; }
 
-        [Required(ErrorMessage = "Ingrese un Contenido para el slider")]
-        [Display(Name = "Contenido Slider")]
+        [Required]
+        [Display(Name = "Contenido")]
         public string Contenido { get; set; }
 
         [DataType(DataType.ImageUrl)]

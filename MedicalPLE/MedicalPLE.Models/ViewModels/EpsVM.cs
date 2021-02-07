@@ -9,6 +9,8 @@ namespace MedicalPLE.Models.ViewModels
     public class EpsVM
     {
         public Eps Eps { get; set; }
+        // Para combobox
+        public IEnumerable<SelectListItem> ListaEps { get; set; }
     }
 }
 

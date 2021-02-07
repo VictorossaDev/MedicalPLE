@@ -17,6 +17,7 @@ namespace MedicalPLE.Models
         [Display(Name = "NombreTiposangre")]
         [StringLength(100)]
         public string NombreTiposangre { get; set; }
+
  // ...
 
     }

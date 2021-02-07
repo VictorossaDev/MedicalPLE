@@ -381,8 +381,8 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Estado")
-                        .HasColumnType("bit");
+                    b.Property<bool>("Contenido")
+                        .HasColumnType("string");
 
                     b.Property<string>("Nombre")
                         .IsRequired()

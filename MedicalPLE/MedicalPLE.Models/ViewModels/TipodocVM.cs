@@ -9,6 +9,8 @@ namespace MedicalPLE.Models.ViewModels
     public class TipodocVM
     {
         public Tipodoc Tipodoc { get; set; }
+        // Para combobox
+        public IEnumerable<SelectListItem> ListaTipodoc { get; set; }
     }
 }
 

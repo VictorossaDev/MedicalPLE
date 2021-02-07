@@ -385,8 +385,8 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Estado")
-                        .HasColumnType("bit");
+                    b.Property<bool>("Contenido")
+                        .HasColumnType("string");
 
                     b.Property<string>("Titulo")
                         .IsRequired()

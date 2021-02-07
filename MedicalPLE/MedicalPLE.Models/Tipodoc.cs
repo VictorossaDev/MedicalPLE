@@ -10,14 +10,15 @@ namespace MedicalPLE.Models
     public class Tipodoc
     {
         [Key]
-        [Column("TipodocId")]
-        public int TipodocId { get; set; }
+       [Column("TipodocId")]
+       public int TipodocId { get; set; }
 
-        [Required(ErrorMessage = "El Tipo de Documento es obligatorio")]
-        [Display(Name = "Tipo de Documento")]
-        [StringLength(500)]
+        [Required(ErrorMessage = "El NombreTipodoc es obligatorio")]
+        [Display(Name = "NombreTipodoc")]
+        [StringLength(200)]
         public string NombreTipodoc { get; set; }
-        // ...
+
+ // ...
 
     }
 }

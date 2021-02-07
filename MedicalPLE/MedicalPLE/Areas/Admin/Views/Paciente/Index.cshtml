@@ -1,6 +1,8 @@
 
-@{ ViewData["Title"] = "Index";
-                Layout = "~/Views/Shared/_Layout.cshtml"; }
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <br />
 <div class="container">
     <div class="row">
@@ -15,57 +17,54 @@
     <br />
     <br />
     <table id="tblpaciente" class="table table-striped table-bordered" style="width:100%;">
-        <thead>
-            <tr>
-                <th>PacienteId</th>
-                <th>NumeroDocumento</th>
-                <th>NombresApellidos</th>
-                <th>Fechanacimiento</th>
-                <th>Edad</th>
-                <th>Lugarnacimiento</th>
-                <th>Nacionalidad</th>
-                <th>Embarazo</th>
-                <th>UltimaMestruacion</th>
-                <th>Semanaembarazo</th>
-                <th>Numeroembarazo</th>
-                <th>Direccion</th>
-                <th>Barrio</th>
-                <th>Correo</th>
-                <th>Fijo</th>
-                <th>Celular</th>
-                <th>NombreResponsable</th>
-                <th>FijoResponsable</th>
-                <th>CelularResponsable</th>
-                <th>ParentescoResponsable</th>
-                <th>NombreReferida</th>
-                <th>FijoReferido</th>
-                <th>CelularReferido</th>
-                <th>ReferidoPor</th>
-                <th>NombreAcompanante</th>
-                <th>FijoAcompanante</th>
-                <th>CelularAcompanante</th>
-                <th>ParentescoAcompanante</th>
-                <th>NombreMadreMenor</th>
-                <th>CedulaMadreMenor</th>
-                <th>TelefonoMadreMenor</th>
-                <th>OcupacionMadreMenor</th>
-                <th>NombrePadreCuidadorMenor</th>
-                <th>CedulaPadreCuidadorMenor</th>
-                <th>TelefonoPadreCuidadorMenor</th>
-                <th>OcupacionPadreCuidadorMenor</th>
-                <th>ParentescoPadreCuidador</th>
+       <thead>
+           <tr>
+               <th>PacienteId</th>
+               <th>NumeroDocumento</th>
+               <th>NombresApellidos</th>
+               <th>Fechanacimiento</th>
+               <th>Edad</th>
+               <th>Lugarnacimiento</th>
+               <th>Nacionalidad</th>
+               <th>Embarazo</th>
+               <th>UltimaMestruacion</th>
+               <th>Semanaembarazo</th>
+               <th>Numeroembarazo</th>
+               <th>Direccion</th>
+               <th>Barrio</th>
+               <th>Correo</th>
+Fijo
+               <th>Celular</th>
+               <th>NombreResponsable</th>
+FijoResponsable
+               <th>CelularResponsable</th>
+               <th>NombreReferida</th>
+FijoReferido
+               <th>CelularReferido</th>
+               <th>ReferidoPor</th>
+               <th>NombreAcompanante</th>
+FijoAcompanante
+               <th>CelularAcompanante</th>
+               <th>NombreMadreMenor</th>
+               <th>CedulaMadreMenor</th>
+TelefonoMadreMenor
+               <th>OcupacionMadreMenor</th>
+               <th>NombrePadreCuidadorMenor</th>
+               <th>CedulaPadreCuidadorMenor</th>
+TelefonoPadreCuidadorMenor
+               <th>OcupacionPadreCuidadorMenor</th>
                 <th>Tipodoc</th>
                 <th>Tiposangre</th>
                 <th>Estadocivil</th>
                 <th>Genero</th>
                 <th>Eps</th>
 
-                <th></th>
-            </tr>
-        </thead>
+               <th></th>
+           </tr>
+       </thead>       
     </table>
 </div>
-@section Scripts{
+@section Scripts{ 
     <script src="~/js/paciente.js"></script>
 }
 

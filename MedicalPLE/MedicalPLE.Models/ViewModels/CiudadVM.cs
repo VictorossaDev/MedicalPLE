@@ -1,19 +1,16 @@
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace MedicalPLE.Models.ViewModels
 {
     // Debe ser una clase publica
     public class CiudadVM
     {
-        public Ciudad Ciudad { get; set; }
+        public Ciudad Ciudad{ get; set; }
+         // Listas
         public IEnumerable<SelectListItem> ListaDepartamento { get; set; }
 
 
     }
 }
-
-
-

@@ -15,14 +15,16 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El NombreCiudad es obligatorio")]
         [Display(Name = "NombreCiudad")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string NombreCiudad { get; set; }
+
         [Required(ErrorMessage = "El DepartamentoId es obligatorio")]
         [Display(Name = "DepartamentoId")]
         public int DepartamentoId { get; set; }
 
          [ForeignKey("DepartamentoId")]
         public Departamento Departamento { get; set; }
+
 
    }
 }

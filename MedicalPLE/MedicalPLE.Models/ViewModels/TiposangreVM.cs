@@ -9,6 +9,8 @@ namespace MedicalPLE.Models.ViewModels
     public class TiposangreVM
     {
         public Tiposangre Tiposangre { get; set; }
+        // Para combobox
+        public IEnumerable<SelectListItem> ListaTiposangre { get; set; }
     }
 }
 

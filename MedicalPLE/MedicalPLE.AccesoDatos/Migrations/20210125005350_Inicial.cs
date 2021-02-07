@@ -124,7 +124,7 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(nullable: false),
-                    Estado = table.Column<bool>(nullable: false),
+                    Contenido = table.Column<bool>(nullable: false),
                     UrlImagen = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

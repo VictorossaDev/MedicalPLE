@@ -7,14 +7,14 @@ namespace MedicalPLE.AccesoDatos.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Estado",
+                name: "Contenido",
                 table: "Slider");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<bool>(
-                name: "Estado",
+                name: "Contenido",
                 table: "Slider",
                 type: "bit",
                 nullable: false,

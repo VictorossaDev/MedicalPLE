@@ -9,6 +9,7 @@ namespace MedicalPLE.AccesoDatos.Data.Repository
     public interface ITipodocRepository : IRepository<Tipodoc>
     {
         IEnumerable<SelectListItem> GetListaTipodoc();
+
         void Update(Tipodoc tipodoc);
     }
 }

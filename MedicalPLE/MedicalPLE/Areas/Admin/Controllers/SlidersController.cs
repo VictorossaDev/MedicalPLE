@@ -1,13 +1,14 @@
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Authorization;
-
-using MedicalPLE.Models;
+using System.Threading.Tasks;
 using MedicalPLE.AccesoDatos.Data.Repository;
+using MedicalPLE.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MedicalPLE.Areas.Admin.Controllers
 {
@@ -15,7 +16,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
     [Area("Admin")]
     public class SlidersController : Controller
     {
-        private readonly IContenedorTrabajo _contenedorTrabajo;
+        private readonly IContenedorTrabajo _contenedorTrabajo;      
         private readonly IWebHostEnvironment _hostingEnvironment;
 
         public SlidersController(IContenedorTrabajo contenedorTrabajo, IWebHostEnvironment hostingEnvironment)
@@ -33,7 +34,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         [HttpGet]
         public IActionResult Create()
-        {
+        {           
             return View();
         }
 
@@ -43,41 +44,34 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                string rutaPrincipal = _hostingEnvironment.WebRootPath;
+                var archivos = HttpContext.Request.Form.Files;
+               
+                    //Nuevo artículo
+                    string nombreArchivo = Guid.NewGuid().ToString();
+                    var subidas = Path.Combine(rutaPrincipal, @"imagenes\sliders");
+                    var extension = Path.GetExtension(archivos[0].FileName);
 
-                ConCreacionDeImagen(slider);
+                    using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + extension), FileMode.Create))
+                    {
+                        archivos[0].CopyTo(fileStreams);
+                    }
 
-                _contenedorTrabajo.Slider.Add(slider);
-                _contenedorTrabajo.Save();
+                    slider.UrlImagen = @"\imagenes\sliders\" + nombreArchivo + extension;                  
 
-                return RedirectToAction(nameof(Index));
+                    _contenedorTrabajo.Slider.Add(slider);
+                    _contenedorTrabajo.Save();
 
+                    return RedirectToAction(nameof(Index));
+                
             }
             return View();
         }
 
-        private void ConCreacionDeImagen(Slider slider)
-        {
-            string rutaPrincipal = _hostingEnvironment.WebRootPath;
-            var archivos = HttpContext.Request.Form.Files;
-
-            //Nuevo artículo
-            string nombreArchivo = Guid.NewGuid().ToString();
-            var subidas = Path.Combine(rutaPrincipal, @"imagenes\sliders");
-            var extension = Path.GetExtension(archivos[0].FileName);
-
-            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + extension), FileMode.Create))
-            {
-                archivos[0].CopyTo(fileStreams);
-            }
-
-            slider.UrlImagen = @"\imagenes\sliders\" + nombreArchivo + extension;
-        }
-
-
 
         [HttpGet]
         public IActionResult Edit(int? id)
-        {
+        {          
             if (id != null)
             {
                 var slider = _contenedorTrabajo.Slider.Get(id.GetValueOrDefault());
@@ -103,8 +97,24 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
                 if (archivos.Count() > 0)
                 {
+                    //Nuevo artículo
+                    string nombreArchivo = Guid.NewGuid().ToString();
+                    var subidas = Path.Combine(rutaPrincipal, @"imagenes\sliders");                    
+                    var nuevaExtension = Path.GetExtension(archivos[0].FileName);
 
-                    EditarImagenGuardada(slider, rutaPrincipal, archivos, sliderDesdeDb);
+                    var rutaImagen = Path.Combine(rutaPrincipal, sliderDesdeDb.UrlImagen.TrimStart('\\'));
+                    if (System.IO.File.Exists(rutaImagen))
+                    {
+                        System.IO.File.Delete(rutaImagen);
+                    }
+
+                    //Aquí subimos nuevamente el archivo
+                    using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
+                    {
+                        archivos[0].CopyTo(fileStreams);
+                    }
+
+                    slider.UrlImagen = @"\imagenes\sliders\" + nombreArchivo + nuevaExtension;                   
 
                     _contenedorTrabajo.Slider.Update(slider);
                     _contenedorTrabajo.Save();
@@ -123,28 +133,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
             }
             return View();
         }
-        // Actualiza imagen que este en base de datos
-        private static void EditarImagenGuardada(Slider slider, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, Slider sliderDesdeDb)
-        {
-            string nombreArchivo = Guid.NewGuid().ToString();
-            var subidas = Path.Combine(rutaPrincipal, @"imagenes\sliders");
-            var nuevaExtension = Path.GetExtension(archivos[0].FileName);
-
-            var rutaImagen = Path.Combine(rutaPrincipal, sliderDesdeDb.UrlImagen.TrimStart('\\'));
-            if (System.IO.File.Exists(rutaImagen))
-            {
-                System.IO.File.Delete(rutaImagen);
-            }
-
-            //Aquí subimos nuevamente el archivo
-            using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
-            {
-                archivos[0].CopyTo(fileStreams);
-            }
-
-            slider.UrlImagen = @"\imagenes\sliders\" + nombreArchivo + nuevaExtension;
-        }
-
+        
         #region LLAMADAS A LA API
         [HttpGet]
         public IActionResult GetAll()

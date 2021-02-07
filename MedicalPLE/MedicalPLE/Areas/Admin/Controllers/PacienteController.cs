@@ -58,8 +58,8 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
                 if (pacientevm.Paciente.PacienteId == 0)
                 {
-
-
+ 
+ 
                     _contenedorTrabajo.Paciente.Add(pacientevm.Paciente);
                     _contenedorTrabajo.Save();
                     return RedirectToAction(nameof(Index));
@@ -116,14 +116,14 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 var pacienteDesdeDb = _contenedorTrabajo.Paciente.Get(pacientevm.Paciente.PacienteId);
                 if (archivos.Count() > 0)
                 {
-
+ 
 
                     _contenedorTrabajo.Paciente.Update(pacientevm.Paciente);
                     _contenedorTrabajo.Save();
 
                     return RedirectToAction(nameof(Index));
                 }
-
+ 
                 _contenedorTrabajo.Paciente.Update(pacientevm.Paciente);
                 _contenedorTrabajo.Save();
                 return RedirectToAction(nameof(Index));
@@ -138,14 +138,14 @@ namespace MedicalPLE.Areas.Admin.Controllers
             var extension = Path.GetExtension(archivos[0].FileName);
             var nuevaExtension = Path.GetExtension(archivos[0].FileName);
 
-
+ 
 
             //subimos nuevamente el archivo
             using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
             {
                 archivos[0].CopyTo(fileStreams);
             }
-
+ 
         }
 
 
@@ -155,16 +155,16 @@ namespace MedicalPLE.Areas.Admin.Controllers
             var pacienteDesdeDb = _contenedorTrabajo.Paciente.Get(id);
             string rutaDirectorioPrincipal = _hostingEnvironment.WebRootPath;
 
-
+  
 
             if (pacienteDesdeDb == null)
             {
-                return Json(new { success = false, message = "Error borrando artículo" });
+                return Json(new { success = false, message = "Error borrando artÃ­culo"});
             }
 
             _contenedorTrabajo.Paciente.Remove(pacienteDesdeDb);
             _contenedorTrabajo.Save();
-            return Json(new { success = true, message = "Paciente borrado con éxito" });
+            return Json(new { success = true, message = "Paciente borrado con Ã©xito" });
 
         }
 
@@ -173,11 +173,9 @@ namespace MedicalPLE.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new
-            {
-                data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Tipodoc,Tiposangre,Estadocivil,Genero,Eps") });
-        }
+            return Json(new { data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Tipodoc,Tiposangre,Estadocivil,Genero,Eps") });
+        }        
         #endregion
 
-        }
     }
+}

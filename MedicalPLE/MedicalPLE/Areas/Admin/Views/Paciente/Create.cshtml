@@ -19,7 +19,7 @@
                     <label asp-for="Paciente.NumeroDocumento"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.NumeroDocumento" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.NumeroDocumento" class="form-control" type="text" maxlength="100" />
                     <span asp-validation-for="Paciente.NumeroDocumento" class="text-danger"></span>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     <label asp-for="Paciente.NombresApellidos"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.NombresApellidos" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.NombresApellidos" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.NombresApellidos" class="text-danger"></span>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <label asp-for="Paciente.Fechanacimiento"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Fechanacimiento" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.Fechanacimiento" class="form-control" type="datetime-local"/>
                     <span asp-validation-for="Paciente.Fechanacimiento" class="text-danger"></span>
                 </div>
             </div>
@@ -49,7 +49,8 @@
                     <label asp-for="Paciente.Edad"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Edad" class="form-control" style="height:300px;"></textarea>
+                    @*<input asp-for="Paciente.Edad" class="form-control"  type="number"  min="1" max="5"/>*@
+                    <input asp-for="Paciente.Edad" class="form-control"  type="number" />
                     <span asp-validation-for="Paciente.Edad" class="text-danger"></span>
                 </div>
             </div>
@@ -59,7 +60,7 @@
                     <label asp-for="Paciente.Lugarnacimiento"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Lugarnacimiento" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.Lugarnacimiento" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.Lugarnacimiento" class="text-danger"></span>
                 </div>
             </div>
@@ -69,18 +70,28 @@
                     <label asp-for="Paciente.Nacionalidad"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Nacionalidad" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.Nacionalidad" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.Nacionalidad" class="text-danger"></span>
                 </div>
             </div>
 
-Embarazo
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Embarazo"></label>
+                </div>
+                <div class="col-8">
+                    @*<input asp-for="Paciente.Embarazo" class="form-control"  type="number"  min="1" max="5"/>*@
+                    <input asp-for="Paciente.Embarazo" class="form-control"  type="number" />
+                    <span asp-validation-for="Paciente.Embarazo" class="text-danger"></span>
+                </div>
+            </div>
+
            <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="Paciente.UltimaMestruacion"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.UltimaMestruacion" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.UltimaMestruacion" class="form-control" type="datetime-local"/>
                     <span asp-validation-for="Paciente.UltimaMestruacion" class="text-danger"></span>
                 </div>
             </div>
@@ -90,7 +101,8 @@ Embarazo
                     <label asp-for="Paciente.Semanaembarazo"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Semanaembarazo" class="form-control" style="height:300px;"></textarea>
+                    @*<input asp-for="Paciente.Semanaembarazo" class="form-control"  type="number"  min="1" max="5"/>*@
+                    <input asp-for="Paciente.Semanaembarazo" class="form-control"  type="number" />
                     <span asp-validation-for="Paciente.Semanaembarazo" class="text-danger"></span>
                 </div>
             </div>
@@ -100,7 +112,8 @@ Embarazo
                     <label asp-for="Paciente.Numeroembarazo"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Numeroembarazo" class="form-control" style="height:300px;"></textarea>
+                    @*<input asp-for="Paciente.Numeroembarazo" class="form-control"  type="number"  min="1" max="5"/>*@
+                    <input asp-for="Paciente.Numeroembarazo" class="form-control"  type="number" />
                     <span asp-validation-for="Paciente.Numeroembarazo" class="text-danger"></span>
                 </div>
             </div>
@@ -110,7 +123,7 @@ Embarazo
                     <label asp-for="Paciente.Direccion"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Direccion" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.Direccion" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.Direccion" class="text-danger"></span>
                 </div>
             </div>
@@ -120,7 +133,7 @@ Embarazo
                     <label asp-for="Paciente.Barrio"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Barrio" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.Barrio" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.Barrio" class="text-danger"></span>
                 </div>
             </div>
@@ -130,7 +143,7 @@ Embarazo
                     <label asp-for="Paciente.Correo"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Correo" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.Correo" class="form-control" type="email"/>
                     <span asp-validation-for="Paciente.Correo" class="text-danger"></span>
                 </div>
             </div>
@@ -140,7 +153,7 @@ Embarazo
                     <label asp-for="Paciente.Fijo"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Fijo" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.Fijo" class="form-control" placeholder="123-45-78" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
                     <span asp-validation-for="Paciente.Fijo" class="text-danger"></span>
                 </div>
             </div>
@@ -150,7 +163,7 @@ Embarazo
                     <label asp-for="Paciente.Celular"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.Celular" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.Celular" class="form-control" type="text" maxlength="100" />
                     <span asp-validation-for="Paciente.Celular" class="text-danger"></span>
                 </div>
             </div>
@@ -160,7 +173,7 @@ Embarazo
                     <label asp-for="Paciente.NombreResponsable"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.NombreResponsable" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.NombreResponsable" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.NombreResponsable" class="text-danger"></span>
                 </div>
             </div>
@@ -170,7 +183,7 @@ Embarazo
                     <label asp-for="Paciente.FijoResponsable"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.FijoResponsable" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.FijoResponsable" class="form-control" placeholder="123-45-78" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
                     <span asp-validation-for="Paciente.FijoResponsable" class="text-danger"></span>
                 </div>
             </div>
@@ -180,18 +193,8 @@ Embarazo
                     <label asp-for="Paciente.CelularResponsable"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.CelularResponsable" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.CelularResponsable" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
                     <span asp-validation-for="Paciente.CelularResponsable" class="text-danger"></span>
-                </div>
-            </div>
-
-           <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.ParentescoResponsable"></label>
-                </div>
-                <div class="col-8">
-                    <textarea asp-for="Paciente.ParentescoResponsable" class="form-control" style="height:300px;"></textarea>
-                    <span asp-validation-for="Paciente.ParentescoResponsable" class="text-danger"></span>
                 </div>
             </div>
 
@@ -200,7 +203,7 @@ Embarazo
                     <label asp-for="Paciente.NombreReferida"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.NombreReferida" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.NombreReferida" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.NombreReferida" class="text-danger"></span>
                 </div>
             </div>
@@ -210,7 +213,7 @@ Embarazo
                     <label asp-for="Paciente.FijoReferido"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.FijoReferido" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.FijoReferido" class="form-control" placeholder="123-45-78" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
                     <span asp-validation-for="Paciente.FijoReferido" class="text-danger"></span>
                 </div>
             </div>
@@ -220,7 +223,7 @@ Embarazo
                     <label asp-for="Paciente.CelularReferido"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.CelularReferido" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.CelularReferido" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
                     <span asp-validation-for="Paciente.CelularReferido" class="text-danger"></span>
                 </div>
             </div>
@@ -230,7 +233,7 @@ Embarazo
                     <label asp-for="Paciente.ReferidoPor"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.ReferidoPor" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.ReferidoPor" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.ReferidoPor" class="text-danger"></span>
                 </div>
             </div>
@@ -240,7 +243,7 @@ Embarazo
                     <label asp-for="Paciente.NombreAcompanante"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.NombreAcompanante" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.NombreAcompanante" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.NombreAcompanante" class="text-danger"></span>
                 </div>
             </div>
@@ -250,7 +253,7 @@ Embarazo
                     <label asp-for="Paciente.FijoAcompanante"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.FijoAcompanante" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.FijoAcompanante" class="form-control" placeholder="123-45-78" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
                     <span asp-validation-for="Paciente.FijoAcompanante" class="text-danger"></span>
                 </div>
             </div>
@@ -260,18 +263,8 @@ Embarazo
                     <label asp-for="Paciente.CelularAcompanante"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.CelularAcompanante" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.CelularAcompanante" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
                     <span asp-validation-for="Paciente.CelularAcompanante" class="text-danger"></span>
-                </div>
-            </div>
-
-           <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.ParentescoAcompanante"></label>
-                </div>
-                <div class="col-8">
-                    <textarea asp-for="Paciente.ParentescoAcompanante" class="form-control" style="height:300px;"></textarea>
-                    <span asp-validation-for="Paciente.ParentescoAcompanante" class="text-danger"></span>
                 </div>
             </div>
 
@@ -280,7 +273,7 @@ Embarazo
                     <label asp-for="Paciente.NombreMadreMenor"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.NombreMadreMenor" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.NombreMadreMenor" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.NombreMadreMenor" class="text-danger"></span>
                 </div>
             </div>
@@ -290,7 +283,7 @@ Embarazo
                     <label asp-for="Paciente.CedulaMadreMenor"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.CedulaMadreMenor" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.CedulaMadreMenor" class="form-control" type="text" maxlength="100" />
                     <span asp-validation-for="Paciente.CedulaMadreMenor" class="text-danger"></span>
                 </div>
             </div>
@@ -300,7 +293,7 @@ Embarazo
                     <label asp-for="Paciente.TelefonoMadreMenor"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.TelefonoMadreMenor" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.TelefonoMadreMenor" class="form-control" placeholder="123-45-78" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
                     <span asp-validation-for="Paciente.TelefonoMadreMenor" class="text-danger"></span>
                 </div>
             </div>
@@ -310,7 +303,7 @@ Embarazo
                     <label asp-for="Paciente.OcupacionMadreMenor"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.OcupacionMadreMenor" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.OcupacionMadreMenor" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.OcupacionMadreMenor" class="text-danger"></span>
                 </div>
             </div>
@@ -320,7 +313,7 @@ Embarazo
                     <label asp-for="Paciente.NombrePadreCuidadorMenor"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.NombrePadreCuidadorMenor" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.NombrePadreCuidadorMenor" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Paciente.NombrePadreCuidadorMenor" class="text-danger"></span>
                 </div>
             </div>
@@ -330,7 +323,7 @@ Embarazo
                     <label asp-for="Paciente.CedulaPadreCuidadorMenor"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.CedulaPadreCuidadorMenor" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.CedulaPadreCuidadorMenor" class="form-control" type="text" maxlength="200" />
                     <span asp-validation-for="Paciente.CedulaPadreCuidadorMenor" class="text-danger"></span>
                 </div>
             </div>
@@ -340,7 +333,7 @@ Embarazo
                     <label asp-for="Paciente.TelefonoPadreCuidadorMenor"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.TelefonoPadreCuidadorMenor" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.TelefonoPadreCuidadorMenor" class="form-control" placeholder="123-45-78" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
                     <span asp-validation-for="Paciente.TelefonoPadreCuidadorMenor" class="text-danger"></span>
                 </div>
             </div>
@@ -350,27 +343,56 @@ Embarazo
                     <label asp-for="Paciente.OcupacionPadreCuidadorMenor"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.OcupacionPadreCuidadorMenor" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Paciente.OcupacionPadreCuidadorMenor" class="form-control" type="text" maxlength="200" />
                     <span asp-validation-for="Paciente.OcupacionPadreCuidadorMenor" class="text-danger"></span>
                 </div>
             </div>
 
-           <div class="form-group row">
+             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Paciente.ParentescoPadreCuidador"></label>
+                    <label asp-for="Paciente.TipodocId"></label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Paciente.ParentescoPadreCuidador" class="form-control" style="height:300px;"></textarea>
-                    <span asp-validation-for="Paciente.ParentescoPadreCuidador" class="text-danger"></span>
+                    @Html.DropDownListFor(m => m.Paciente.TipodocId, Model.ListaTipodoc,
+                     "-Por favor seleccione Tipodoc-", new { @class = "form-control" })
                 </div>
             </div>
-
-
-
-
-
-
-
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.TiposangreId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.TiposangreId, Model.ListaTiposangre,
+                     "-Por favor seleccione Tiposangre-", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.EstadocivilId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.EstadocivilId, Model.ListaEstadocivil,
+                     "-Por favor seleccione Estadocivil-", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.GeneroId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.GeneroId, Model.ListaGenero,
+                     "-Por favor seleccione Genero-", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.EpsId"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.EpsId, Model.ListaEps,
+                     "-Por favor seleccione Eps-", new { @class = "form-control" })
+                </div>
+            </div>
 
 
             <div class="form-group row">
@@ -383,16 +405,7 @@ Embarazo
     </div>
 </form>
 
-@section Scripts{
-    <script src="https://cdn.tiny.cloud/1/qukxrn62f4bz0iv6z7enaelkkzuzugir28y709xit9xm659s/tinymce/5/tinymce.min.js"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'lists',
-            menubar: 'file edit format'
-        });
-    </script>
-}
+
 
 
 

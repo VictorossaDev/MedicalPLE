@@ -19,13 +19,14 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El NumeroDocumento es obligatorio")]
         [Display(Name = "NumeroDocumento")]
-        [StringLength(200)]
+        [StringLength(100)]
         public string NumeroDocumento { get; set; }
 
         [Required(ErrorMessage = "El NombresApellidos es obligatorio")]
         [Display(Name = "NombresApellidos")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string NombresApellidos { get; set; }
+
         [Required(ErrorMessage = "El TiposangreId es obligatorio")]
         [Display(Name = "TiposangreId")]
         public int TiposangreId { get; set; }
@@ -44,12 +45,14 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El Lugarnacimiento es obligatorio")]
         [Display(Name = "Lugarnacimiento")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string Lugarnacimiento { get; set; }
+
         [Required(ErrorMessage = "El Nacionalidad es obligatorio")]
         [Display(Name = "Nacionalidad")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string Nacionalidad { get; set; }
+
         [Required(ErrorMessage = "El GeneroId es obligatorio")]
         [Display(Name = "GeneroId")]
         public int GeneroId { get; set; }
@@ -81,6 +84,7 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El Direccion es obligatorio")]
         [Display(Name = "Direccion")]
+        [StringLength(300)]
         public string Direccion { get; set; }
 
         [Required(ErrorMessage = "El Barrio es obligatorio")]
@@ -94,77 +98,78 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El Fijo es obligatorio")]
         [Display(Name = "Fijo")]
-        [StringLength(100)]
-        public string Fijo { get; set; }
+        public int Fijo { get; set; }
+
         [Required(ErrorMessage = "El Celular es obligatorio")]
         [Display(Name = "Celular")]
-        [StringLength(300)]
+        [StringLength(100)]
         public string Celular { get; set; }
 
         [Required(ErrorMessage = "El NombreResponsable es obligatorio")]
         [Display(Name = "NombreResponsable")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string NombreResponsable { get; set; }
+
         [Required(ErrorMessage = "El FijoResponsable es obligatorio")]
         [Display(Name = "FijoResponsable")]
-        [StringLength(100)]
-        public string FijoResponsable { get; set; }
+        public int FijoResponsable { get; set; }
+
         [Required(ErrorMessage = "El CelularResponsable es obligatorio")]
         [Display(Name = "CelularResponsable")]
-        [StringLength(200)]
-        public string CelularResponsable { get; set; }
+        public int CelularResponsable { get; set; }
 
         [Required(ErrorMessage = "El ParentescoResponsable es obligatorio")]
         [Display(Name = "ParentescoResponsable")]
-        [StringLength(200)]
-        public string ParentescoResponsable { get; set; }
+        public int ParentescoResponsable { get; set; }
 
         [Required(ErrorMessage = "El NombreReferida es obligatorio")]
         [Display(Name = "NombreReferida")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string NombreReferida { get; set; }
+
         [Required(ErrorMessage = "El FijoReferido es obligatorio")]
         [Display(Name = "FijoReferido")]
-        [StringLength(100)]
-        public string FijoReferido { get; set; }
+        public int FijoReferido { get; set; }
+
         [Required(ErrorMessage = "El CelularReferido es obligatorio")]
         [Display(Name = "CelularReferido")]
-        [StringLength(200)]
-        public string CelularReferido { get; set; }
+        public int CelularReferido { get; set; }
 
         [Required(ErrorMessage = "El ReferidoPor es obligatorio")]
         [Display(Name = "ReferidoPor")]
+        [StringLength(300)]
         public string ReferidoPor { get; set; }
 
         [Required(ErrorMessage = "El NombreAcompanante es obligatorio")]
         [Display(Name = "NombreAcompanante")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string NombreAcompanante { get; set; }
+
         [Required(ErrorMessage = "El FijoAcompanante es obligatorio")]
         [Display(Name = "FijoAcompanante")]
-        [StringLength(100)]
-        public string FijoAcompanante { get; set; }
+        public int FijoAcompanante { get; set; }
+
         [Required(ErrorMessage = "El CelularAcompanante es obligatorio")]
         [Display(Name = "CelularAcompanante")]
-        [StringLength(200)]
-        public string CelularAcompanante { get; set; }
+        public int CelularAcompanante { get; set; }
 
         [Required(ErrorMessage = "El ParentescoAcompanante es obligatorio")]
         [Display(Name = "ParentescoAcompanante")]
-        [StringLength(500)]
-        public string ParentescoAcompanante { get; set; }
+        public int ParentescoAcompanante { get; set; }
+
         [Required(ErrorMessage = "El NombreMadreMenor es obligatorio")]
         [Display(Name = "NombreMadreMenor")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string NombreMadreMenor { get; set; }
+
         [Required(ErrorMessage = "El CedulaMadreMenor es obligatorio")]
         [Display(Name = "CedulaMadreMenor")]
         [StringLength(100)]
         public string CedulaMadreMenor { get; set; }
+
         [Required(ErrorMessage = "El TelefonoMadreMenor es obligatorio")]
         [Display(Name = "TelefonoMadreMenor")]
-        [StringLength(200)]
-        public string TelefonoMadreMenor { get; set; }
+        public int TelefonoMadreMenor { get; set; }
 
         [Required(ErrorMessage = "El OcupacionMadreMenor es obligatorio")]
         [Display(Name = "OcupacionMadreMenor")]
@@ -173,8 +178,9 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El NombrePadreCuidadorMenor es obligatorio")]
         [Display(Name = "NombrePadreCuidadorMenor")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string NombrePadreCuidadorMenor { get; set; }
+
         [Required(ErrorMessage = "El CedulaPadreCuidadorMenor es obligatorio")]
         [Display(Name = "CedulaPadreCuidadorMenor")]
         [StringLength(200)]
@@ -182,8 +188,7 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El TelefonoPadreCuidadorMenor es obligatorio")]
         [Display(Name = "TelefonoPadreCuidadorMenor")]
-        [StringLength(200)]
-        public string TelefonoPadreCuidadorMenor { get; set; }
+        public int TelefonoPadreCuidadorMenor { get; set; }
 
         [Required(ErrorMessage = "El OcupacionPadreCuidadorMenor es obligatorio")]
         [Display(Name = "OcupacionPadreCuidadorMenor")]
@@ -192,18 +197,23 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El ParentescoPadreCuidador es obligatorio")]
         [Display(Name = "ParentescoPadreCuidador")]
-        [StringLength(500)]
-        public string ParentescoPadreCuidador { get; set; }
+        public int ParentescoPadreCuidador { get; set; }
+
          [ForeignKey("TipodocId")]
         public Tipodoc Tipodoc { get; set; }
+
         [ForeignKey("TiposangreId")]
         public Tiposangre Tiposangre { get; set; }
+
         [ForeignKey("EstadocivilId")]
         public Estadocivil Estadocivil { get; set; }
+
         [ForeignKey("GeneroId")]
         public Genero Genero { get; set; }
+
         [ForeignKey("EpsId")]
         public Eps Eps { get; set; }
+
 
    }
 }

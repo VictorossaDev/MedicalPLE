@@ -30,6 +30,7 @@ namespace MedicalPLE.AccesoDatos.Data
         {
             var objDesdeDb = _db.Tipodoc.FirstOrDefault(s => s.TipodocId == tipodoc.TipodocId);
             objDesdeDb.NombreTipodoc = tipodoc.NombreTipodoc;
+
             _db.SaveChanges();
         }
     }

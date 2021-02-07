@@ -9,6 +9,8 @@ namespace MedicalPLE.Models.ViewModels
     public class EstadocivilVM
     {
         public Estadocivil Estadocivil { get; set; }
+        // Para combobox
+        public IEnumerable<SelectListItem> ListaEstadocivil { get; set; }
     }
 }
 

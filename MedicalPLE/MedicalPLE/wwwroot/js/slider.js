@@ -12,9 +12,8 @@ function cargarDatatable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "id", "width": "5%"},
-            { "data": "titulo", "width": "10%" },
-            { "data": "contenido", "width": "30%" },
+            { "data": "id", "width": "5%" },
+            { "data": "nombre", "width": "35%" },
             {
                 "data": "urlImagen",
                 "render": function (imagen) {
@@ -34,7 +33,7 @@ function cargarDatatable() {
                                 </a>
                             </div>
                             `;
-                }, "width": "30%"
+                }, "width": "35%"
             },            
         ],
         "language": {

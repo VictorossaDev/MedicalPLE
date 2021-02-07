@@ -26,34 +26,32 @@ function cargarDatatable() {
             { "data": "direccion", "width": "10%" },
             { "data": "barrio", "width": "10%" },
             { "data": "correo", "width": "10%" },
-            { "data": "fijo", "width": "10%" },
+Fijo
             { "data": "celular", "width": "10%" },
             { "data": "nombreResponsable", "width": "10%" },
-            { "data": "fijoResponsable", "width": "10%" },
+FijoResponsable
             { "data": "celularResponsable", "width": "10%" },
-            { "data": "parentescoResponsable", "width": "10%" },
             { "data": "nombreReferida", "width": "10%" },
-            { "data": "fijoReferido", "width": "10%" },
+FijoReferido
             { "data": "celularReferido", "width": "10%" },
             { "data": "referidoPor", "width": "10%" },
             { "data": "nombreAcompanante", "width": "10%" },
-            { "data": "fijoAcompanante", "width": "10%" },
+FijoAcompanante
             { "data": "celularAcompanante", "width": "10%" },
-            { "data": "parentescoAcompanante", "width": "10%" },
             { "data": "nombreMadreMenor", "width": "10%" },
             { "data": "cedulaMadreMenor", "width": "10%" },
-            { "data": "telefonoMadreMenor", "width": "10%" },
+TelefonoMadreMenor
             { "data": "ocupacionMadreMenor", "width": "10%" },
             { "data": "nombrePadreCuidadorMenor", "width": "10%" },
             { "data": "cedulaPadreCuidadorMenor", "width": "10%" },
-            { "data": "telefonoPadreCuidadorMenor", "width": "10%" },
+TelefonoPadreCuidadorMenor
             { "data": "ocupacionPadreCuidadorMenor", "width": "10%" },
-            { "data": "parentescoPadreCuidador", "width": "10%" },
-            { "data": "tipodoc.nombretipodoc", "width": "15%" },
-            { "data": "tiposangre.nombretiposangre", "width": "15%" },
-            { "data": "estadocivil.nombreestadocivil", "width": "15%" },
-            { "data": "genero.nombregenero", "width": "15%" },
-            { "data": "eps.nombreeps", "width": "15%" },
+
+            { "data": "tipodoc.nombreTipodoc", "width": "15%" },
+            { "data": "tiposangre.nombreTiposangre", "width": "15%" },
+            { "data": "estadocivil.nombreEstadocivil", "width": "15%" },
+            { "data": "genero.nombreGenero", "width": "15%" },
+            { "data": "eps.nombreEps", "width": "15%" },
             {
                 "data": "pacienteId",
                 "render": function (data) {

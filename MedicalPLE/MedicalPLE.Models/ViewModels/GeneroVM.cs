@@ -9,6 +9,8 @@ namespace MedicalPLE.Models.ViewModels
     public class GeneroVM
     {
         public Genero Genero { get; set; }
+        // Para combobox
+        public IEnumerable<SelectListItem> ListaGenero { get; set; }
     }
 }
 

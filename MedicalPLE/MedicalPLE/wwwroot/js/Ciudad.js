@@ -14,7 +14,8 @@ function cargarDatatable() {
         "columns": [
             { "data": "ciudadId", "width": "5%" },
             { "data": "nombreCiudad", "width": "10%" },
-            { "data": "departamento.NombreDepartamento", "width": "15%" },
+
+            { "data": "departamento.nombreDepartamento", "width": "15%" },
             {
                 "data": "ciudadId",
                 "render": function (data) {
