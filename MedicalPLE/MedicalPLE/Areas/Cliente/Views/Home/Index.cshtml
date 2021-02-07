@@ -17,10 +17,9 @@
                     <div class="carousel-item @itemDinamico">
                         <img style="width:600px;height:500px;float:left; margin: 15px; border-radius:20px" src="@Url.Content(item.UrlImagen)" />
                         <div class="container">
-                            <h1 class="text-dark text-center">@Html.Raw(@item.Titulo)</h1>
-                            <p class="text-dark text-center">@Html.Raw(@item.Contenido)</p>
+                            <h1 class="text-dark text-center" style="margin:15px">@Html.Raw(@item.Titulo)</h1>
+                            <h2  class="text-center">@Html.Raw(@item.Contenido)</h2>
                         </div>
-
                     </div>
                 }
 
