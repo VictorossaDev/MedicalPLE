@@ -18,6 +18,12 @@ function cargarDatatable() {
             { "data": "categoria.nombre", "width": "15%" },
             { "data": "fechaCreacion", "width": "15%" },
             {
+                "data": "urlImagen",
+                "render": function (imagen) {
+                    return `<img src="../${imagen}" width="200">`
+                }
+            },
+            {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">

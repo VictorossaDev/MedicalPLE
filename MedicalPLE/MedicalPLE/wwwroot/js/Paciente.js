@@ -26,26 +26,29 @@ function cargarDatatable() {
             { "data": "direccion", "width": "10%" },
             { "data": "barrio", "width": "10%" },
             { "data": "correo", "width": "10%" },
-Fijo
+            { "data": "fijo", "width": "10%" },
             { "data": "celular", "width": "10%" },
             { "data": "nombreResponsable", "width": "10%" },
-FijoResponsable
+            { "data": "fijoResponsable", "width": "10%" },
             { "data": "celularResponsable", "width": "10%" },
+            { "data": "parentescoResponsable", "width": "10%" },
             { "data": "nombreReferida", "width": "10%" },
-FijoReferido
+            { "data": "fijoReferido", "width": "10%" },
             { "data": "celularReferido", "width": "10%" },
             { "data": "referidoPor", "width": "10%" },
             { "data": "nombreAcompanante", "width": "10%" },
-FijoAcompanante
+            { "data": "fijoAcompanante", "width": "10%" },
             { "data": "celularAcompanante", "width": "10%" },
+            { "data": "parentescoAcompanante", "width": "10%" },
             { "data": "nombreMadreMenor", "width": "10%" },
             { "data": "cedulaMadreMenor", "width": "10%" },
-TelefonoMadreMenor
+            { "data": "telefonoMadreMenor", "width": "10%" },
             { "data": "ocupacionMadreMenor", "width": "10%" },
             { "data": "nombrePadreCuidadorMenor", "width": "10%" },
             { "data": "cedulaPadreCuidadorMenor", "width": "10%" },
-TelefonoPadreCuidadorMenor
+            { "data": "telefonoPadreCuidadorMenor", "width": "10%" },
             { "data": "ocupacionPadreCuidadorMenor", "width": "10%" },
+            { "data": "parentescoPadreCuidador", "width": "10%" },
 
             { "data": "tipodoc.nombreTipodoc", "width": "15%" },
             { "data": "tiposangre.nombreTiposangre", "width": "15%" },

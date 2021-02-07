@@ -34,7 +34,7 @@
 
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Articulo.CategoriaId"></label>
+                    <label asp-for="Articulo.CategoriaId">Categoria</label>
                 </div>
                 <div class="col-8">
                     @Html.DropDownListFor(m => m.Articulo.CategoriaId, Model.ListaCategorias,
