@@ -19,8 +19,8 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El NumeroDocumento es obligatorio")]
         [Display(Name = "NumeroDocumento")]
-        [StringLength(100)]
-        public string NumeroDocumento { get; set; }
+        [Column("Datanumeric_18_0", TypeName = "numeric(18, 0)")]
+        public int NumeroDocumento { get; set; }
 
         [Required(ErrorMessage = "El NombresApellidos es obligatorio")]
         [Display(Name = "NombresApellidos")]
@@ -35,8 +35,9 @@ namespace MedicalPLE.Models
         [Display(Name = "EstadocivilId")]
         public int EstadocivilId { get; set; }
 
+        [Required(ErrorMessage = "El Fechanacimiento es obligatorio")]
         [Display(Name = "Fechanacimiento")]
-        public DateTime? Fechanacimiento { get; set; }
+        public int Fechanacimiento { get; set; }
 
         [Required(ErrorMessage = "El Edad es obligatorio")]
         [Display(Name = "Edad")]
@@ -61,8 +62,9 @@ namespace MedicalPLE.Models
         [Display(Name = "Embarazo")]
         public bool Embarazo { get; set; }
 
+        [Required(ErrorMessage = "El UltimaMestruacion es obligatorio")]
         [Display(Name = "UltimaMestruacion")]
-        public DateTime? UltimaMestruacion { get; set; }
+        public int UltimaMestruacion { get; set; }
 
         [Required(ErrorMessage = "El Semanaembarazo es obligatorio")]
         [Display(Name = "Semanaembarazo")]
@@ -102,8 +104,7 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El Celular es obligatorio")]
         [Display(Name = "Celular")]
-        [StringLength(100)]
-        public string Celular { get; set; }
+        public int Celular { get; set; }
 
         [Required(ErrorMessage = "El NombreResponsable es obligatorio")]
         [Display(Name = "NombreResponsable")]
@@ -120,7 +121,8 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El ParentescoResponsable es obligatorio")]
         [Display(Name = "ParentescoResponsable")]
-        public int ParentescoResponsable { get; set; }
+        [StringLength(300)]
+        public string ParentescoResponsable { get; set; }
 
         [Required(ErrorMessage = "El NombreReferida es obligatorio")]
         [Display(Name = "NombreReferida")]
@@ -155,7 +157,8 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El ParentescoAcompanante es obligatorio")]
         [Display(Name = "ParentescoAcompanante")]
-        public int ParentescoAcompanante { get; set; }
+        [StringLength(300)]
+        public string ParentescoAcompanante { get; set; }
 
         [Required(ErrorMessage = "El NombreMadreMenor es obligatorio")]
         [Display(Name = "NombreMadreMenor")]
@@ -164,8 +167,8 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El CedulaMadreMenor es obligatorio")]
         [Display(Name = "CedulaMadreMenor")]
-        [StringLength(100)]
-        public string CedulaMadreMenor { get; set; }
+        [Column("Datanumeric_18_0", TypeName = "numeric(18, 0)")]
+        public int CedulaMadreMenor { get; set; }
 
         [Required(ErrorMessage = "El TelefonoMadreMenor es obligatorio")]
         [Display(Name = "TelefonoMadreMenor")]
@@ -183,8 +186,8 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El CedulaPadreCuidadorMenor es obligatorio")]
         [Display(Name = "CedulaPadreCuidadorMenor")]
-        [StringLength(200)]
-        public string CedulaPadreCuidadorMenor { get; set; }
+        [Column("Datanumeric_18_0", TypeName = "numeric(18, 0)")]
+        public int CedulaPadreCuidadorMenor { get; set; }
 
         [Required(ErrorMessage = "El TelefonoPadreCuidadorMenor es obligatorio")]
         [Display(Name = "TelefonoPadreCuidadorMenor")]
@@ -197,7 +200,8 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El ParentescoPadreCuidador es obligatorio")]
         [Display(Name = "ParentescoPadreCuidador")]
-        public int ParentescoPadreCuidador { get; set; }
+        [StringLength(300)]
+        public string ParentescoPadreCuidador { get; set; }
 
          [ForeignKey("TipodocId")]
         public Tipodoc Tipodoc { get; set; }
