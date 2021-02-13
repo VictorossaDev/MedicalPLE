@@ -1,12 +1,12 @@
 // Tabla Dependiente => Ciudad
+using MedicalPLE.AccesoDatos.Data.Repository;
+using MedicalPLE.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Authorization;
-using MedicalPLE.Models.ViewModels;
-using MedicalPLE.AccesoDatos.Data.Repository;
 
 namespace MedicalPLE.Areas.Admin.Controllers
 {
@@ -54,8 +54,8 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
                 if (ciudadvm.Ciudad.CiudadId == 0)
                 {
- 
- 
+
+
                     _contenedorTrabajo.Ciudad.Add(ciudadvm.Ciudad);
                     _contenedorTrabajo.Save();
                     return RedirectToAction(nameof(Index));
@@ -108,14 +108,14 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 var ciudadDesdeDb = _contenedorTrabajo.Ciudad.Get(ciudadvm.Ciudad.CiudadId);
                 if (archivos.Count() > 0)
                 {
- 
+
 
                     _contenedorTrabajo.Ciudad.Update(ciudadvm.Ciudad);
                     _contenedorTrabajo.Save();
 
                     return RedirectToAction(nameof(Index));
                 }
- 
+
                 _contenedorTrabajo.Ciudad.Update(ciudadvm.Ciudad);
                 _contenedorTrabajo.Save();
                 return RedirectToAction(nameof(Index));
@@ -130,14 +130,14 @@ namespace MedicalPLE.Areas.Admin.Controllers
             var extension = Path.GetExtension(archivos[0].FileName);
             var nuevaExtension = Path.GetExtension(archivos[0].FileName);
 
- 
+
 
             //subimos nuevamente el archivo
             using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
             {
                 archivos[0].CopyTo(fileStreams);
             }
- 
+
         }
 
 
@@ -147,11 +147,11 @@ namespace MedicalPLE.Areas.Admin.Controllers
             var ciudadDesdeDb = _contenedorTrabajo.Ciudad.Get(id);
             string rutaDirectorioPrincipal = _hostingEnvironment.WebRootPath;
 
-  
+
 
             if (ciudadDesdeDb == null)
             {
-                return Json(new { success = false, message = "Error borrando artículo"});
+                return Json(new { success = false, message = "Error borrando artículo" });
             }
 
             _contenedorTrabajo.Ciudad.Remove(ciudadDesdeDb);
@@ -166,7 +166,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         public IActionResult GetAll()
         {
             return Json(new { data = _contenedorTrabajo.Ciudad.GetAll(includeProperties: "Departamento") });
-        }        
+        }
         #endregion
 
     }

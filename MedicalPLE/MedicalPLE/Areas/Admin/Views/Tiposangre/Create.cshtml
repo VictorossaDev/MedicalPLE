@@ -1,3 +1,4 @@
+<!-- Create Tiposangre-->
 @model MedicalPLE.Models.Tiposangre
 @{
     ViewData["Title"] = "Create";
@@ -7,17 +8,17 @@
 <br />
 <br />
 <h3 class="text-center"> Crear Tiposangre</h3>
-<form method="post" asp-action="Create">
+<form method="post" asp-action="Create" id="formTiposangre">
     <div class="row px-2 mx-2 border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-10 offset-1 mt-4">    
         
            <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="NombreTiposangre"></label>
+                    <label asp-for="NombreTiposangre">Tipo de Sangre</label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="NombreTiposangre" class="form-control" type="text" maxlength="100"/>
+                    <input id="IdNombreTiposangre" asp-for="NombreTiposangre" class="form-control" type="text" maxlength="100"/>
                     <span asp-validation-for="NombreTiposangre" class="text-danger"></span>
                 </div>
             </div>
@@ -34,6 +35,15 @@
 </form>
 
 
+
+
+<!-- UTILIDADES -->
+<!-- Acordeon -->
+<!--<button type="button" class="accordionple">Nombre de la seccion</button>
+<div class="panelaccordionple">
+    <br />-->
+<!-- La informacion o los objetos van AQUI -->
+<!--</div>-->
 
 
 

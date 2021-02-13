@@ -1,7 +1,7 @@
 <!-- Tabla Independiente => Tipodoc-->
 @model MedicalPLE.Models.Tipodoc
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Tipodoc";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,10 +16,10 @@
 
            <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="NombreTipodoc"></label>
+                    <label asp-for="NombreTipodoc">Tipo Documento (Cedula, Tarjeta Identidad, etc..)</label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="NombreTipodoc" class="form-control" />
+                    <input id="IdNombreTipodoc" asp-for="NombreTipodoc" class="form-control" type="text" maxlength="200"/>
                     <span asp-validation-for="NombreTipodoc" class="text-danger"></span>
                 </div>
             </div>
@@ -42,4 +42,7 @@
 
     </div>
 </form>
+
+
+
 

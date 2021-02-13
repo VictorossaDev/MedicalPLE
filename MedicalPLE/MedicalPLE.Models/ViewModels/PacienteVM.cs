@@ -17,7 +17,7 @@ namespace MedicalPLE.Models.ViewModels
 
         public IEnumerable<SelectListItem> ListaGenero { get; set; }
 
-        public IEnumerable<SelectListItem> ListaEps { get; set; }
+        public IEnumerable<SelectListItem> ListaCiudad { get; set; }
 
 
     }

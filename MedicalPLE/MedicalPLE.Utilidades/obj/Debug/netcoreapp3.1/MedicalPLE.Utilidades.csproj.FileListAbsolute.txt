@@ -6,4 +6,3 @@ C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.Utilidades\obj\Debug\ne
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.Utilidades\obj\Debug\netcoreapp3.1\MedicalPLE.Utilidades.csproj.CoreCompileInputs.cache
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.Utilidades\obj\Debug\netcoreapp3.1\MedicalPLE.Utilidades.dll
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.Utilidades\obj\Debug\netcoreapp3.1\MedicalPLE.Utilidades.pdb
-C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.Utilidades\obj\Debug\netcoreapp3.1\MedicalPLE.Utilidades.csprojAssemblyReference.cache

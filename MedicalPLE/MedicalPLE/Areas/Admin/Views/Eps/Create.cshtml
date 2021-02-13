@@ -1,3 +1,4 @@
+<!-- Create Eps-->
 @model MedicalPLE.Models.Eps
 @{
     ViewData["Title"] = "Create";
@@ -7,17 +8,17 @@
 <br />
 <br />
 <h3 class="text-center"> Crear Eps</h3>
-<form method="post" asp-action="Create">
+<form method="post" asp-action="Create" id="formEps">
     <div class="row px-2 mx-2 border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-10 offset-1 mt-4">    
         
            <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="NombreEps"></label>
+                    <label asp-for="NombreEps">Nombre EPS</label>
                 </div>
                 <div class="col-8">
-                   <textarea asp-for="NombreEps" class="form-control" style="height:500px;"></textarea>
+                    <input id="IdNombreEps" asp-for="NombreEps" class="form-control" type="text" maxlength="300"/>
                     <span asp-validation-for="NombreEps" class="text-danger"></span>
                 </div>
             </div>
@@ -34,6 +35,15 @@
 </form>
 
 
+
+
+<!-- UTILIDADES -->
+<!-- Acordeon -->
+<!--<button type="button" class="accordionple">Nombre de la seccion</button>
+<div class="panelaccordionple">
+    <br />-->
+<!-- La informacion o los objetos van AQUI -->
+<!--</div>-->
 
 
 

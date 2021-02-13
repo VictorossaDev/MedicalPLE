@@ -1,7 +1,7 @@
 <!-- Tabla Independiente => Departamento-->
 @model MedicalPLE.Models.Departamento
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Departamento";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,10 +16,10 @@
 
            <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="NombreDepartamento"></label>
+                    <label asp-for="NombreDepartamento">Nombre Departamento</label>
                 </div>
                 <div class="col-8">
-                   <textarea asp-for="NombreDepartamento" class="form-control" style="height:500px;"></textarea>
+                    <input id="IdNombreDepartamento" asp-for="NombreDepartamento" class="form-control" type="text" maxlength="300"/>
                     <span asp-validation-for="NombreDepartamento" class="text-danger"></span>
                 </div>
             </div>
@@ -42,4 +42,7 @@
 
     </div>
 </form>
+
+
+
 

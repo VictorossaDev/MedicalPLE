@@ -38,8 +38,9 @@
                 </div>
                 <div class="col-8">
                     @Html.DropDownListFor(m => m.Articulo.CategoriaId, Model.ListaCategorias,
-                     "-Porfavor seleccione una categoría-", new { @class = "form-control" })
-                </div>
+                                    "-Porfavor seleccione una categoría-", new { @class = "form-control" })
+                    <span asp-validation-for="Articulo.CategoriaId" class="text-danger"></span>
+                </div>                
             </div>
 
             <div class="form-group row">

@@ -38,6 +38,12 @@ namespace MedicalPLE.Controllers
             };
             return View(homeVm);
         }
+
+        public IActionResult Error()
+        {
+            return View();
+        }
+
         // OPCIONAL
         public IActionResult Details(int id)
         {

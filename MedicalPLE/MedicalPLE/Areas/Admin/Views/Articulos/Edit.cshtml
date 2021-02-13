@@ -1,15 +1,13 @@
 
 @model MedicalPLE.Models.ViewModels.ArticuloVM
-@{
-    ViewData["Title"] = "Editar artículo";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@{ ViewData["Title"] = "Editar artículo";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <br />
 <br />
 <h3 class="text-center"> Editar artículo</h3>
 <form method="post" asp-action="Edit" enctype="multipart/form-data">
-    <input type="hidden"  asp-for="Articulo.Id"/>
+    <input type="hidden" asp-for="Articulo.Id" />
     <div class="row px-2 mx-2 border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-8 mt-4">
@@ -39,7 +37,7 @@
                 </div>
                 <div class="col-8">
                     @Html.DropDownListFor(m => m.Articulo.CategoriaId, Model.ListaCategorias,
-                     "-Porfavor seleccione una categoría-", new { @class = "form-control" })
+                                    "-Porfavor seleccione una categoría-", new { @class = "form-control" })
                 </div>
             </div>
 
@@ -83,3 +81,10 @@
     </script>
 }
 
+<!-- UTILIDADES -->
+<!-- Acordeon -->
+<!--<button type="button" class="accordionple">Nombre de la seccion</button>
+<div class="panelaccordionple">
+    <br />-->
+<!-- La informacion va AQUI -->
+<!--</div>-->

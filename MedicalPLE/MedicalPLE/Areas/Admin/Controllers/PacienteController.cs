@@ -39,7 +39,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 ListaTiposangre = _contenedorTrabajo.Tiposangre.GetListaTiposangre(),
                 ListaEstadocivil = _contenedorTrabajo.Estadocivil.GetListaEstadocivil(),
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
-                ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
+                ListaCiudad = _contenedorTrabajo.Ciudad.GetListaCiudad(),
 
             };
             return View(pacientevm);
@@ -93,7 +93,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 ListaTiposangre = _contenedorTrabajo.Tiposangre.GetListaTiposangre(),
                 ListaEstadocivil = _contenedorTrabajo.Estadocivil.GetListaEstadocivil(),
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
-                ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
+                ListaCiudad = _contenedorTrabajo.Ciudad.GetListaCiudad(),
 
             };
             if (id != null)
@@ -173,7 +173,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new { data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Tipodoc,Tiposangre,Estadocivil,Genero,Eps") });
+            return Json(new { data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Tipodoc,Tiposangre,Estadocivil,Genero,Ciudad") });
         }        
         #endregion
 

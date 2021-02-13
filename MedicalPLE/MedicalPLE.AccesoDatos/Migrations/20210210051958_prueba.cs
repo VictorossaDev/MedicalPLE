@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MedicalPLE.AccesoDatos.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class prueba : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -71,7 +71,7 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 {
                     DepartamentoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreDepartamento = table.Column<string>(maxLength: 500, nullable: false)
+                    NombreDepartamento = table.Column<string>(maxLength: 300, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -84,7 +84,7 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 {
                     EpsId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreEps = table.Column<string>(maxLength: 500, nullable: false)
+                    NombreEps = table.Column<string>(maxLength: 300, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -123,8 +123,8 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(nullable: false),
-                    Contenido = table.Column<bool>(nullable: false),
+                    Titulo = table.Column<string>(nullable: false),
+                    Contenido = table.Column<string>(nullable: false),
                     UrlImagen = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -138,7 +138,7 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 {
                     TipodocId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreTipodoc = table.Column<string>(maxLength: 500, nullable: false)
+                    NombreTipodoc = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -293,7 +293,7 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 {
                     CiudadId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreCiudad = table.Column<string>(maxLength: 500, nullable: false),
+                    NombreCiudad = table.Column<string>(maxLength: 300, nullable: false),
                     DepartamentoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -314,54 +314,23 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     PacienteId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TipodocId = table.Column<int>(nullable: false),
-                    NumeroDocumento = table.Column<string>(maxLength: 200, nullable: false),
-                    NombresApellidos = table.Column<string>(maxLength: 500, nullable: false),
+                    NumeroDoc = table.Column<decimal>(type: "numeric(18, 0)", nullable: false),
+                    NombreApellido = table.Column<string>(maxLength: 400, nullable: false),
                     TiposangreId = table.Column<int>(nullable: false),
                     EstadocivilId = table.Column<int>(nullable: false),
-                    Fechanacimiento = table.Column<DateTime>(nullable: true),
                     Datanumeric_18_0 = table.Column<decimal>(type: "numeric(18, 0)", nullable: false),
-                    Lugarnacimiento = table.Column<string>(maxLength: 500, nullable: false),
-                    Nacionalidad = table.Column<string>(maxLength: 500, nullable: false),
-                    GeneroId = table.Column<int>(nullable: false),
-                    Embarazo = table.Column<bool>(nullable: false),
-                    UltimaMestruacion = table.Column<DateTime>(nullable: true),
-                    EpsId = table.Column<int>(nullable: false),
                     CiudadId = table.Column<int>(nullable: false),
-                    Direccion = table.Column<string>(nullable: false),
-                    Barrio = table.Column<string>(maxLength: 300, nullable: false),
-                    Correo = table.Column<int>(nullable: false),
-                    Fijo = table.Column<string>(maxLength: 100, nullable: false),
-                    Celular = table.Column<string>(maxLength: 300, nullable: false),
-                    NombreResponsable = table.Column<string>(maxLength: 500, nullable: false),
-                    FijoResponsable = table.Column<string>(maxLength: 100, nullable: false),
-                    CelularResponsable = table.Column<string>(maxLength: 200, nullable: false),
-                    ParentescoResponsable = table.Column<string>(maxLength: 200, nullable: false),
-                    NombreReferida = table.Column<string>(maxLength: 500, nullable: false),
-                    FijoReferido = table.Column<string>(maxLength: 100, nullable: false),
-                    CelularReferido = table.Column<string>(maxLength: 200, nullable: false),
-                    ReferidoPor = table.Column<string>(nullable: false),
-                    NombreAcompanante = table.Column<string>(maxLength: 500, nullable: false),
-                    FijoAcompanante = table.Column<string>(maxLength: 100, nullable: false),
-                    CelularAcompanante = table.Column<string>(maxLength: 200, nullable: false),
-                    ParentescoAcompanante = table.Column<string>(maxLength: 500, nullable: false),
-                    NombreMadreMenor = table.Column<string>(maxLength: 500, nullable: false),
-                    CedulaMadreMenor = table.Column<string>(maxLength: 100, nullable: false),
-                    TelefonoMadreMenor = table.Column<string>(maxLength: 200, nullable: false),
-                    OcupacionMadreMenor = table.Column<string>(maxLength: 300, nullable: false),
-                    NombrePadreCuidadorMenor = table.Column<string>(maxLength: 500, nullable: false),
-                    CedulaPadreCuidadorMenor = table.Column<string>(maxLength: 200, nullable: false),
-                    TelefonoPadreCuidadorMenor = table.Column<string>(maxLength: 200, nullable: false),
-                    OcupacionPadreCuidadorMenor = table.Column<string>(maxLength: 200, nullable: false),
-                    ParentescoPadreCuidador = table.Column<string>(maxLength: 500, nullable: false)
+                    Nacionalidad = table.Column<string>(maxLength: 300, nullable: false),
+                    GeneroId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Paciente", x => x.PacienteId);
                     table.ForeignKey(
-                        name: "FK_Paciente_Eps_EpsId",
-                        column: x => x.EpsId,
-                        principalTable: "Eps",
-                        principalColumn: "EpsId",
+                        name: "FK_Paciente_Ciudad_CiudadId",
+                        column: x => x.CiudadId,
+                        principalTable: "Ciudad",
+                        principalColumn: "CiudadId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Paciente_Estadocivil_EstadocivilId",
@@ -439,9 +408,9 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 column: "DepartamentoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Paciente_EpsId",
+                name: "IX_Paciente_CiudadId",
                 table: "Paciente",
-                column: "EpsId");
+                column: "CiudadId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Paciente_EstadocivilId",
@@ -485,7 +454,7 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Ciudad");
+                name: "Eps");
 
             migrationBuilder.DropTable(
                 name: "Paciente");
@@ -503,10 +472,7 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Departamento");
-
-            migrationBuilder.DropTable(
-                name: "Eps");
+                name: "Ciudad");
 
             migrationBuilder.DropTable(
                 name: "Estadocivil");
@@ -519,6 +485,9 @@ namespace MedicalPLE.AccesoDatos.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tiposangre");
+
+            migrationBuilder.DropTable(
+                name: "Departamento");
         }
     }
 }

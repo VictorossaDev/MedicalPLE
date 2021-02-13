@@ -11476,6 +11476,34 @@ a.text-dark:hover, a.text-dark:focus {
         }
 }
 
+.accordionple {
+    background-color: #593196;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    color: white;
+}
+
+    .active, .accordionple:hover {
+        background-color: #ccc;
+        color: black;
+    }
+
+.panelaccordionple {
+    padding: 0 28px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+
 /*!
  * PLE
 */

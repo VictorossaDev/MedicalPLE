@@ -19,7 +19,7 @@ namespace MedicalPLE.AccesoDatos.Data
         public IEnumerable<SelectListItem> GetListaPaciente()
         {
             return _db.Paciente.Select(i => new SelectListItem() { 
-                Text = i.NombresApellidos,
+                Text = i.NombreApellido,
                 Value = i.PacienteId.ToString()
             });
         }
@@ -28,47 +28,14 @@ namespace MedicalPLE.AccesoDatos.Data
         {
             var objDesdeDb = _db.Paciente.FirstOrDefault(s => s.PacienteId == paciente.PacienteId);
             objDesdeDb.TipodocId = paciente.TipodocId;
-            objDesdeDb.NumeroDocumento = paciente.NumeroDocumento;
-            objDesdeDb.NombresApellidos = paciente.NombresApellidos;
+            objDesdeDb.NumeroDoc = paciente.NumeroDoc;
+            objDesdeDb.NombreApellido = paciente.NombreApellido;
             objDesdeDb.TiposangreId = paciente.TiposangreId;
             objDesdeDb.EstadocivilId = paciente.EstadocivilId;
-            objDesdeDb.Fechanacimiento = paciente.Fechanacimiento;
             objDesdeDb.Edad = paciente.Edad;
-            objDesdeDb.Lugarnacimiento = paciente.Lugarnacimiento;
+            objDesdeDb.CiudadId = paciente.CiudadId;
             objDesdeDb.Nacionalidad = paciente.Nacionalidad;
             objDesdeDb.GeneroId = paciente.GeneroId;
-            objDesdeDb.Embarazo = paciente.Embarazo;
-            objDesdeDb.UltimaMestruacion = paciente.UltimaMestruacion;
-            objDesdeDb.Semanaembarazo = paciente.Semanaembarazo;
-            objDesdeDb.Numeroembarazo = paciente.Numeroembarazo;
-            objDesdeDb.EpsId = paciente.EpsId;
-            objDesdeDb.CiudadId = paciente.CiudadId;
-            objDesdeDb.Direccion = paciente.Direccion;
-            objDesdeDb.Barrio = paciente.Barrio;
-            objDesdeDb.Correo = paciente.Correo;
-            objDesdeDb.Fijo = paciente.Fijo;
-            objDesdeDb.Celular = paciente.Celular;
-            objDesdeDb.NombreResponsable = paciente.NombreResponsable;
-            objDesdeDb.FijoResponsable = paciente.FijoResponsable;
-            objDesdeDb.CelularResponsable = paciente.CelularResponsable;
-            objDesdeDb.ParentescoResponsable = paciente.ParentescoResponsable;
-            objDesdeDb.NombreReferida = paciente.NombreReferida;
-            objDesdeDb.FijoReferido = paciente.FijoReferido;
-            objDesdeDb.CelularReferido = paciente.CelularReferido;
-            objDesdeDb.ReferidoPor = paciente.ReferidoPor;
-            objDesdeDb.NombreAcompanante = paciente.NombreAcompanante;
-            objDesdeDb.FijoAcompanante = paciente.FijoAcompanante;
-            objDesdeDb.CelularAcompanante = paciente.CelularAcompanante;
-            objDesdeDb.ParentescoAcompanante = paciente.ParentescoAcompanante;
-            objDesdeDb.NombreMadreMenor = paciente.NombreMadreMenor;
-            objDesdeDb.CedulaMadreMenor = paciente.CedulaMadreMenor;
-            objDesdeDb.TelefonoMadreMenor = paciente.TelefonoMadreMenor;
-            objDesdeDb.OcupacionMadreMenor = paciente.OcupacionMadreMenor;
-            objDesdeDb.NombrePadreCuidadorMenor = paciente.NombrePadreCuidadorMenor;
-            objDesdeDb.CedulaPadreCuidadorMenor = paciente.CedulaPadreCuidadorMenor;
-            objDesdeDb.TelefonoPadreCuidadorMenor = paciente.TelefonoPadreCuidadorMenor;
-            objDesdeDb.OcupacionPadreCuidadorMenor = paciente.OcupacionPadreCuidadorMenor;
-            objDesdeDb.ParentescoPadreCuidador = paciente.ParentescoPadreCuidador;
 
             _db.SaveChanges();
         }

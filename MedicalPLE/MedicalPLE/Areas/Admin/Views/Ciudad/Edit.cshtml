@@ -1,7 +1,7 @@
 <!-- Tabla Dependiente => Ciudad-->
 @model MedicalPLE.Models.ViewModels.CiudadVM
 @{
-    ViewData["Title"] = "Editar ciudad";
+    ViewData["Title"] = "Editar Ciudad";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,22 +16,21 @@
 
            <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Ciudad.NombreCiudad"></label>
+                    <label asp-for="Ciudad.NombreCiudad">Nombre de la Ciudad</label>
                 </div>
                 <div class="col-8">
-                    <textarea asp-for="Ciudad.NombreCiudad" class="form-control" style="height:300px;"></textarea>
+                    <input asp-for="Ciudad.NombreCiudad" class="form-control" type="text" maxlength="300" />
                     <span asp-validation-for="Ciudad.NombreCiudad" class="text-danger"></span>
                 </div>
             </div>
 
-            
-            <div class="form-group row">
+             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Ciudad.DepartamentoId"></label>
+                    <label asp-for="Ciudad.DepartamentoId">Departamento</label>
                 </div>
                 <div class="col-8">
                     @Html.DropDownListFor(m => m.Ciudad.DepartamentoId, Model.ListaDepartamento,
-                     "-Porfavor seleccione Departamento-", new { @class = "form-control" })
+                     "-Por favor seleccione Departamento-", new { @class = "form-control" })
                 </div>
             </div>
 
@@ -49,21 +48,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        </div>
     </div>
 </form>
 
-@section Scripts{
-    <script src="https://cdn.tiny.cloud/1/qukxrn62f4bz0iv6z7enaelkkzuzugir28y709xit9xm659s/tinymce/5/tinymce.min.js"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'lists',
-            menubar: 'file edit format'
-        });
-    </script>
-}
+
 

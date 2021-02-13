@@ -15,8 +15,9 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El NombreDepartamento es obligatorio")]
         [Display(Name = "NombreDepartamento")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string NombreDepartamento { get; set; }
+
  // ...
 
     }

@@ -102,8 +102,8 @@ namespace MedicalPLE.AccesoDatos.Migrations
 
                     b.Property<string>("NombreDepartamento")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
 
                     b.HasKey("DepartamentoId");
 
@@ -120,8 +120,8 @@ namespace MedicalPLE.AccesoDatos.Migrations
 
                     b.Property<string>("NombreEps")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
 
                     b.HasKey("EpsId");
 
@@ -172,159 +172,31 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Barrio")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
-
-                    b.Property<string>("CedulaMadreMenor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("CedulaPadreCuidadorMenor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<string>("Celular")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<int>("CelularAcompanante")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CelularReferido")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CelularResponsable")
-                        .HasColumnType("int");
-
                     b.Property<int>("CiudadId")
                         .HasColumnType("int");
-
-                    b.Property<int>("Correo")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Direccion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
 
                     b.Property<decimal>("Edad")
                         .HasColumnName("Datanumeric_18_0")
                         .HasColumnType("numeric(18, 0)");
 
-                    b.Property<bool>("Embarazo")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("EpsId")
-                        .HasColumnType("int");
-
                     b.Property<int>("EstadocivilId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Fechanacimiento")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Fijo")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FijoAcompanante")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FijoReferido")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FijoResponsable")
                         .HasColumnType("int");
 
                     b.Property<int>("GeneroId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Lugarnacimiento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
 
                     b.Property<string>("Nacionalidad")
                         .IsRequired()
                         .HasColumnType("nvarchar(300)")
                         .HasMaxLength(300);
 
-                    b.Property<string>("NombreAcompanante")
+                    b.Property<string>("NombreApellido")
                         .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
 
-                    b.Property<string>("NombreMadreMenor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
-
-                    b.Property<string>("NombrePadreCuidadorMenor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
-
-                    b.Property<string>("NombreReferida")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
-
-                    b.Property<string>("NombreResponsable")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
-
-                    b.Property<string>("NombresApellidos")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
-
-                    b.Property<string>("NumeroDocumento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<decimal>("Numeroembarazo")
-                        .HasColumnName("Datanumeric_18_0")
+                    b.Property<decimal>("NumeroDoc")
                         .HasColumnType("numeric(18, 0)");
-
-                    b.Property<string>("OcupacionMadreMenor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
-
-                    b.Property<string>("OcupacionPadreCuidadorMenor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<int>("ParentescoAcompanante")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ParentescoPadreCuidador")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ParentescoResponsable")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReferidoPor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
-
-                    b.Property<decimal>("Semanaembarazo")
-                        .HasColumnName("Datanumeric_18_0")
-                        .HasColumnType("numeric(18, 0)");
-
-                    b.Property<int>("TelefonoMadreMenor")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TelefonoPadreCuidadorMenor")
-                        .HasColumnType("int");
 
                     b.Property<int>("TipodocId")
                         .HasColumnType("int");
@@ -332,12 +204,9 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.Property<int>("TiposangreId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("UltimaMestruacion")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("PacienteId");
 
-                    b.HasIndex("EpsId");
+                    b.HasIndex("CiudadId");
 
                     b.HasIndex("EstadocivilId");
 
@@ -361,7 +230,7 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Titulo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -653,9 +522,9 @@ namespace MedicalPLE.AccesoDatos.Migrations
 
             modelBuilder.Entity("MedicalPLE.Models.Paciente", b =>
                 {
-                    b.HasOne("MedicalPLE.Models.Eps", "Eps")
+                    b.HasOne("MedicalPLE.Models.Ciudad", "Ciudad")
                         .WithMany()
-                        .HasForeignKey("EpsId")
+                        .HasForeignKey("CiudadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

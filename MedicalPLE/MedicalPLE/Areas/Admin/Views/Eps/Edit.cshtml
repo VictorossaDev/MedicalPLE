@@ -1,7 +1,7 @@
 <!-- Tabla Independiente => Eps-->
 @model MedicalPLE.Models.Eps
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Eps";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,10 +16,10 @@
 
            <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="NombreEps"></label>
+                    <label asp-for="NombreEps">Nombre EPS</label>
                 </div>
                 <div class="col-8">
-                   <textarea asp-for="NombreEps" class="form-control" style="height:500px;"></textarea>
+                    <input id="IdNombreEps" asp-for="NombreEps" class="form-control" type="text" maxlength="300"/>
                     <span asp-validation-for="NombreEps" class="text-danger"></span>
                 </div>
             </div>
@@ -42,4 +42,7 @@
 
     </div>
 </form>
+
+
+
 

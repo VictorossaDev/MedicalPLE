@@ -15,8 +15,9 @@ namespace MedicalPLE.Models
 
         [Required(ErrorMessage = "El NombreEps es obligatorio")]
         [Display(Name = "NombreEps")]
-        [StringLength(500)]
+        [StringLength(300)]
         public string NombreEps { get; set; }
+
  // ...
 
     }
