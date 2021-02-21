@@ -20,15 +20,15 @@ namespace MedicalPLE.AccesoDatos.Data
           
         public DbSet<Tipodoc> Tipodoc { get; set; }
 
-        public DbSet<Tiposangre> Tiposangre { get; set; }
-
-        public DbSet<Genero> Genero { get; set; }
+        public DbSet<TipoSangre> TipoSangre { get; set; }
 
         public DbSet<Eps> Eps { get; set; }
 
         public DbSet<Departamento> Departamento { get; set; }
 
-        public DbSet<Estadocivil> Estadocivil { get; set; }
+        public DbSet<EstadoCivil> EstadoCivil { get; set; }
+
+        public DbSet<Genero> Genero { get; set; }
 
         public DbSet<Paciente> Paciente { get; set; }
 

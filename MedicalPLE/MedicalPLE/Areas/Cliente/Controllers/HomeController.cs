@@ -27,11 +27,9 @@ namespace MedicalPLE.Controllers
             {
                 Slider = _contenedorTrabajo.Slider.GetAll(),
                 ListaTipodoc = _contenedorTrabajo.Tipodoc.GetAll(),
-                ListaTiposangre = _contenedorTrabajo.Tiposangre.GetAll(),
-                ListaGenero = _contenedorTrabajo.Genero.GetAll(),
+                ListaTiposangre = _contenedorTrabajo.TipoSangre.GetAll(),
                 ListaEps = _contenedorTrabajo.Eps.GetAll(),
                 ListaDepartamento = _contenedorTrabajo.Departamento.GetAll(),
-                ListaEstadocivil = _contenedorTrabajo.Estadocivil.GetAll(),
                 ListaPaciente = _contenedorTrabajo.Paciente.GetAll(),
                 ListaCiudad = _contenedorTrabajo.Ciudad.GetAll(),
                 ListaArticulos = _contenedorTrabajo.Articulo.GetAll()

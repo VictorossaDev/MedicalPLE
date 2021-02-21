@@ -18,11 +18,11 @@ namespace MedicalPLE.AccesoDatos.Data
             // Se pasan cada una de las entidades en el constructor pasandole el contexto de datos
             
            Tipodoc = new TipodocRepository(_db);
-           Tiposangre = new TiposangreRepository(_db);
-           Genero = new GeneroRepository(_db);
+           TipoSangre = new TipoSangreRepository(_db);
            Eps = new EpsRepository(_db);
            Departamento = new DepartamentoRepository(_db);
-           Estadocivil = new EstadocivilRepository(_db);
+           EstadoCivil = new EstadoCivilRepository(_db);
+           Genero = new GeneroRepository(_db);
            Paciente = new PacienteRepository(_db);
            Ciudad = new CiudadRepository(_db);
 
@@ -33,11 +33,11 @@ namespace MedicalPLE.AccesoDatos.Data
         }
             
            public ITipodocRepository Tipodoc { get; private set; }
-           public ITiposangreRepository Tiposangre { get; private set; }
-           public IGeneroRepository Genero { get; private set; }
+           public ITipoSangreRepository TipoSangre { get; private set; }
            public IEpsRepository Eps { get; private set; }
            public IDepartamentoRepository Departamento { get; private set; }
-           public IEstadocivilRepository Estadocivil { get; private set; }
+           public IEstadoCivilRepository EstadoCivil { get; private set; }
+           public IGeneroRepository Genero { get; private set; }
            public IPacienteRepository Paciente { get; private set; }
            public ICiudadRepository Ciudad { get; private set; }
     

@@ -1,25 +1,30 @@
-// Independiente -- Tiposangre
+// Independiente -- TipoSangre
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+
+using MedicalPLE.Models.Enums;
 
 namespace MedicalPLE.Models
 {
-    public class Tiposangre
+    public class TipoSangre
     {
         [Key]
-       [Column("TiposangreId")]
-       public int TiposangreId { get; set; }
+       [Column("TipoSangreId")]
+       public int TipoSangreId { get; set; }
 
-        [Required(ErrorMessage = "El NombreTiposangre es obligatorio")]
-        [Display(Name = "NombreTiposangre")]
+        [Required(ErrorMessage = "El NombreTipoSangre es obligatorio")]
+        [Display(Name = "NombreTipoSangre")]
         [StringLength(100)]
-        public string NombreTiposangre { get; set; }
+        public string NombreTipoSangre { get; set; }
 
  // ...
 
     }
+
+
+
 }
 

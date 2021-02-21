@@ -29,7 +29,6 @@ namespace MedicalPLE.AccesoDatos.Data
         {
             var objDesdeDb = _db.Categoria.FirstOrDefault(s => s.Id == categoria.Id);
             objDesdeDb.Nombre = categoria.Nombre;
-            objDesdeDb.Orden = categoria.Orden;
 
             _db.SaveChanges();
         }

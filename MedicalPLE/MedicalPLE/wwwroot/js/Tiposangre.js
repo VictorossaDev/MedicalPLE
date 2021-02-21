@@ -5,25 +5,25 @@ $(document).ready(function () {
 });
 
 function cargarDatatable() {
-    dataTable = $("#tbltiposangre").DataTable({
+    dataTable = $("#tbltipoSangre").DataTable({
         "ajax": {
-            "url": "/admin/Tiposangre/GetAll",
+            "url": "/admin/TipoSangre/GetAll",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "tiposangreId", "width": "5%" },
+            { "data": "tipoSangreId", "width": "5%" },
             { "data": "nombreTiposangre", "width": "10%" },
 
             {
-                "data": "tiposangreId",
+                "data": "tipoSangreId",
                 "render": function (data) {
                     return `<div class="text-center">
-                                <a href="/Admin/Tiposangre/Edit/${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
+                                <a href="/Admin/TipoSangre/Edit/${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
                                     <i class='far fa-edit'></i> Editar
                                 </a>
                                 &nbsp;
-                                <a onclick=Delete("/Admin/Tiposangre/Delete/${data}") class='btn btn-danger text-white' style='cursor:pointer; width:100px;'>
+                                <a onclick=Delete("/Admin/TipoSangre/Delete/${data}") class='btn btn-danger text-white' style='cursor:pointer; width:100px;'>
                                     <i class='far fa-trash-alt'></i> Borrar
                                 </a>
                             </div>

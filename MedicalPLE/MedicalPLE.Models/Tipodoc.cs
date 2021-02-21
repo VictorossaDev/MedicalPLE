@@ -1,9 +1,11 @@
 // Independiente -- Tipodoc
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+
+using MedicalPLE.Models.Enums;
 
 namespace MedicalPLE.Models
 {
@@ -21,5 +23,8 @@ namespace MedicalPLE.Models
  // ...
 
     }
+
+
+
 }
 

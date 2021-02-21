@@ -1,4 +1,4 @@
-// Tabla Independiente Tiposangre
+// Tabla Independiente TipoSangre
 using System;
 using System.Linq;
 using System.Text;
@@ -9,27 +9,27 @@ using MedicalPLE.AccesoDatos.Data.Repository;
 
 namespace MedicalPLE.AccesoDatos.Data
 {
-    public class TiposangreRepository : Repository<Tiposangre>, ITiposangreRepository
+    public class TipoSangreRepository : Repository<TipoSangre>, ITipoSangreRepository
     {
         private readonly ApplicationDbContext _db;
 
-        public TiposangreRepository(ApplicationDbContext db) : base(db)
+        public TipoSangreRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
         // Para implementar en un combobox una seleccion de elementos de la entidad, nombre y el value
         public IEnumerable<SelectListItem> GetListaTiposangre()
         {
-            return _db.Tiposangre.Select(i => new SelectListItem() { 
-                Text = i.NombreTiposangre,
-                Value = i.TiposangreId.ToString()
+            return _db.TipoSangre.Select(i => new SelectListItem() { 
+                Text = i.NombreTipoSangre,
+                Value = i.TipoSangreId.ToString()
             });
         }
         // Para actualizacion singular de la entidad, por buena practica debe de estar aqui y no en  el generico
-        public void Update(Tiposangre tiposangre)
+        public void Update(TipoSangre tiposangre)
         {
-            var objDesdeDb = _db.Tiposangre.FirstOrDefault(s => s.TiposangreId == tiposangre.TiposangreId);
-            objDesdeDb.NombreTiposangre = tiposangre.NombreTiposangre;
+            var objDesdeDb = _db.TipoSangre.FirstOrDefault(s => s.TipoSangreId == tiposangre.TipoSangreId);
+            objDesdeDb.NombreTipoSangre = tiposangre.NombreTipoSangre;
 
             _db.SaveChanges();
         }

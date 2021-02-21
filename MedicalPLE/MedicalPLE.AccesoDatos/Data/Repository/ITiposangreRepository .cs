@@ -6,10 +6,10 @@ using System.Text;
 
 namespace MedicalPLE.AccesoDatos.Data.Repository
 {
-    public interface ITiposangreRepository : IRepository<Tiposangre>
+    public interface ITipoSangreRepository : IRepository<TipoSangre>
     {
         IEnumerable<SelectListItem> GetListaTiposangre();
 
-        void Update(Tiposangre tiposangre);
+        void Update(TipoSangre tiposangre);
     }
 }

@@ -36,9 +36,10 @@ namespace MedicalPLE.Areas.Admin.Controllers
             {
                 Paciente = new Models.Paciente(),
                 ListaTipodoc = _contenedorTrabajo.Tipodoc.GetListaTipodoc(),
-                ListaTiposangre = _contenedorTrabajo.Tiposangre.GetListaTiposangre(),
-                ListaEstadocivil = _contenedorTrabajo.Estadocivil.GetListaEstadocivil(),
+                ListaEstadoCivil = _contenedorTrabajo.EstadoCivil.GetListaEstadoCivil(),
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
+                ListaTipoSangre = _contenedorTrabajo.TipoSangre.GetListaTiposangre(),
+                ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
                 ListaCiudad = _contenedorTrabajo.Ciudad.GetListaCiudad(),
 
             };
@@ -90,9 +91,10 @@ namespace MedicalPLE.Areas.Admin.Controllers
             {
                 Paciente = new Models.Paciente(),
                 ListaTipodoc = _contenedorTrabajo.Tipodoc.GetListaTipodoc(),
-                ListaTiposangre = _contenedorTrabajo.Tiposangre.GetListaTiposangre(),
-                ListaEstadocivil = _contenedorTrabajo.Estadocivil.GetListaEstadocivil(),
+                ListaEstadoCivil = _contenedorTrabajo.EstadoCivil.GetListaEstadoCivil(),
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
+                ListaTipoSangre = _contenedorTrabajo.TipoSangre.GetListaTiposangre(),
+                ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
                 ListaCiudad = _contenedorTrabajo.Ciudad.GetListaCiudad(),
 
             };
@@ -173,7 +175,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new { data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Tipodoc,Tiposangre,Estadocivil,Genero,Ciudad") });
+            return Json(new { data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Tipodoc,EstadoCivil,Genero,TipoSangre,Eps,Ciudad") });
         }        
         #endregion
 

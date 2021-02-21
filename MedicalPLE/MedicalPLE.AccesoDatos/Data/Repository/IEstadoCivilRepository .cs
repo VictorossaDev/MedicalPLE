@@ -6,10 +6,10 @@ using System.Text;
 
 namespace MedicalPLE.AccesoDatos.Data.Repository
 {
-    public interface IEstadocivilRepository : IRepository<Estadocivil>
+    public interface IEstadoCivilRepository : IRepository<EstadoCivil>
     {
-        IEnumerable<SelectListItem> GetListaEstadocivil();
+        IEnumerable<SelectListItem> GetListaEstadoCivil();
 
-        void Update(Estadocivil estadocivil);
+        void Update(EstadoCivil estadocivil);
     }
 }

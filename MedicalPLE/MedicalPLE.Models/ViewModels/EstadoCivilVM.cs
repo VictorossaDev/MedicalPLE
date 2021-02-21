@@ -6,11 +6,11 @@ using System.Text;
 namespace MedicalPLE.Models.ViewModels
 {
     // Debe ser una clase publica
-    public class EstadocivilVM
+    public class EstadoCivilVM
     {
-        public Estadocivil Estadocivil { get; set; }
+        public EstadoCivil EstadoCivil { get; set; }
         // Para combobox
-        public IEnumerable<SelectListItem> ListaEstadocivil { get; set; }
+        public IEnumerable<SelectListItem> ListaEstadoCivil { get; set; }
     }
 }
 

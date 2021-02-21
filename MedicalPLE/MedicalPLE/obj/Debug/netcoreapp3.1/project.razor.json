@@ -14482,11 +14482,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Estadocivil\\Create.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Estadocivil\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
       "FileKind": "mvc"
@@ -14542,16 +14537,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Estadocivil\\Index.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Estadocivil\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Estadocivil\\Edit.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Estadocivil\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Articulos\\Index.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Articulos\\Index.cshtml",
       "FileKind": "mvc"
@@ -14589,11 +14574,6 @@
     {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Genero\\Index.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Genero\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14707,11 +14687,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Genero\\Create.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Genero\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
       "FileKind": "mvc"
@@ -14819,11 +14794,6 @@
     {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Departamento\\Edit.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Departamento\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Genero\\Edit.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Genero\\Edit.cshtml",
       "FileKind": "mvc"
     }
   ],

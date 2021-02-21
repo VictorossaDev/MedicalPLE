@@ -1,4 +1,5 @@
-<!-- Tabla Dependiente => Paciente-->
+<!-- Edit Paciente-->
+
 @model MedicalPLE.Models.ViewModels.PacienteVM
 @{
     ViewData["Title"] = "Editar Paciente";
@@ -7,21 +8,23 @@
 
 <br />
 <br />
-<h3 class="text-center"> Editar paciente</h3>
+<h3 class="text-center"> Editar Paciente</h3>
+<!-- Creo un formulario que buscara el metodo Create del controlador que va por post-->
 <form method="post" asp-action="Edit" enctype="multipart/form-data">
-    <input type="hidden"  asp-for="Paciente.PacienteId"/>
+    <input type="hidden" asp-for="Paciente.PacienteId" />
     <div class="row px-2 mx-2 border">
+       <!-- Vaidacion de campos del formulario, traera los mensajes que se tengan en el modelo-->
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="col-8 mt-4">
+        <div class="col-10 offset-1 mt-4">
 
            <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Paciente.NumeroDoc"></label>
+                    <label asp-for="Paciente.NumeroDocumento">No. Documento</label>
                 </div>
                 <div class="col-8">
-                    @*<input asp-for="Paciente.NumeroDoc" class="form-control"  type="number"  min="1" max="5"/>*@
-                    <input asp-for="Paciente.NumeroDoc" class="form-control"  type="number" />
-                    <span asp-validation-for="Paciente.NumeroDoc" class="text-danger"></span>
+                    @*<input asp-for="Paciente.NumeroDocumento" class="form-control"  type="number"  min="1" max="5"/>*@
+                    <input asp-for="Paciente.NumeroDocumento" class="form-control"  type="number" />
+                    <span asp-validation-for="Paciente.NumeroDocumento" class="text-danger"></span>
                 </div>
             </div>
 
@@ -37,7 +40,17 @@
 
            <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Paciente.Edad"></label>
+                    <label asp-for="Paciente.FechaNacimiento">Fecha de Nacimiento</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Paciente.FechaNacimiento" class="form-control" type="datetime-local"/>
+                    <span asp-validation-for="Paciente.FechaNacimiento" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Edad">Edad Paciente</label>
                 </div>
                 <div class="col-8">
                     @*<input asp-for="Paciente.Edad" class="form-control"  type="number"  min="1" max="5"/>*@
@@ -48,7 +61,17 @@
 
            <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Paciente.Nacionalidad">Nacionalidad</label>
+                    <label asp-for="Paciente.LugarNacimiento">Lugar de Nacimiento</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Paciente.LugarNacimiento" class="form-control" type="text" maxlength="400" />
+                    <span asp-validation-for="Paciente.LugarNacimiento" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Nacionalidad">Nacionalidad Paciente</label>
                 </div>
                 <div class="col-8">
                     <input asp-for="Paciente.Nacionalidad" class="form-control" type="text" maxlength="300" />
@@ -68,21 +91,11 @@
 
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Paciente.TiposangreId">Tiposangre</label>
+                    <label asp-for="Paciente.EstadoCivilId">EstadoCivil</label>
                 </div>
                 <div class="col-8">
-                    @Html.DropDownListFor(m => m.Paciente.TiposangreId, Model.ListaTiposangre,
-                     "-Por favor seleccione Tiposangre-", new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.EstadocivilId">Estadocivil</label>
-                </div>
-                <div class="col-8">
-                    @Html.DropDownListFor(m => m.Paciente.EstadocivilId, Model.ListaEstadocivil,
-                     "-Por favor seleccione Estadocivil-", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.Paciente.EstadoCivilId, Model.ListaEstadoCivil,
+                     "-Por favor seleccione EstadoCivil-", new { @class = "form-control" })
                 </div>
             </div>
 
@@ -98,6 +111,26 @@
 
             <div class="form-group row">
                 <div class="col-4">
+                    <label asp-for="Paciente.TipoSangreId">TipoSangre</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.TipoSangreId, Model.ListaTipoSangre,
+                     "-Por favor seleccione TipoSangre-", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.EpsId">Eps</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Paciente.EpsId, Model.ListaEps,
+                     "-Por favor seleccione Eps-", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
                     <label asp-for="Paciente.CiudadId">Ciudad</label>
                 </div>
                 <div class="col-8">
@@ -107,23 +140,24 @@
             </div>
 
 
-
             <div class="form-group row">
                 <div class="col-8 offset-4">
-                    <div class="row">
-                        <div class="col">
-                            <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model.Paciente.PacienteId">Actualizar</button>
-                        </div>
-                        <div class="col">
-                            <a asp-action="Index" class="btn btn-success form-control">Volver a lista</a>
-                        </div>
-                    </div>
+                    <!-- Vista parcial reutilizada en distintos formularios para Volver -->
+                    <partial name="_VistaCrearVolver" />
                 </div>
             </div>
         </div>
-
     </div>
 </form>
 
 
 
+<!-- UTILIDADES -->
+<!-- Acordeon -->
+<!--<button type="button" class="accordionple">Nombre de la seccion</button>
+<div class="panelaccordionple">
+    <br />-->
+<!-- La informacion o los objetos van AQUI -->
+<!--</div>-->
+
+<!-- --=====================================================-- -->

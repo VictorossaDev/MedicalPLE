@@ -17,32 +17,32 @@ namespace MedicalPLE.Models
         [Display(Name = "TipodocId")]
         public int TipodocId { get; set; }
 
-        [Required(ErrorMessage = "El NumeroDoc es obligatorio")]
-        [Display(Name = "NumeroDoc")]
-        [Column(TypeName = "numeric(18, 0)")]
-        public int NumeroDoc { get; set; }
+        [Required(ErrorMessage = "El No. Documento es obligatorio")]
+        [Display(Name = "NumeroDocumento")]
+        [Column(TypeName = "int")]
+        public int NumeroDocumento { get; set; }
 
         [Required(ErrorMessage = "El NombreApellido es obligatorio")]
         [Display(Name = "NombreApellido")]
         [StringLength(400)]
         public string NombreApellido { get; set; }
 
-        [Required(ErrorMessage = "El TiposangreId es obligatorio")]
-        [Display(Name = "TiposangreId")]
-        public int TiposangreId { get; set; }
+        [Required(ErrorMessage = "El EstadoCivilId es obligatorio")]
+        [Display(Name = "EstadoCivilId")]
+        public int EstadoCivilId { get; set; }
 
-        [Required(ErrorMessage = "El EstadocivilId es obligatorio")]
-        [Display(Name = "EstadocivilId")]
-        public int EstadocivilId { get; set; }
+        [Display(Name = "FechaNacimiento")]
+        public DateTime? FechaNacimiento { get; set; }
 
-        [Required(ErrorMessage = "El Edad es obligatorio")]
+        [Required(ErrorMessage = "El Edad Paciente es obligatorio")]
         [Display(Name = "Edad")]
-        [Column("Datanumeric_18_0", TypeName = "numeric(18, 0)")]
+        [Column(TypeName = "int")]
         public int Edad { get; set; }
 
-        [Required(ErrorMessage = "El CiudadId es obligatorio")]
-        [Display(Name = "CiudadId")]
-        public int CiudadId { get; set; }
+        [Required(ErrorMessage = "El LugarNacimiento es obligatorio")]
+        [Display(Name = "LugarNacimiento")]
+        [StringLength(400)]
+        public string LugarNacimiento { get; set; }
 
         [Required(ErrorMessage = "El Nacionalidad es obligatorio")]
         [Display(Name = "Nacionalidad")]
@@ -53,22 +53,41 @@ namespace MedicalPLE.Models
         [Display(Name = "GeneroId")]
         public int GeneroId { get; set; }
 
+        [Required(ErrorMessage = "El TipoSangreId es obligatorio")]
+        [Display(Name = "TipoSangreId")]
+        public int TipoSangreId { get; set; }
+
+        [Required(ErrorMessage = "El EpsId es obligatorio")]
+        [Display(Name = "EpsId")]
+        public int EpsId { get; set; }
+
+        [Required(ErrorMessage = "El CiudadId es obligatorio")]
+        [Display(Name = "CiudadId")]
+        public int CiudadId { get; set; }
+
          [ForeignKey("TipodocId")]
         public Tipodoc Tipodoc { get; set; }
 
-        [ForeignKey("TiposangreId")]
-        public Tiposangre Tiposangre { get; set; }
-
-        [ForeignKey("EstadocivilId")]
-        public Estadocivil Estadocivil { get; set; }
+        [ForeignKey("EstadoCivilId")]
+        public EstadoCivil EstadoCivil { get; set; }
 
         [ForeignKey("GeneroId")]
         public Genero Genero { get; set; }
+
+        [ForeignKey("TipoSangreId")]
+        public TipoSangre TipoSangre { get; set; }
+
+        [ForeignKey("EpsId")]
+        public Eps Eps { get; set; }
 
         [ForeignKey("CiudadId")]
         public Ciudad Ciudad { get; set; }
 
 
    }
+
+
+
+
 }
 

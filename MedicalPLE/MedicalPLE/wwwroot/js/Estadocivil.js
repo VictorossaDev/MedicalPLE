@@ -7,23 +7,23 @@ $(document).ready(function () {
 function cargarDatatable() {
     dataTable = $("#tblestadocivil").DataTable({
         "ajax": {
-            "url": "/admin/Estadocivil/GetAll",
+            "url": "/admin/EstadoCivil/GetAll",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "estadocivilId", "width": "5%" },
-            { "data": "nombreEstadocivil", "width": "10%" },
+            { "data": "estadoCivilId", "width": "5%" },
+            { "data": "nombreEstadoCivil", "width": "10%" },
 
             {
-                "data": "estadocivilId",
+                "data": "estadoCivilId",
                 "render": function (data) {
                     return `<div class="text-center">
-                                <a href="/Admin/Estadocivil/Edit/${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
+                                <a href="/Admin/EstadoCivil/Edit/${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
                                     <i class='far fa-edit'></i> Editar
                                 </a>
                                 &nbsp;
-                                <a onclick=Delete("/Admin/Estadocivil/Delete/${data}") class='btn btn-danger text-white' style='cursor:pointer; width:100px;'>
+                                <a onclick=Delete("/Admin/EstadoCivil/Delete/${data}") class='btn btn-danger text-white' style='cursor:pointer; width:100px;'>
                                     <i class='far fa-trash-alt'></i> Borrar
                                 </a>
                             </div>

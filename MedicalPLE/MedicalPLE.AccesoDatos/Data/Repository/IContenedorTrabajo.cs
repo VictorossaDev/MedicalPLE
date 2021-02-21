@@ -10,11 +10,11 @@ namespace MedicalPLE.AccesoDatos.Data.Repository
       // Aqui se nombran todos los repositorios 
       
         ITipodocRepository Tipodoc { get; }
-        ITiposangreRepository Tiposangre { get; }
-        IGeneroRepository Genero { get; }
+        ITipoSangreRepository TipoSangre { get; }
         IEpsRepository Eps { get; }
         IDepartamentoRepository Departamento { get; }
-        IEstadocivilRepository Estadocivil { get; }
+        IEstadoCivilRepository EstadoCivil { get; }
+        IGeneroRepository Genero { get; }
         IPacienteRepository Paciente { get; }
         ICiudadRepository Ciudad { get; }    
         ICategoriaRepository Categoria { get; }

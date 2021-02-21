@@ -61,9 +61,6 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Orden")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Categoria");
@@ -128,22 +125,22 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.ToTable("Eps");
                 });
 
-            modelBuilder.Entity("MedicalPLE.Models.Estadocivil", b =>
+            modelBuilder.Entity("MedicalPLE.Models.EstadoCivil", b =>
                 {
-                    b.Property<int>("EstadocivilId")
+                    b.Property<int>("EstadoCivilId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("EstadocivilId")
+                        .HasColumnName("EstadoCivilId")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("NombreEstadocivil")
+                    b.Property<string>("NombreEstadoCivil")
                         .IsRequired()
-                        .HasColumnType("nvarchar(300)")
-                        .HasMaxLength(300);
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
-                    b.HasKey("EstadocivilId");
+                    b.HasKey("EstadoCivilId");
 
-                    b.ToTable("Estadocivil");
+                    b.ToTable("EstadoCivil");
                 });
 
             modelBuilder.Entity("MedicalPLE.Models.Genero", b =>
@@ -175,15 +172,25 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.Property<int>("CiudadId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Edad")
-                        .HasColumnName("Datanumeric_18_0")
-                        .HasColumnType("numeric(18, 0)");
-
-                    b.Property<int>("EstadocivilId")
+                    b.Property<int>("Edad")
                         .HasColumnType("int");
+
+                    b.Property<int>("EpsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EstadoCivilId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("FechaNacimiento")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("GeneroId")
                         .HasColumnType("int");
+
+                    b.Property<string>("LugarNacimiento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
 
                     b.Property<string>("Nacionalidad")
                         .IsRequired()
@@ -195,26 +202,28 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("nvarchar(400)")
                         .HasMaxLength(400);
 
-                    b.Property<decimal>("NumeroDoc")
-                        .HasColumnType("numeric(18, 0)");
-
-                    b.Property<int>("TipodocId")
+                    b.Property<int>("NumeroDocumento")
                         .HasColumnType("int");
 
-                    b.Property<int>("TiposangreId")
+                    b.Property<int>("TipoSangreId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipodocId")
                         .HasColumnType("int");
 
                     b.HasKey("PacienteId");
 
                     b.HasIndex("CiudadId");
 
-                    b.HasIndex("EstadocivilId");
+                    b.HasIndex("EpsId");
+
+                    b.HasIndex("EstadoCivilId");
 
                     b.HasIndex("GeneroId");
 
-                    b.HasIndex("TipodocId");
+                    b.HasIndex("TipoSangreId");
 
-                    b.HasIndex("TiposangreId");
+                    b.HasIndex("TipodocId");
 
                     b.ToTable("Paciente");
                 });
@@ -242,6 +251,24 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.ToTable("Slider");
                 });
 
+            modelBuilder.Entity("MedicalPLE.Models.TipoSangre", b =>
+                {
+                    b.Property<int>("TipoSangreId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("TipoSangreId")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NombreTipoSangre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("TipoSangreId");
+
+                    b.ToTable("TipoSangre");
+                });
+
             modelBuilder.Entity("MedicalPLE.Models.Tipodoc", b =>
                 {
                     b.Property<int>("TipodocId")
@@ -258,24 +285,6 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.HasKey("TipodocId");
 
                     b.ToTable("Tipodoc");
-                });
-
-            modelBuilder.Entity("MedicalPLE.Models.Tiposangre", b =>
-                {
-                    b.Property<int>("TiposangreId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("TiposangreId")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NombreTiposangre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.HasKey("TiposangreId");
-
-                    b.ToTable("Tiposangre");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -528,9 +537,15 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MedicalPLE.Models.Estadocivil", "Estadocivil")
+                    b.HasOne("MedicalPLE.Models.Eps", "Eps")
                         .WithMany()
-                        .HasForeignKey("EstadocivilId")
+                        .HasForeignKey("EpsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedicalPLE.Models.EstadoCivil", "EstadoCivil")
+                        .WithMany()
+                        .HasForeignKey("EstadoCivilId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -540,15 +555,15 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MedicalPLE.Models.Tipodoc", "Tipodoc")
+                    b.HasOne("MedicalPLE.Models.TipoSangre", "TipoSangre")
                         .WithMany()
-                        .HasForeignKey("TipodocId")
+                        .HasForeignKey("TipoSangreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MedicalPLE.Models.Tiposangre", "Tiposangre")
+                    b.HasOne("MedicalPLE.Models.Tipodoc", "Tipodoc")
                         .WithMany()
-                        .HasForeignKey("TiposangreId")
+                        .HasForeignKey("TipodocId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

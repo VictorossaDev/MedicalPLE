@@ -1,4 +1,4 @@
-// Tabla Independiente => Tiposangre
+// Tabla Independiente => TipoSangre
 using System;
 using System.IO;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
     [Authorize]
     // Area a la que pertenece el controlador
     [Area("Admin")]
-    public class TiposangreController : Controller
+    public class TipoSangreController : Controller
     {
         // Instanciamos el contenedor de trabajo que es donde tenemos todos los repositorios
         private readonly IContenedorTrabajo _contenedorTrabajo;
@@ -23,7 +23,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         private readonly IWebHostEnvironment _hostingEnvironment;
 
         // Contructor de la clase para acceder a todas las entidades
-        public TiposangreController(IContenedorTrabajo contenedorTrabajo, IWebHostEnvironment hostingEnvironment)
+        public TipoSangreController(IContenedorTrabajo contenedorTrabajo, IWebHostEnvironment hostingEnvironment)
         {
             _contenedorTrabajo = contenedorTrabajo;
             _hostingEnvironment = hostingEnvironment;
@@ -45,12 +45,12 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Tiposangre tiposangre)
+        public IActionResult Create(TipoSangre tiposangre)
         {
             if (ModelState.IsValid)
             {             
 
-                _contenedorTrabajo.Tiposangre.Add(tiposangre);
+                _contenedorTrabajo.TipoSangre.Add(tiposangre);
                 _contenedorTrabajo.Save();
 
                 return RedirectToAction(nameof(Index));
@@ -59,12 +59,12 @@ namespace MedicalPLE.Areas.Admin.Controllers
             return View();
         }
         // Metodo para Crear Imagen
-        private void ConCreacionDeImagen(Tiposangre tiposangre)
+        private void ConCreacionDeImagen(TipoSangre tiposangre)
         {
             string rutaPrincipal = _hostingEnvironment.WebRootPath;
             var archivos = HttpContext.Request.Form.Files;
 
-            //Nueva Imagen de Tiposangre
+            //Nueva Imagen de TipoSangre
             string nombreArchivo = Guid.NewGuid().ToString();
             var subidas = Path.Combine(rutaPrincipal, @"imagenes\tiposangre");
             var extension = Path.GetExtension(archivos[0].FileName);
@@ -83,7 +83,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {          
             if (id != null)
             {
-                var tiposangre = _contenedorTrabajo.Tiposangre.Get(id.GetValueOrDefault());
+                var tiposangre = _contenedorTrabajo.TipoSangre.Get(id.GetValueOrDefault());
                 return View(tiposangre);
             }
             return View();
@@ -92,19 +92,19 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Tiposangre tiposangre)
+        public IActionResult Edit(TipoSangre tiposangre)
         {
             if (ModelState.IsValid)
             {
                 string rutaPrincipal = _hostingEnvironment.WebRootPath;
                 var archivos = HttpContext.Request.Form.Files;
 
-                var tiposangreDesdeDb = _contenedorTrabajo.Tiposangre.Get(tiposangre.TiposangreId);
+                var tiposangreDesdeDb = _contenedorTrabajo.TipoSangre.Get(tiposangre.TipoSangreId);
 
                 if (archivos.Count() > 0)
                 {
 
-                    _contenedorTrabajo.Tiposangre.Update(tiposangre);
+                    _contenedorTrabajo.TipoSangre.Update(tiposangre);
                     _contenedorTrabajo.Save();
 
                     return RedirectToAction(nameof(Index));
@@ -115,7 +115,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
                 }
 
-                _contenedorTrabajo.Tiposangre.Update(tiposangre);
+                _contenedorTrabajo.TipoSangre.Update(tiposangre);
                 _contenedorTrabajo.Save();
                 return RedirectToAction(nameof(Index));
             }
@@ -123,7 +123,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         }
 
         // Actualiza imagen que este en base de datos
-        private static void EditarImagenGuardada(Tiposangre tiposangre, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, Tiposangre tiposangreDesdeDb)
+        private static void EditarImagenGuardada(TipoSangre tiposangre, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, TipoSangre tiposangreDesdeDb)
         {
             string nombreArchivo = Guid.NewGuid().ToString();
             var subidas = Path.Combine(rutaPrincipal, @"imagenes\tiposangre");
@@ -137,24 +137,24 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         }       
         
-        #region LLAMADAS A LA API TABLA Tiposangre
+        #region LLAMADAS A LA API TABLA TipoSangre
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new { data = _contenedorTrabajo.Tiposangre.GetAll() });
+            return Json(new { data = _contenedorTrabajo.TipoSangre.GetAll() });
         }
         // Para la eliminacion por convencion el parametro debera llamarce id si que si....
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            var objFromDb = _contenedorTrabajo.Tiposangre.Get(id);
+            var objFromDb = _contenedorTrabajo.TipoSangre.Get(id);
             if (objFromDb == null)
             {
-                return Json(new { success = false, message = "Error borrando Tiposangre" });
+                return Json(new { success = false, message = "Error borrando TipoSangre" });
             }
-            _contenedorTrabajo.Tiposangre.Remove(objFromDb);
+            _contenedorTrabajo.TipoSangre.Remove(objFromDb);
             _contenedorTrabajo.Save();
-            return Json(new { success = true, message = "Tiposangre borrado correctamente" });
+            return Json(new { success = true, message = "TipoSangre borrado correctamente" });
         }
         #endregion
     }

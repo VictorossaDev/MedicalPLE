@@ -1,4 +1,4 @@
-// Tabla Independiente => Estadocivil
+// Tabla Independiente => EstadoCivil
 using System;
 using System.IO;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
     [Authorize]
     // Area a la que pertenece el controlador
     [Area("Admin")]
-    public class EstadocivilController : Controller
+    public class EstadoCivilController : Controller
     {
         // Instanciamos el contenedor de trabajo que es donde tenemos todos los repositorios
         private readonly IContenedorTrabajo _contenedorTrabajo;
@@ -23,7 +23,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         private readonly IWebHostEnvironment _hostingEnvironment;
 
         // Contructor de la clase para acceder a todas las entidades
-        public EstadocivilController(IContenedorTrabajo contenedorTrabajo, IWebHostEnvironment hostingEnvironment)
+        public EstadoCivilController(IContenedorTrabajo contenedorTrabajo, IWebHostEnvironment hostingEnvironment)
         {
             _contenedorTrabajo = contenedorTrabajo;
             _hostingEnvironment = hostingEnvironment;
@@ -45,12 +45,12 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Estadocivil estadocivil)
+        public IActionResult Create(EstadoCivil estadocivil)
         {
             if (ModelState.IsValid)
             {             
 
-                _contenedorTrabajo.Estadocivil.Add(estadocivil);
+                _contenedorTrabajo.EstadoCivil.Add(estadocivil);
                 _contenedorTrabajo.Save();
 
                 return RedirectToAction(nameof(Index));
@@ -59,12 +59,12 @@ namespace MedicalPLE.Areas.Admin.Controllers
             return View();
         }
         // Metodo para Crear Imagen
-        private void ConCreacionDeImagen(Estadocivil estadocivil)
+        private void ConCreacionDeImagen(EstadoCivil estadocivil)
         {
             string rutaPrincipal = _hostingEnvironment.WebRootPath;
             var archivos = HttpContext.Request.Form.Files;
 
-            //Nueva Imagen de Estadocivil
+            //Nueva Imagen de EstadoCivil
             string nombreArchivo = Guid.NewGuid().ToString();
             var subidas = Path.Combine(rutaPrincipal, @"imagenes\estadocivil");
             var extension = Path.GetExtension(archivos[0].FileName);
@@ -83,7 +83,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {          
             if (id != null)
             {
-                var estadocivil = _contenedorTrabajo.Estadocivil.Get(id.GetValueOrDefault());
+                var estadocivil = _contenedorTrabajo.EstadoCivil.Get(id.GetValueOrDefault());
                 return View(estadocivil);
             }
             return View();
@@ -92,19 +92,19 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Estadocivil estadocivil)
+        public IActionResult Edit(EstadoCivil estadocivil)
         {
             if (ModelState.IsValid)
             {
                 string rutaPrincipal = _hostingEnvironment.WebRootPath;
                 var archivos = HttpContext.Request.Form.Files;
 
-                var estadocivilDesdeDb = _contenedorTrabajo.Estadocivil.Get(estadocivil.EstadocivilId);
+                var estadocivilDesdeDb = _contenedorTrabajo.EstadoCivil.Get(estadocivil.EstadoCivilId);
 
                 if (archivos.Count() > 0)
                 {
 
-                    _contenedorTrabajo.Estadocivil.Update(estadocivil);
+                    _contenedorTrabajo.EstadoCivil.Update(estadocivil);
                     _contenedorTrabajo.Save();
 
                     return RedirectToAction(nameof(Index));
@@ -115,7 +115,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
                 }
 
-                _contenedorTrabajo.Estadocivil.Update(estadocivil);
+                _contenedorTrabajo.EstadoCivil.Update(estadocivil);
                 _contenedorTrabajo.Save();
                 return RedirectToAction(nameof(Index));
             }
@@ -123,7 +123,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         }
 
         // Actualiza imagen que este en base de datos
-        private static void EditarImagenGuardada(Estadocivil estadocivil, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, Estadocivil estadocivilDesdeDb)
+        private static void EditarImagenGuardada(EstadoCivil estadocivil, string rutaPrincipal, Microsoft.AspNetCore.Http.IFormFileCollection archivos, EstadoCivil estadocivilDesdeDb)
         {
             string nombreArchivo = Guid.NewGuid().ToString();
             var subidas = Path.Combine(rutaPrincipal, @"imagenes\estadocivil");
@@ -137,24 +137,24 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
         }       
         
-        #region LLAMADAS A LA API TABLA Estadocivil
+        #region LLAMADAS A LA API TABLA EstadoCivil
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new { data = _contenedorTrabajo.Estadocivil.GetAll() });
+            return Json(new { data = _contenedorTrabajo.EstadoCivil.GetAll() });
         }
         // Para la eliminacion por convencion el parametro debera llamarce id si que si....
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            var objFromDb = _contenedorTrabajo.Estadocivil.Get(id);
+            var objFromDb = _contenedorTrabajo.EstadoCivil.Get(id);
             if (objFromDb == null)
             {
-                return Json(new { success = false, message = "Error borrando Estadocivil" });
+                return Json(new { success = false, message = "Error borrando EstadoCivil" });
             }
-            _contenedorTrabajo.Estadocivil.Remove(objFromDb);
+            _contenedorTrabajo.EstadoCivil.Remove(objFromDb);
             _contenedorTrabajo.Save();
-            return Json(new { success = true, message = "Estadocivil borrado correctamente" });
+            return Json(new { success = true, message = "EstadoCivil borrado correctamente" });
         }
         #endregion
     }

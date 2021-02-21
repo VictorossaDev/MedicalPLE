@@ -13,8 +13,19 @@ function cargarDatatable() {
         },
         "columns": [
             { "data": "pacienteId", "width": "5%" },
-            { "data": "numeroDoc", "width": "10%" },
+            { "data": "numeroDocumento", "width": "10%" },
             { "data": "nombreApellido", "width": "10%" },
+            { "data": "fechaNacimiento", "width": "10%" },
+            { "data": "edad", "width": "10%" },
+            { "data": "lugarNacimiento", "width": "10%" },
+            { "data": "nacionalidad", "width": "10%" },
+
+            { "data": "tipodoc.nombreTipodoc", "width": "15%" },
+            { "data": "estadoCivil.nombreEstadoCivil", "width": "15%" },
+            { "data": "genero.nombreGenero", "width": "15%" },
+            { "data": "tipoSangre.nombreTipoSangre", "width": "15%" },
+            { "data": "eps.nombreEps", "width": "15%" },
+            { "data": "ciudad.nombreCiudad", "width": "15%" },
             {
                 "data": "pacienteId",
                 "render": function (data) {

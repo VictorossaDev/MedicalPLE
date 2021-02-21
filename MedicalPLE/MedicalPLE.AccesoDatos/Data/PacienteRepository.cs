@@ -28,14 +28,17 @@ namespace MedicalPLE.AccesoDatos.Data
         {
             var objDesdeDb = _db.Paciente.FirstOrDefault(s => s.PacienteId == paciente.PacienteId);
             objDesdeDb.TipodocId = paciente.TipodocId;
-            objDesdeDb.NumeroDoc = paciente.NumeroDoc;
+            objDesdeDb.NumeroDocumento = paciente.NumeroDocumento;
             objDesdeDb.NombreApellido = paciente.NombreApellido;
-            objDesdeDb.TiposangreId = paciente.TiposangreId;
-            objDesdeDb.EstadocivilId = paciente.EstadocivilId;
+            objDesdeDb.EstadoCivilId = paciente.EstadoCivilId;
+            objDesdeDb.FechaNacimiento = paciente.FechaNacimiento;
             objDesdeDb.Edad = paciente.Edad;
-            objDesdeDb.CiudadId = paciente.CiudadId;
+            objDesdeDb.LugarNacimiento = paciente.LugarNacimiento;
             objDesdeDb.Nacionalidad = paciente.Nacionalidad;
             objDesdeDb.GeneroId = paciente.GeneroId;
+            objDesdeDb.TipoSangreId = paciente.TipoSangreId;
+            objDesdeDb.EpsId = paciente.EpsId;
+            objDesdeDb.CiudadId = paciente.CiudadId;
 
             _db.SaveChanges();
         }

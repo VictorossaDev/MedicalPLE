@@ -14,8 +14,5 @@ namespace MedicalPLE.Models
         [Display(Name ="Nombre Categoría")]
         public string Nombre { get; set; }
 
-        [Required]
-        [Display(Name = "Orden de visualización")]
-        public int Orden { get; set; }
     }
 }
