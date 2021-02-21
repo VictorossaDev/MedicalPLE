@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 function cargarDatatable() {
-    dataTable = $("#tbltipoSangre").DataTable({
+    dataTable = $("#tbltiposangre").DataTable({
         "ajax": {
             "url": "/admin/TipoSangre/GetAll",
             "type": "GET",
@@ -13,7 +13,7 @@ function cargarDatatable() {
         },
         "columns": [
             { "data": "tipoSangreId", "width": "5%" },
-            { "data": "nombreTiposangre", "width": "10%" },
+            { "data": "nombreTipoSangre", "width": "10%" },
 
             {
                 "data": "tipoSangreId",

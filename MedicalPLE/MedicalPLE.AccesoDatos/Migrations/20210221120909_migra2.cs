@@ -323,7 +323,13 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     GeneroId = table.Column<int>(nullable: false),
                     TipoSangreId = table.Column<int>(nullable: false),
                     EpsId = table.Column<int>(nullable: false),
-                    CiudadId = table.Column<int>(nullable: false)
+                    CiudadId = table.Column<int>(nullable: false),
+                    Direccion = table.Column<string>(maxLength: 400, nullable: false),
+                    Barrio = table.Column<string>(maxLength: 300, nullable: false),
+                    Ocupacion = table.Column<string>(maxLength: 300, nullable: false),
+                    Correo = table.Column<string>(maxLength: 400, nullable: false),
+                    TelefonoFijo = table.Column<string>(maxLength: 100, nullable: false),
+                    TelefonoCelular = table.Column<string>(maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {

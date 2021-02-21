@@ -8,7 +8,7 @@ namespace MedicalPLE.AccesoDatos.Data.Repository
 {
     public interface ITipoSangreRepository : IRepository<TipoSangre>
     {
-        IEnumerable<SelectListItem> GetListaTiposangre();
+        IEnumerable<SelectListItem> GetListaTipoSangre();
 
         void Update(TipoSangre tiposangre);
     }

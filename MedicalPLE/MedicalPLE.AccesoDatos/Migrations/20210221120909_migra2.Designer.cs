@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalPLE.AccesoDatos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210221040217_migra2")]
+    [Migration("20210221120909_migra2")]
     partial class migra2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -171,8 +171,23 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Barrio")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
                     b.Property<int>("CiudadId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Correo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
 
                     b.Property<int>("Edad")
                         .HasColumnType("int");
@@ -206,6 +221,21 @@ namespace MedicalPLE.AccesoDatos.Migrations
 
                     b.Property<int>("NumeroDocumento")
                         .HasColumnType("int");
+
+                    b.Property<string>("Ocupacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
+                    b.Property<string>("TelefonoCelular")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("TelefonoFijo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<int>("TipoSangreId")
                         .HasColumnType("int");

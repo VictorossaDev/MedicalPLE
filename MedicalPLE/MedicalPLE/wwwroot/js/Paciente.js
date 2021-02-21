@@ -19,6 +19,12 @@ function cargarDatatable() {
             { "data": "edad", "width": "10%" },
             { "data": "lugarNacimiento", "width": "10%" },
             { "data": "nacionalidad", "width": "10%" },
+            { "data": "direccion", "width": "10%" },
+            { "data": "barrio", "width": "10%" },
+            { "data": "ocupacion", "width": "10%" },
+            { "data": "correo", "width": "10%" },
+            { "data": "telefonoFijo", "width": "10%" },
+            { "data": "telefonoCelular", "width": "10%" },
 
             { "data": "tipodoc.nombreTipodoc", "width": "15%" },
             { "data": "estadoCivil.nombreEstadoCivil", "width": "15%" },

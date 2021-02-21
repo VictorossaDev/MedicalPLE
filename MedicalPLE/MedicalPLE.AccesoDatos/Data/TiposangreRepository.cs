@@ -18,7 +18,7 @@ namespace MedicalPLE.AccesoDatos.Data
             _db = db;
         }
         // Para implementar en un combobox una seleccion de elementos de la entidad, nombre y el value
-        public IEnumerable<SelectListItem> GetListaTiposangre()
+        public IEnumerable<SelectListItem> GetListaTipoSangre()
         {
             return _db.TipoSangre.Select(i => new SelectListItem() { 
                 Text = i.NombreTipoSangre,

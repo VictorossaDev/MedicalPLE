@@ -79,6 +79,66 @@
                 </div>
             </div>
 
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Direccion">Dirección</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Paciente.Direccion" class="form-control" type="text" maxlength="400" />
+                    <span asp-validation-for="Paciente.Direccion" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Barrio">Barrio</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Paciente.Barrio" class="form-control" type="text" maxlength="300" />
+                    <span asp-validation-for="Paciente.Barrio" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Ocupacion">Ocupación</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Paciente.Ocupacion" class="form-control" type="text" maxlength="300" />
+                    <span asp-validation-for="Paciente.Ocupacion" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.Correo"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Paciente.Correo" class="form-control" type="email" />
+                    <span asp-validation-for="Paciente.Correo" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.TelefonoFijo">Telefono Fijo</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Paciente.TelefonoFijo" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
+                    <span asp-validation-for="Paciente.TelefonoFijo" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Paciente.TelefonoCelular">Teléfono Celular</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Paciente.TelefonoCelular" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
+                    <span asp-validation-for="Paciente.TelefonoCelular" class="text-danger"></span>
+                </div>
+            </div>
+
              <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="Paciente.TipodocId">Tipodoc</label>

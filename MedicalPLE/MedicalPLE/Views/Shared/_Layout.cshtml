@@ -19,22 +19,21 @@
 
     @if (User.IsInRole(CNT.Admin))
     {
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Tipodoc" asp-action="Index">Tipo de Documento</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="TipoSangre" asp-action="Index">Tipo de Sangre</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Eps" asp-action="Index">EPS Paciente</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Departamento" asp-action="Index">Departamento</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="EstadoCivil" asp-action="Index">Estado Civil</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Genero" asp-action="Index">GÃ©nero</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Paciente" asp-action="Index">Paciente</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Ciudad" asp-action="Index">Ciudad</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Categorias" asp-action="Index">CategorÃ­as</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Articulos" asp-action="Index">ArtÃ­culos</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Sliders" asp-action="Index">Sliders</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
-        </div>
-    }
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Tipodoc" asp-action="Index">Tipo de Documento</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="TipoSangre" asp-action="Index">Tipo de Sangre</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Eps" asp-action="Index">EPS Paciente</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Departamento" asp-action="Index">Departamento</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="EstadoCivil" asp-action="Index">Estado Civil</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Genero" asp-action="Index">Género</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Paciente" asp-action="Index">Paciente</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Ciudad" asp-action="Index">Ciudad</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Categorias" asp-action="Index">Categorías</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Articulos" asp-action="Index">Artículos</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Sliders" asp-action="Index">Sliders</a>
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
+</div>}
 
     <div id="main">
         <header>
@@ -46,8 +45,7 @@
                     </button>
                     @if (User.IsInRole(CNT.Admin))
                     {
-                        <span class="nav-link text-white font-weight-bold" style="cursor:pointer; font-size: 1.09375rem" onclick="openNav()">&#9776; Menu</span>
-                    }
+        <span class="nav-link text-white font-weight-bold" style="cursor:pointer; font-size: 1.09375rem" onclick="openNav()">&#9776; Menu</span>}
                     <div class="collapse navbar-collapse" id="mySidenav">
 
                     </div>

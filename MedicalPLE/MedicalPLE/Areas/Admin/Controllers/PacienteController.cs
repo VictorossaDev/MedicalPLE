@@ -38,7 +38,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 ListaTipodoc = _contenedorTrabajo.Tipodoc.GetListaTipodoc(),
                 ListaEstadoCivil = _contenedorTrabajo.EstadoCivil.GetListaEstadoCivil(),
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
-                ListaTipoSangre = _contenedorTrabajo.TipoSangre.GetListaTiposangre(),
+                ListaTipoSangre = _contenedorTrabajo.TipoSangre.GetListaTipoSangre(),
                 ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
                 ListaCiudad = _contenedorTrabajo.Ciudad.GetListaCiudad(),
 
@@ -93,7 +93,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 ListaTipodoc = _contenedorTrabajo.Tipodoc.GetListaTipodoc(),
                 ListaEstadoCivil = _contenedorTrabajo.EstadoCivil.GetListaEstadoCivil(),
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
-                ListaTipoSangre = _contenedorTrabajo.TipoSangre.GetListaTiposangre(),
+                ListaTipoSangre = _contenedorTrabajo.TipoSangre.GetListaTipoSangre(),
                 ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
                 ListaCiudad = _contenedorTrabajo.Ciudad.GetListaCiudad(),
 
