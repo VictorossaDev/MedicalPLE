@@ -158,6 +158,20 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TratamientosEsteticos",
+                columns: table => new
+                {
+                    TratamientoEsteticoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NombreTratamientoEstetico = table.Column<string>(maxLength: 400, nullable: false),
+                    ObservacionesTratamiento = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TratamientosEsteticos", x => x.TratamientoEsteticoId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -307,6 +321,35 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PacienteEstetica",
+                columns: table => new
+                {
+                    PacienteEsteticaId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TipodocId = table.Column<int>(nullable: false),
+                    NumeroDocumento = table.Column<int>(type: "int", nullable: false),
+                    NombreApellido = table.Column<string>(maxLength: 400, nullable: false),
+                    Edad = table.Column<int>(type: "int", nullable: false),
+                    GeneroId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PacienteEstetica", x => x.PacienteEsteticaId);
+                    table.ForeignKey(
+                        name: "FK_PacienteEstetica_Genero_GeneroId",
+                        column: x => x.GeneroId,
+                        principalTable: "Genero",
+                        principalColumn: "GeneroId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PacienteEstetica_Tipodoc_TipodocId",
+                        column: x => x.TipodocId,
+                        principalTable: "Tipodoc",
+                        principalColumn: "TipodocId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Paciente",
                 columns: table => new
                 {
@@ -390,6 +433,51 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "SesionTratamientoEstetico",
+                columns: table => new
+                {
+                    SesionTratamientoEsteticoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PacienteEsteticaId = table.Column<int>(nullable: false),
+                    TraeAcompanante = table.Column<bool>(nullable: false),
+                    Acompanante = table.Column<string>(maxLength: 400, nullable: false),
+                    TelefonoReferenciaAcom = table.Column<string>(maxLength: 100, nullable: false),
+                    FechaSesion = table.Column<DateTime>(nullable: true),
+                    Formulaciones = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SesionTratamientoEstetico", x => x.SesionTratamientoEsteticoId);
+                    table.ForeignKey(
+                        name: "FK_SesionTratamientoEstetico_PacienteEstetica_PacienteEsteticaId",
+                        column: x => x.PacienteEsteticaId,
+                        principalTable: "PacienteEstetica",
+                        principalColumn: "PacienteEsteticaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ImagenesSesion",
+                columns: table => new
+                {
+                    ImagenesSesionId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DescripcionImagen = table.Column<string>(nullable: false),
+                    Imagen = table.Column<string>(nullable: true),
+                    SesionTratamientoEsteticoId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ImagenesSesion", x => x.ImagenesSesionId);
+                    table.ForeignKey(
+                        name: "FK_ImagenesSesion_SesionTratamientoEstetico_SesionTratamientoEsteticoId",
+                        column: x => x.SesionTratamientoEsteticoId,
+                        principalTable: "SesionTratamientoEstetico",
+                        principalColumn: "SesionTratamientoEsteticoId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Articulo_CategoriaId",
                 table: "Articulo",
@@ -440,6 +528,11 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 column: "DepartamentoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ImagenesSesion_SesionTratamientoEsteticoId",
+                table: "ImagenesSesion",
+                column: "SesionTratamientoEsteticoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Paciente_CiudadId",
                 table: "Paciente",
                 column: "CiudadId");
@@ -468,6 +561,21 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 name: "IX_Paciente_TipodocId",
                 table: "Paciente",
                 column: "TipodocId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PacienteEstetica_GeneroId",
+                table: "PacienteEstetica",
+                column: "GeneroId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PacienteEstetica_TipodocId",
+                table: "PacienteEstetica",
+                column: "TipodocId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SesionTratamientoEstetico_PacienteEsteticaId",
+                table: "SesionTratamientoEstetico",
+                column: "PacienteEsteticaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -491,10 +599,16 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "ImagenesSesion");
+
+            migrationBuilder.DropTable(
                 name: "Paciente");
 
             migrationBuilder.DropTable(
                 name: "Slider");
+
+            migrationBuilder.DropTable(
+                name: "TratamientosEsteticos");
 
             migrationBuilder.DropTable(
                 name: "Categoria");
@@ -506,6 +620,9 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "SesionTratamientoEstetico");
+
+            migrationBuilder.DropTable(
                 name: "Ciudad");
 
             migrationBuilder.DropTable(
@@ -515,16 +632,19 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 name: "EstadoCivil");
 
             migrationBuilder.DropTable(
-                name: "Genero");
-
-            migrationBuilder.DropTable(
                 name: "TipoSangre");
 
             migrationBuilder.DropTable(
-                name: "Tipodoc");
+                name: "PacienteEstetica");
 
             migrationBuilder.DropTable(
                 name: "Departamento");
+
+            migrationBuilder.DropTable(
+                name: "Genero");
+
+            migrationBuilder.DropTable(
+                name: "Tipodoc");
         }
     }
 }

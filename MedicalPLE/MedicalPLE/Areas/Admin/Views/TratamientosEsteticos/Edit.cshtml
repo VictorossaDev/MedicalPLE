@@ -1,0 +1,78 @@
+<!-- Tabla Independiente => TratamientosEsteticos-->
+
+@model MedicalPLE.Models.TratamientosEsteticos
+@{
+    ViewData["Title"] = "Editar TratamientosEsteticos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h3 class="text-center"> Editar tratamientosesteticos</h3>
+<form method="post" asp-action="Edit"  id="formTratamientosEsteticos">
+    <div class="row px-2 mx-2 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="TratamientoEsteticoId" />
+        <div class="col-10 offset-1 mt-4">
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="NombreTratamientoEstetico">Nombre Tratamiento</label>
+                </div>
+                <div class="col-8">
+                    <input id="IdNombreTratamientoEstetico" asp-for="NombreTratamientoEstetico" class="form-control" type="text" maxlength="400"/>
+                    <span asp-validation-for="NombreTratamientoEstetico" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ObservacionesTratamiento">Descripción Tratamiento</label>
+                </div>
+                <div class="col-8">
+                   <textarea id="IdObservacionesTratamiento" asp-for="ObservacionesTratamiento" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="ObservacionesTratamiento" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model.TratamientoEsteticoId">Actualizar</button>
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success form-control">Volver a lista</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts{
+    <script src="https://cdn.tiny.cloud/1/qukxrn62f4bz0iv6z7enaelkkzuzugir28y709xit9xm659s/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
+    </script>
+}
+
+
+<!-- UTILIDADES -->
+<!-- Acordeon -->
+<!--<button type="button" class="accordionple">Nombre de la seccion</button>
+<div class="panelaccordionple">
+    <br />-->
+<!-- La informacion o los objetos van AQUI -->
+<!--</div>-->
+
+
+<!-- --=====================================================-- -->

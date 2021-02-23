@@ -11491,7 +11491,12 @@ a.text-dark:hover, a.text-dark:focus {
     color: white;
 }
 
-    .active, .accordionple:hover {
+    .active {
+        background-color: white;
+        color: black;
+    }
+
+    .accordionple:hover {
         background-color: gainsboro;
         color: black;
     }

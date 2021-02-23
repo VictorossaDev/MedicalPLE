@@ -1,0 +1,111 @@
+<!-- Edit SesionTratamientoEstetico-->
+
+@model MedicalPLE.Models.ViewModels.SesionTratamientoEsteticoVM
+@{
+    ViewData["Title"] = "Editar SesionTratamientoEstetico";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h3 class="text-center"> Editar SesionTratamientoEstetico</h3>
+<!-- Creo un formulario que buscara el metodo Create del controlador que va por post-->
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" asp-for="SesionTratamientoEstetico.SesionTratamientoEsteticoId" />
+    <div class="row px-2 mx-2 border">
+       <!-- Vaidacion de campos del formulario, traera los mensajes que se tengan en el modelo-->
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-10 offset-1 mt-4">
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="SesionTratamientoEstetico.TraeAcompanante">Trae Acompañante</label>
+                </div>
+                <div class="col-8">
+                    @*<input asp-for="SesionTratamientoEstetico.TraeAcompanante" class="form-control"  type="number"  min="1" max="5"/>*@
+                    <input asp-for="SesionTratamientoEstetico.TraeAcompanante" class="form-control"  type="number" />
+                    <span asp-validation-for="SesionTratamientoEstetico.TraeAcompanante" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="SesionTratamientoEstetico.Acompanante">Acompañante</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="SesionTratamientoEstetico.Acompanante" class="form-control" type="text" maxlength="400" />
+                    <span asp-validation-for="SesionTratamientoEstetico.Acompanante" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="SesionTratamientoEstetico.TelefonoReferenciaAcom">Telefono en caso de urgencia</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="SesionTratamientoEstetico.TelefonoReferenciaAcom" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
+                    <span asp-validation-for="SesionTratamientoEstetico.TelefonoReferenciaAcom" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="SesionTratamientoEstetico.FechaSesion">Fecha Sesión</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="SesionTratamientoEstetico.FechaSesion" class="form-control" type="datetime-local"/>
+                    <span asp-validation-for="SesionTratamientoEstetico.FechaSesion" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="SesionTratamientoEstetico.Formulaciones">Formulaciones</label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="SesionTratamientoEstetico.Formulaciones" class="form-control" style="height:300px;"></textarea>
+                    <span asp-validation-for="SesionTratamientoEstetico.Formulaciones" class="text-danger"></span>
+                </div>
+            </div>
+
+             <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="SesionTratamientoEstetico.PacienteEsteticaId">PacienteEstetica</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.SesionTratamientoEstetico.PacienteEsteticaId, Model.ListaPacienteEstetica,
+                     "-Por favor seleccione PacienteEstetica-", new { @class = "form-control" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <!-- Vista parcial reutilizada en distintos formularios para Volver -->
+                    <partial name="_VistaCrearVolver" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="https://cdn.tiny.cloud/1/qukxrn62f4bz0iv6z7enaelkkzuzugir28y709xit9xm659s/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
+    </script>
+}
+
+<!-- UTILIDADES -->
+<!-- Acordeon -->
+<!--<button type="button" class="accordionple">Nombre de la seccion</button>
+<div class="panelaccordionple">
+    <br />-->
+<!-- La informacion o los objetos van AQUI -->
+<!--</div>-->
+
+<!-- --=====================================================-- -->

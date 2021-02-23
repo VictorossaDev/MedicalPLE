@@ -21,33 +21,170 @@
                 <br />
 
                 <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Paciente.TipodocId">Tipo de Documento</label>
+                    <div class="col-2">
+                        <label asp-for="Paciente.NombreApellido">Nombres y Apellidos Paciente</label>
                     </div>
-                    <div class="col-8">
-                        @Html.DropDownListFor(m => m.Paciente.TipodocId, Model.ListaTipodoc,
-                         "-Por favor seleccione Tipo de Documento-", new { @class = "form-control" })
+                    <div class="col-10">
+                        <input asp-for="Paciente.NombreApellido" class="form-control" type="text" maxlength="400" />
+                        <span asp-validation-for="Paciente.NombreApellido" class="text-danger"></span>
                     </div>
                 </div>
 
+                @*----------------------------------------------------------------------------------------------------*@
+
                 <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Paciente.TipodocId">Tipo de Documento</label>
+                    </div>
                     <div class="col-4">
+                        @Html.DropDownListFor(m => m.Paciente.TipodocId, Model.ListaTipodoc,
+                         "-Por favor seleccione Tipo de Documento-", new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-2">
                         <label asp-for="Paciente.NumeroDocumento">No. Documento</label>
                     </div>
-                    <div class="col-8">
+                    <div class="col-4">
                         @*<input asp-for="Paciente.NumeroDocumento" class="form-control"  type="number"  min="1" max="5"/>*@
                         <input asp-for="Paciente.NumeroDocumento" class="form-control" type="number" />
                         <span asp-validation-for="Paciente.NumeroDocumento" class="text-danger"></span>
                     </div>
                 </div>
 
+                @*----------------------------------------------------------------------------------------------------*@
+
                 <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Paciente.NombreApellido">Nombres y Apellidos Paciente</label>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TipoSangreId">Tipo de Sangre</label>
                     </div>
-                    <div class="col-8">
-                        <input asp-for="Paciente.NombreApellido" class="form-control" type="text" maxlength="400" />
-                        <span asp-validation-for="Paciente.NombreApellido" class="text-danger"></span>
+                    <div class="col-4">
+                        @Html.DropDownListFor(m => m.Paciente.TipoSangreId, Model.ListaTipoSangre,
+                         "-Por favor seleccione Tipo de Sangre-", new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.EstadoCivilId">Estado Civil</label>
+                    </div>
+                    <div class="col-4">
+                        @Html.DropDownListFor(m => m.Paciente.EstadoCivilId, Model.ListaEstadoCivil,
+                         "-Por favor seleccione Estado Civil-", new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.FechaNacimiento">Fecha de Nacimiento</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.FechaNacimiento" class="form-control" type="date" />
+                        <span asp-validation-for="Paciente.FechaNacimiento" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.Edad">Edad Paciente</label>
+                    </div>
+                    <div class="col-4">
+                        @*<input asp-for="Paciente.Edad" class="form-control"  type="number"  min="1" max="5"/>*@
+                        <input asp-for="Paciente.Edad" class="form-control" type="number" maxlength="2" />
+                        <span asp-validation-for="Paciente.Edad" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.LugarNacimiento">Lugar de Nacimiento</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.LugarNacimiento" class="form-control" type="text" maxlength="400" />
+                        <span asp-validation-for="Paciente.LugarNacimiento" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.Nacionalidad">Nacionalidad</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.Nacionalidad" class="form-control" type="text" maxlength="300" />
+                        <span asp-validation-for="Paciente.Nacionalidad" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.GeneroId">Genero Paciente</label>
+                    </div>
+                    <div class="col-4">
+                        @Html.DropDownListFor(m => m.Paciente.GeneroId, Model.ListaGenero,
+                        "-Por favor seleccione Genero Paciente-", new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-2">
+                        <label>Se Encuentra en Embarazo?</label>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" type="checkbox" />
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label>Fecha última Mestruación</label>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" type="date" />
+                    </div>
+
+                    <div class="col-2">
+                        <label>Semanas Embarazo</label>
+                    </div>
+                    <div class="col-4">
+                        @*<input asp-for="Paciente.Edad" class="form-control"  type="number"  min="1" max="5"/>*@
+                        <input type="number" class="form-control" />
+                    </div>
+
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label>Numero Embarazo</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="number" class="form-control" />
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Paciente.EpsId">Eps del Pasiente</label>
+                    </div>
+                    <div class="col-4">
+                        @Html.DropDownListFor(m => m.Paciente.EpsId, Model.ListaEps,
+                       "-Por favor seleccione Eps del Pasiente-", new { @class = "form-control" })
                     </div>
                 </div>
 
@@ -58,12 +195,150 @@
             <div class="panelaccordionple">
                 <br />
 
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label>Departamento</label>
+                    </div>
+                    <div class="col-4">
+                        @Html.DropDownListFor(m => m.Paciente.CiudadId, Model.ListaDepartamento,
+                       "-Por favor seleccione Departamento-", new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.CiudadId">Ciudad</label>
+                    </div>
+                    <div class="col-4">
+                        @Html.DropDownListFor(m => m.Paciente.CiudadId, Model.ListaCiudad,
+                        "-Por favor seleccione Ciudad-", new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Paciente.Direccion">Dirección</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Paciente.Direccion" class="form-control" type="text" maxlength="400" />
+                        <span asp-validation-for="Paciente.Direccion" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.Barrio">Barrio</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.Barrio" class="form-control" type="text" maxlength="300" />
+                        <span asp-validation-for="Paciente.Barrio" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.Ocupacion">Ocupación</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.Ocupacion" class="form-control" type="text" maxlength="300" />
+                        <span asp-validation-for="Paciente.Ocupacion" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Paciente.Correo">Correo Electrónico</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Paciente.Correo" class="form-control" type="email" />
+                        <span asp-validation-for="Paciente.Correo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TelefonoFijo">Telefono Fijo</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.TelefonoFijo" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
+                        <span asp-validation-for="Paciente.TelefonoFijo" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TelefonoCelular">Teléfono Celular</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.TelefonoCelular" class="form-control" placeholder="123-123-0123" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
+                        <span asp-validation-for="Paciente.TelefonoCelular" class="text-danger"></span>
+                    </div>
+
+                </div>
+
             </div>
             <br />
 
             <button type="button" class="accordionple">Persona Responsable</button>
             <div class="panelaccordionple">
                 <br />
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Paciente.NombreApellidoPR">Persona Responsable</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Paciente.NombreApellidoPR" class="form-control" type="text" maxlength="400" />
+                        <span asp-validation-for="Paciente.NombreApellidoPR" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TelefonoFijoPR">Teléfono Fijo</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.TelefonoFijoPR" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
+                        <span asp-validation-for="Paciente.TelefonoFijoPR" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TelefonoCelularPR">Teléfono Celular</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.TelefonoCelularPR" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
+                        <span asp-validation-for="Paciente.TelefonoCelularPR" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.ParentescoPR">Parentesco</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.ParentescoPR" class="form-control" type="text" maxlength="300" />
+                        <span asp-validation-for="Paciente.ParentescoPR" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
 
             </div>
             <br />
@@ -72,12 +347,106 @@
             <div class="panelaccordionple">
                 <br />
 
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Paciente.NombreApellidoPREF">Referido</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Paciente.NombreApellidoPREF" class="form-control" type="text" maxlength="400" />
+                        <span asp-validation-for="Paciente.NombreApellidoPREF" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TelefonoFijoPREF">Teléfono Fijo</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.TelefonoFijoPREF" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
+                        <span asp-validation-for="Paciente.TelefonoFijoPREF" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TelefonoCelularPREF">Teléfono Celular</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.TelefonoCelularPREF" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
+                        <span asp-validation-for="Paciente.TelefonoCelularPREF" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.ReferidoPor">Referido por</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.ReferidoPor" class="form-control" type="text" maxlength="400" />
+                        <span asp-validation-for="Paciente.ReferidoPor" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
             </div>
             <br />
 
             <button type="button" class="accordionple">Acompañante</button>
             <div class="panelaccordionple">
                 <br />
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Paciente.NombreApellidoACOM">Nombre Acompañante</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Paciente.NombreApellidoACOM" class="form-control" type="text" maxlength="400" />
+                        <span asp-validation-for="Paciente.NombreApellidoACOM" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TelefonoFijoACOM">Telefono Fijo Acompañante</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.TelefonoFijoACOM" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
+                        <span asp-validation-for="Paciente.TelefonoFijoACOM" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TelefonoCelularACOM">Telefono Celular</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.TelefonoCelularACOM" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
+                        <span asp-validation-for="Paciente.TelefonoCelularACOM" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.ParentescoACOM">Parentesco Acompañante</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.ParentescoACOM" class="form-control" type="text" maxlength="300" />
+                        <span asp-validation-for="Paciente.ParentescoACOM" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
 
             </div>
             <br />
@@ -86,264 +455,75 @@
             <div class="panelaccordionple">
                 <br />
 
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Paciente.NombreMadreME">Nombre Madre</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Paciente.NombreMadreME" class="form-control" type="text" maxlength="400" />
+                        <span asp-validation-for="Paciente.NombreMadreME" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.NumeroCedulaMadreME">Numero de cédula</label>
+                    </div>
+                    <div class="col-4">
+                        @*<input asp-for="Paciente.NumeroCedulaMadreME" class="form-control"  type="number"  min="1" max="5"/>*@
+                        <input asp-for="Paciente.NumeroCedulaMadreME" class="form-control" type="number" />
+                        <span asp-validation-for="Paciente.NumeroCedulaMadreME" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.TelefonoFijoME">Telefono Fijo</label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Paciente.TelefonoFijoME" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
+                        <span asp-validation-for="Paciente.TelefonoFijoME" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
+
+                <div class="form-group row">
+
+                    <div class="col-2">
+                        <label asp-for="Paciente.OcupacionME">Ocupación</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Paciente.OcupacionME" class="form-control" type="text" maxlength="300" />
+                        <span asp-validation-for="Paciente.OcupacionME" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*----------------------------------------------------------------------------------------------------*@
             </div>
             <br />
 
-         
 
 
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.FechaNacimiento">Fecha de Nacimiento</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.FechaNacimiento" class="form-control" type="datetime-local" />
-                    <span asp-validation-for="Paciente.FechaNacimiento" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.Edad">Edad Paciente</label>
-                </div>
-                <div class="col-8">
-                    @*<input asp-for="Paciente.Edad" class="form-control"  type="number"  min="1" max="5"/>*@
-                    <input asp-for="Paciente.Edad" class="form-control" type="number" />
-                    <span asp-validation-for="Paciente.Edad" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.LugarNacimiento">Lugar de Nacimiento</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.LugarNacimiento" class="form-control" type="text" maxlength="400" />
-                    <span asp-validation-for="Paciente.LugarNacimiento" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.Nacionalidad">Nacionalidad Paciente</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.Nacionalidad" class="form-control" type="text" maxlength="300" />
-                    <span asp-validation-for="Paciente.Nacionalidad" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.Direccion">Dirección</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.Direccion" class="form-control" type="text" maxlength="400" />
-                    <span asp-validation-for="Paciente.Direccion" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.Barrio">Barrio</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.Barrio" class="form-control" type="text" maxlength="300" />
-                    <span asp-validation-for="Paciente.Barrio" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.Ocupacion">Ocupación</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.Ocupacion" class="form-control" type="text" maxlength="300" />
-                    <span asp-validation-for="Paciente.Ocupacion" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.Correo">Correo Electrónico</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.Correo" class="form-control" type="email" />
-                    <span asp-validation-for="Paciente.Correo" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TelefonoFijo">Telefono Fijo</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.TelefonoFijo" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
-                    <span asp-validation-for="Paciente.TelefonoFijo" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TelefonoCelular">Teléfono Celular</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.TelefonoCelular" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
-                    <span asp-validation-for="Paciente.TelefonoCelular" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.NombreApellidoPR">Persona Responsable</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.NombreApellidoPR" class="form-control" type="text" maxlength="400" />
-                    <span asp-validation-for="Paciente.NombreApellidoPR" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TelefonoFijoPR">Teléfono Fijo</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.TelefonoFijoPR" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
-                    <span asp-validation-for="Paciente.TelefonoFijoPR" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TelefonoCelularPR">Teléfono Celular</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.TelefonoCelularPR" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
-                    <span asp-validation-for="Paciente.TelefonoCelularPR" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.ParentescoPR">Parentesco</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.ParentescoPR" class="form-control" type="text" maxlength="300" />
-                    <span asp-validation-for="Paciente.ParentescoPR" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.NombreApellidoPREF">Referido</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.NombreApellidoPREF" class="form-control" type="text" maxlength="400" />
-                    <span asp-validation-for="Paciente.NombreApellidoPREF" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TelefonoFijoPREF">Teléfono Fijo</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.TelefonoFijoPREF" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
-                    <span asp-validation-for="Paciente.TelefonoFijoPREF" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TelefonoCelularPREF">Teléfono Celular</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.TelefonoCelularPREF" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
-                    <span asp-validation-for="Paciente.TelefonoCelularPREF" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.ReferidoPor">Referido por</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.ReferidoPor" class="form-control" type="text" maxlength="400" />
-                    <span asp-validation-for="Paciente.ReferidoPor" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.NombreApellidoACOM">Nombre Acompañante</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.NombreApellidoACOM" class="form-control" type="text" maxlength="400" />
-                    <span asp-validation-for="Paciente.NombreApellidoACOM" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TelefonoFijoACOM">Telefono Fijo Acompañante</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.TelefonoFijoACOM" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
-                    <span asp-validation-for="Paciente.TelefonoFijoACOM" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TelefonoCelularACOM">Telefono Celular</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.TelefonoCelularACOM" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" />
-                    <span asp-validation-for="Paciente.TelefonoCelularACOM" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.ParentescoACOM">Parentesco Acompañante</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.ParentescoACOM" class="form-control" type="text" maxlength="300" />
-                    <span asp-validation-for="Paciente.ParentescoACOM" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.NombreMadreME">Nombre Madre</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.NombreMadreME" class="form-control" type="text" maxlength="400" />
-                    <span asp-validation-for="Paciente.NombreMadreME" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.NumeroCedulaMadreME">Numero de cédula</label>
-                </div>
-                <div class="col-8">
-                    @*<input asp-for="Paciente.NumeroCedulaMadreME" class="form-control"  type="number"  min="1" max="5"/>*@
-                    <input asp-for="Paciente.NumeroCedulaMadreME" class="form-control" type="number" />
-                    <span asp-validation-for="Paciente.NumeroCedulaMadreME" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TelefonoFijoME">Telefono Fijo</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.TelefonoFijoME" class="form-control" placeholder="123-45-67" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" type="tel" />
-                    <span asp-validation-for="Paciente.TelefonoFijoME" class="text-danger"></span>
-                </div>
-            </div>
 
             <div class="form-group row">
                 <div class="col-4">
@@ -355,15 +535,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.OcupacionME">Ocupación</label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Paciente.OcupacionME" class="form-control" type="text" maxlength="300" />
-                    <span asp-validation-for="Paciente.OcupacionME" class="text-danger"></span>
-                </div>
-            </div>
+
 
             <div class="form-group row">
                 <div class="col-4">
@@ -375,53 +547,13 @@
                 </div>
             </div>
 
-         
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.EstadoCivilId">Estado Civil</label>
-                </div>
-                <div class="col-8">
-                    @Html.DropDownListFor(m => m.Paciente.EstadoCivilId, Model.ListaEstadoCivil,
-                     "-Por favor seleccione Estado Civil-", new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.GeneroId">Genero Paciente</label>
-                </div>
-                <div class="col-8">
-                    @Html.DropDownListFor(m => m.Paciente.GeneroId, Model.ListaGenero,
-                     "-Por favor seleccione Genero Paciente-", new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.TipoSangreId">Tipo de Sangre</label>
-                </div>
-                <div class="col-8">
-                    @Html.DropDownListFor(m => m.Paciente.TipoSangreId, Model.ListaTipoSangre,
-                     "-Por favor seleccione Tipo de Sangre-", new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.EpsId">Eps del Pasiente</label>
-                </div>
-                <div class="col-8">
-                    @Html.DropDownListFor(m => m.Paciente.EpsId, Model.ListaEps,
-                     "-Por favor seleccione Eps del Pasiente-", new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Paciente.CiudadId">Ciudad</label>
-                </div>
-                <div class="col-8">
-                    @Html.DropDownListFor(m => m.Paciente.CiudadId, Model.ListaCiudad,
-                     "-Por favor seleccione Ciudad-", new { @class = "form-control" })
-                </div>
-            </div>
+
+
+
+
+
+
 
             <div class="form-group row">
                 <div class="col-8 offset-4">

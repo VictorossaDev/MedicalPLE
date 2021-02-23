@@ -512,3 +512,15 @@ C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Genero\Edit.cshtml.g.cs
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Genero\Index.cshtml.g.cs
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Genero\Create.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ImagenesSesion\Create.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ImagenesSesion\Edit.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ImagenesSesion\Index.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\PacienteEstetica\Create.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\PacienteEstetica\Edit.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\PacienteEstetica\Index.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SesionTratamientoEstetico\Create.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SesionTratamientoEstetico\Edit.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SesionTratamientoEstetico\Index.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TratamientosEsteticos\Create.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TratamientosEsteticos\Edit.cshtml.g.cs
+C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TratamientosEsteticos\Index.cshtml.g.cs

@@ -161,6 +161,31 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.ToTable("Genero");
                 });
 
+            modelBuilder.Entity("MedicalPLE.Models.ImagenesSesion", b =>
+                {
+                    b.Property<int>("ImagenesSesionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ImagenesSesionId")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DescripcionImagen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Imagen")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SesionTratamientoEsteticoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ImagenesSesionId");
+
+                    b.HasIndex("SesionTratamientoEsteticoId");
+
+                    b.ToTable("ImagenesSesion");
+                });
+
             modelBuilder.Entity("MedicalPLE.Models.Paciente", b =>
                 {
                     b.Property<int>("PacienteId")
@@ -346,6 +371,78 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.ToTable("Paciente");
                 });
 
+            modelBuilder.Entity("MedicalPLE.Models.PacienteEstetica", b =>
+                {
+                    b.Property<int>("PacienteEsteticaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("PacienteEsteticaId")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Edad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GeneroId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NombreApellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
+
+                    b.Property<int>("NumeroDocumento")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipodocId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PacienteEsteticaId");
+
+                    b.HasIndex("GeneroId");
+
+                    b.HasIndex("TipodocId");
+
+                    b.ToTable("PacienteEstetica");
+                });
+
+            modelBuilder.Entity("MedicalPLE.Models.SesionTratamientoEstetico", b =>
+                {
+                    b.Property<int>("SesionTratamientoEsteticoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("SesionTratamientoEsteticoId")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Acompanante")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
+
+                    b.Property<DateTime?>("FechaSesion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Formulaciones")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PacienteEsteticaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TelefonoReferenciaAcom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<bool>("TraeAcompanante")
+                        .HasColumnType("bit");
+
+                    b.HasKey("SesionTratamientoEsteticoId");
+
+                    b.HasIndex("PacienteEsteticaId");
+
+                    b.ToTable("SesionTratamientoEstetico");
+                });
+
             modelBuilder.Entity("MedicalPLE.Models.Slider", b =>
                 {
                     b.Property<int>("Id")
@@ -403,6 +500,28 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.HasKey("TipodocId");
 
                     b.ToTable("Tipodoc");
+                });
+
+            modelBuilder.Entity("MedicalPLE.Models.TratamientosEsteticos", b =>
+                {
+                    b.Property<int>("TratamientoEsteticoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("TratamientoEsteticoId")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NombreTratamientoEstetico")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
+
+                    b.Property<string>("ObservacionesTratamiento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TratamientoEsteticoId");
+
+                    b.ToTable("TratamientosEsteticos");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -647,6 +766,15 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MedicalPLE.Models.ImagenesSesion", b =>
+                {
+                    b.HasOne("MedicalPLE.Models.SesionTratamientoEstetico", "SesionTratamientoEstetico")
+                        .WithMany()
+                        .HasForeignKey("SesionTratamientoEsteticoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MedicalPLE.Models.Paciente", b =>
                 {
                     b.HasOne("MedicalPLE.Models.Ciudad", "Ciudad")
@@ -682,6 +810,30 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.HasOne("MedicalPLE.Models.Tipodoc", "Tipodoc")
                         .WithMany()
                         .HasForeignKey("TipodocId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MedicalPLE.Models.PacienteEstetica", b =>
+                {
+                    b.HasOne("MedicalPLE.Models.Genero", "Genero")
+                        .WithMany()
+                        .HasForeignKey("GeneroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedicalPLE.Models.Tipodoc", "Tipodoc")
+                        .WithMany()
+                        .HasForeignKey("TipodocId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MedicalPLE.Models.SesionTratamientoEstetico", b =>
+                {
+                    b.HasOne("MedicalPLE.Models.PacienteEstetica", "PacienteEstetica")
+                        .WithMany()
+                        .HasForeignKey("PacienteEsteticaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

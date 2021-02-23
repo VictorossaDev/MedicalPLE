@@ -49,7 +49,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {             
-                genero.NombreGenero = "Otroooooooooo";
+                
                 _contenedorTrabajo.Genero.Add(genero);
                 _contenedorTrabajo.Save();
 

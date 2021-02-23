@@ -1,0 +1,93 @@
+<!-- Edit PacienteEstetica-->
+
+@model MedicalPLE.Models.ViewModels.PacienteEsteticaVM
+@{
+    ViewData["Title"] = "Editar PacienteEstetica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h3 class="text-center"> Editar PacienteEstetica</h3>
+<!-- Creo un formulario que buscara el metodo Create del controlador que va por post-->
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" asp-for="PacienteEstetica.PacienteEsteticaId" />
+    <div class="row px-2 mx-2 border">
+       <!-- Vaidacion de campos del formulario, traera los mensajes que se tengan en el modelo-->
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-10 offset-1 mt-4">
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="PacienteEstetica.NumeroDocumento">No. Documento</label>
+                </div>
+                <div class="col-8">
+                    @*<input asp-for="PacienteEstetica.NumeroDocumento" class="form-control"  type="number"  min="1" max="5"/>*@
+                    <input asp-for="PacienteEstetica.NumeroDocumento" class="form-control"  type="number" />
+                    <span asp-validation-for="PacienteEstetica.NumeroDocumento" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="PacienteEstetica.NombreApellido">Nombres y Apellidos Paciente</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="PacienteEstetica.NombreApellido" class="form-control" type="text" maxlength="400" />
+                    <span asp-validation-for="PacienteEstetica.NombreApellido" class="text-danger"></span>
+                </div>
+            </div>
+
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="PacienteEstetica.Edad">Edad Paciente</label>
+                </div>
+                <div class="col-8">
+                    @*<input asp-for="PacienteEstetica.Edad" class="form-control"  type="number"  min="1" max="5"/>*@
+                    <input asp-for="PacienteEstetica.Edad" class="form-control"  type="number" />
+                    <span asp-validation-for="PacienteEstetica.Edad" class="text-danger"></span>
+                </div>
+            </div>
+
+             <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="PacienteEstetica.TipodocId">Tipodoc</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.PacienteEstetica.TipodocId, Model.ListaTipodoc,
+                     "-Por favor seleccione Tipodoc-", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="PacienteEstetica.GeneroId">Genero</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.PacienteEstetica.GeneroId, Model.ListaGenero,
+                     "-Por favor seleccione Genero-", new { @class = "form-control" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <!-- Vista parcial reutilizada en distintos formularios para Volver -->
+                    <partial name="_VistaCrearVolver" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<!-- UTILIDADES -->
+<!-- Acordeon -->
+<!--<button type="button" class="accordionple">Nombre de la seccion</button>
+<div class="panelaccordionple">
+    <br />-->
+<!-- La informacion o los objetos van AQUI -->
+<!--</div>-->
+
+<!-- --=====================================================-- -->

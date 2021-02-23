@@ -1,0 +1,42 @@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary"> Lista de sesiontratamientoestetico</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Crear SesionTratamientoEstetico</a>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <table id="tblsesiontratamientoestetico" class="table table-striped table-bordered" style="width:100%;">
+       <thead>
+           <tr>
+               <th>Sesion</th>
+               <th>Trae Acompañante</th>
+               <th>Acompañante</th>
+               <th>Telefono en caso de urgencia</th>
+               <th>Fecha Sesión</th>
+               <th>Formulaciones</th>
+                <th>Paciente</th>
+
+               <th></th>
+           </tr>
+       </thead>       
+    </table>
+</div>
+@section Scripts{ 
+    <script src="~/js/sesiontratamientoestetico.js"></script>
+}
+
+
+
+
+

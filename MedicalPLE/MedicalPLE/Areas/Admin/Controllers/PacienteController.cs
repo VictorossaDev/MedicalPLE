@@ -41,7 +41,7 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 ListaTipoSangre = _contenedorTrabajo.TipoSangre.GetListaTipoSangre(),
                 ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
                 ListaCiudad = _contenedorTrabajo.Ciudad.GetListaCiudad(),
-
+                ListaDepartamento = _contenedorTrabajo.Departamento.GetListaDepartamento(),
             };
             return View(pacientevm);
         }
