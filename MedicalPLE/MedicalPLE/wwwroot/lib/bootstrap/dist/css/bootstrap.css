@@ -11486,13 +11486,13 @@ a.text-dark:hover, a.text-dark:focus {
     border: none;
     text-align: left;
     outline: none;
-    font-size: 15px;
+    font-size: 25px;
     transition: 0.4s;
     color: white;
 }
 
     .active, .accordionple:hover {
-        background-color: white;
+        background-color: gainsboro;
         color: black;
     }
 

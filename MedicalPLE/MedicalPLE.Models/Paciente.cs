@@ -95,6 +95,96 @@ namespace MedicalPLE.Models
         [StringLength(100)]
         public string TelefonoCelular { get; set; }
 
+        [Required(ErrorMessage = "El NombreApellidoPR es obligatorio")]
+        [Display(Name = "NombreApellidoPR")]
+        [StringLength(400)]
+        public string NombreApellidoPR { get; set; }
+
+        [Required(ErrorMessage = "El Teléfono Fijo es obligatorio")]
+        [Display(Name = "TelefonoFijoPR")]
+        [StringLength(100)]
+        public string TelefonoFijoPR { get; set; }
+
+        [Required(ErrorMessage = "El Teléfono Celular es obligatorio")]
+        [Display(Name = "TelefonoCelularPR")]
+        [StringLength(100)]
+        public string TelefonoCelularPR { get; set; }
+
+        [Required(ErrorMessage = "El ParentescoPR es obligatorio")]
+        [Display(Name = "ParentescoPR")]
+        [StringLength(300)]
+        public string ParentescoPR { get; set; }
+
+        [Required(ErrorMessage = "El NombreApellidoPREF es obligatorio")]
+        [Display(Name = "NombreApellidoPREF")]
+        [StringLength(400)]
+        public string NombreApellidoPREF { get; set; }
+
+        [Required(ErrorMessage = "El Teléfono Fijo es obligatorio")]
+        [Display(Name = "TelefonoFijoPREF")]
+        [StringLength(100)]
+        public string TelefonoFijoPREF { get; set; }
+
+        [Required(ErrorMessage = "El Teléfono Celular es obligatorio")]
+        [Display(Name = "TelefonoCelularPREF")]
+        [StringLength(100)]
+        public string TelefonoCelularPREF { get; set; }
+
+        [Required(ErrorMessage = "El ReferidoPor es obligatorio")]
+        [Display(Name = "ReferidoPor")]
+        [StringLength(400)]
+        public string ReferidoPor { get; set; }
+
+        [Required(ErrorMessage = "El NombreApellidoACOM es obligatorio")]
+        [Display(Name = "NombreApellidoACOM")]
+        [StringLength(400)]
+        public string NombreApellidoACOM { get; set; }
+
+        [Required(ErrorMessage = "El Telefono Fijo Acompañante es obligatorio")]
+        [Display(Name = "TelefonoFijoACOM")]
+        [StringLength(100)]
+        public string TelefonoFijoACOM { get; set; }
+
+        [Required(ErrorMessage = "El Telefono Celular es obligatorio")]
+        [Display(Name = "TelefonoCelularACOM")]
+        [StringLength(100)]
+        public string TelefonoCelularACOM { get; set; }
+
+        [Required(ErrorMessage = "El ParentescoACOM es obligatorio")]
+        [Display(Name = "ParentescoACOM")]
+        [StringLength(300)]
+        public string ParentescoACOM { get; set; }
+
+        [Required(ErrorMessage = "El NombreMadreME es obligatorio")]
+        [Display(Name = "NombreMadreME")]
+        [StringLength(400)]
+        public string NombreMadreME { get; set; }
+
+        [Required(ErrorMessage = "El Numero de cédula es obligatorio")]
+        [Display(Name = "NumeroCedulaMadreME")]
+        [Column(TypeName = "int")]
+        public int NumeroCedulaMadreME { get; set; }
+
+        [Required(ErrorMessage = "El Telefono Fijo es obligatorio")]
+        [Display(Name = "TelefonoFijoME")]
+        [StringLength(100)]
+        public string TelefonoFijoME { get; set; }
+
+        [Required(ErrorMessage = "El Telefono Celular es obligatorio")]
+        [Display(Name = "TelefonoCelularME")]
+        [StringLength(100)]
+        public string TelefonoCelularME { get; set; }
+
+        [Required(ErrorMessage = "El OcupacionME es obligatorio")]
+        [Display(Name = "OcupacionME")]
+        [StringLength(300)]
+        public string OcupacionME { get; set; }
+
+        [Required(ErrorMessage = "El ParentescoME es obligatorio")]
+        [Display(Name = "ParentescoME")]
+        [StringLength(300)]
+        public string ParentescoME { get; set; }
+
          [ForeignKey("TipodocId")]
         public Tipodoc Tipodoc { get; set; }
 

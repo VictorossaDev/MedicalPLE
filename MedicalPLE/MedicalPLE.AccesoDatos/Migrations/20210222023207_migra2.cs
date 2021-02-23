@@ -329,7 +329,25 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     Ocupacion = table.Column<string>(maxLength: 300, nullable: false),
                     Correo = table.Column<string>(maxLength: 400, nullable: false),
                     TelefonoFijo = table.Column<string>(maxLength: 100, nullable: false),
-                    TelefonoCelular = table.Column<string>(maxLength: 100, nullable: false)
+                    TelefonoCelular = table.Column<string>(maxLength: 100, nullable: false),
+                    NombreApellidoPR = table.Column<string>(maxLength: 400, nullable: false),
+                    TelefonoFijoPR = table.Column<string>(maxLength: 100, nullable: false),
+                    TelefonoCelularPR = table.Column<string>(maxLength: 100, nullable: false),
+                    ParentescoPR = table.Column<string>(maxLength: 300, nullable: false),
+                    NombreApellidoPREF = table.Column<string>(maxLength: 400, nullable: false),
+                    TelefonoFijoPREF = table.Column<string>(maxLength: 100, nullable: false),
+                    TelefonoCelularPREF = table.Column<string>(maxLength: 100, nullable: false),
+                    ReferidoPor = table.Column<string>(maxLength: 400, nullable: false),
+                    NombreApellidoACOM = table.Column<string>(maxLength: 400, nullable: false),
+                    TelefonoFijoACOM = table.Column<string>(maxLength: 100, nullable: false),
+                    TelefonoCelularACOM = table.Column<string>(maxLength: 100, nullable: false),
+                    ParentescoACOM = table.Column<string>(maxLength: 300, nullable: false),
+                    NombreMadreME = table.Column<string>(maxLength: 400, nullable: false),
+                    NumeroCedulaMadreME = table.Column<int>(type: "int", nullable: false),
+                    TelefonoFijoME = table.Column<string>(maxLength: 100, nullable: false),
+                    TelefonoCelularME = table.Column<string>(maxLength: 100, nullable: false),
+                    OcupacionME = table.Column<string>(maxLength: 300, nullable: false),
+                    ParentescoME = table.Column<string>(maxLength: 300, nullable: false)
                 },
                 constraints: table =>
                 {

@@ -45,6 +45,24 @@ namespace MedicalPLE.AccesoDatos.Data
             objDesdeDb.Correo = paciente.Correo;
             objDesdeDb.TelefonoFijo = paciente.TelefonoFijo;
             objDesdeDb.TelefonoCelular = paciente.TelefonoCelular;
+            objDesdeDb.NombreApellidoPR = paciente.NombreApellidoPR;
+            objDesdeDb.TelefonoFijoPR = paciente.TelefonoFijoPR;
+            objDesdeDb.TelefonoCelularPR = paciente.TelefonoCelularPR;
+            objDesdeDb.ParentescoPR = paciente.ParentescoPR;
+            objDesdeDb.NombreApellidoPREF = paciente.NombreApellidoPREF;
+            objDesdeDb.TelefonoFijoPREF = paciente.TelefonoFijoPREF;
+            objDesdeDb.TelefonoCelularPREF = paciente.TelefonoCelularPREF;
+            objDesdeDb.ReferidoPor = paciente.ReferidoPor;
+            objDesdeDb.NombreApellidoACOM = paciente.NombreApellidoACOM;
+            objDesdeDb.TelefonoFijoACOM = paciente.TelefonoFijoACOM;
+            objDesdeDb.TelefonoCelularACOM = paciente.TelefonoCelularACOM;
+            objDesdeDb.ParentescoACOM = paciente.ParentescoACOM;
+            objDesdeDb.NombreMadreME = paciente.NombreMadreME;
+            objDesdeDb.NumeroCedulaMadreME = paciente.NumeroCedulaMadreME;
+            objDesdeDb.TelefonoFijoME = paciente.TelefonoFijoME;
+            objDesdeDb.TelefonoCelularME = paciente.TelefonoCelularME;
+            objDesdeDb.OcupacionME = paciente.OcupacionME;
+            objDesdeDb.ParentescoME = paciente.ParentescoME;
 
             _db.SaveChanges();
         }
