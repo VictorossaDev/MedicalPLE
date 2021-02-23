@@ -390,7 +390,15 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     TelefonoFijoME = table.Column<string>(maxLength: 100, nullable: false),
                     TelefonoCelularME = table.Column<string>(maxLength: 100, nullable: false),
                     OcupacionME = table.Column<string>(maxLength: 300, nullable: false),
-                    ParentescoME = table.Column<string>(maxLength: 300, nullable: false)
+                    NombrePadreCuidador = table.Column<string>(maxLength: 400, nullable: false),
+                    CedulaPadreCuidador = table.Column<int>(type: "int", nullable: false),
+                    TelefonoFijoPadreCuidador = table.Column<string>(maxLength: 100, nullable: false),
+                    TelefonoCelularPadreCuidador = table.Column<string>(maxLength: 100, nullable: false),
+                    OcupacionPadreCuidador = table.Column<string>(maxLength: 300, nullable: false),
+                    ParentescoPadreCuidador = table.Column<string>(maxLength: 300, nullable: false),
+                    SeEncuentraEmbarazo = table.Column<bool>(nullable: false),
+                    FechaUltimaMestruacion = table.Column<DateTime>(nullable: true),
+                    SemanasEmbarazo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -62,7 +62,15 @@ namespace MedicalPLE.AccesoDatos.Data
             objDesdeDb.TelefonoFijoME = paciente.TelefonoFijoME;
             objDesdeDb.TelefonoCelularME = paciente.TelefonoCelularME;
             objDesdeDb.OcupacionME = paciente.OcupacionME;
-            objDesdeDb.ParentescoME = paciente.ParentescoME;
+            objDesdeDb.NombrePadreCuidador = paciente.NombrePadreCuidador;
+            objDesdeDb.CedulaPadreCuidador = paciente.CedulaPadreCuidador;
+            objDesdeDb.TelefonoFijoPadreCuidador = paciente.TelefonoFijoPadreCuidador;
+            objDesdeDb.TelefonoCelularPadreCuidador = paciente.TelefonoCelularPadreCuidador;
+            objDesdeDb.OcupacionPadreCuidador = paciente.OcupacionPadreCuidador;
+            objDesdeDb.ParentescoPadreCuidador = paciente.ParentescoPadreCuidador;
+            objDesdeDb.SeEncuentraEmbarazo = paciente.SeEncuentraEmbarazo;
+            objDesdeDb.FechaUltimaMestruacion = paciente.FechaUltimaMestruacion;
+            objDesdeDb.SemanasEmbarazo = paciente.SemanasEmbarazo;
 
             _db.SaveChanges();
         }

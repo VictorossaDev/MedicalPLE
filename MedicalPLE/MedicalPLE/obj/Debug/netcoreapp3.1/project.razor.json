@@ -14477,8 +14477,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\TratamientosEsteticos\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\TratamientosEsteticos\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Articulos\\Edit.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Articulos\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\EstadoCivil\\Create.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\EstadoCivil\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\SesionTratamientoEstetico\\Create.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\SesionTratamientoEstetico\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14517,6 +14532,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\PacienteEstetica\\Create.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\PacienteEstetica\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\_ViewStart.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -14537,6 +14557,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\ImagenesSesion\\Create.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\ImagenesSesion\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\EstadoCivil\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\EstadoCivil\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\EstadoCivil\\Edit.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\EstadoCivil\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Articulos\\Index.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Articulos\\Index.cshtml",
       "FileKind": "mvc"
@@ -14544,6 +14579,11 @@
     {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Articulos\\Create.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Articulos\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\ImagenesSesion\\Edit.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\ImagenesSesion\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14577,6 +14617,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Genero\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Genero\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
       "FileKind": "mvc"
@@ -14607,6 +14652,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\TratamientosEsteticos\\Edit.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\TratamientosEsteticos\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
       "FileKind": "mvc"
@@ -14627,6 +14677,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\PacienteEstetica\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\PacienteEstetica\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
       "FileKind": "mvc"
@@ -14639,6 +14694,11 @@
     {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\SesionTratamientoEstetico\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\SesionTratamientoEstetico\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14682,8 +14742,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\TratamientosEsteticos\\Create.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\TratamientosEsteticos\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Genero\\Create.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Genero\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14694,6 +14764,16 @@
     {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Eps\\Create.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Eps\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\SesionTratamientoEstetico\\Edit.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\SesionTratamientoEstetico\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\PacienteEstetica\\Edit.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\PacienteEstetica\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14752,6 +14832,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\ImagenesSesion\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\ImagenesSesion\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -14794,6 +14879,11 @@
     {
       "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Departamento\\Edit.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Departamento\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE\\Areas\\Admin\\Views\\Genero\\Edit.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Genero\\Edit.cshtml",
       "FileKind": "mvc"
     }
   ],

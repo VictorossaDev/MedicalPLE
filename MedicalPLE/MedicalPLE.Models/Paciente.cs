@@ -180,10 +180,49 @@ namespace MedicalPLE.Models
         [StringLength(300)]
         public string OcupacionME { get; set; }
 
-        [Required(ErrorMessage = "El ParentescoME es obligatorio")]
-        [Display(Name = "ParentescoME")]
+        [Required(ErrorMessage = "El NombrePadreCuidador es obligatorio")]
+        [Display(Name = "NombrePadreCuidador")]
+        [StringLength(400)]
+        public string NombrePadreCuidador { get; set; }
+
+        [Required(ErrorMessage = "El Numero Cedula es obligatorio")]
+        [Display(Name = "CedulaPadreCuidador")]
+        [Column(TypeName = "int")]
+        public int CedulaPadreCuidador { get; set; }
+
+        [Required(ErrorMessage = "El Telefono Fijo es obligatorio")]
+        [Display(Name = "TelefonoFijoPadreCuidador")]
+        [StringLength(100)]
+        public string TelefonoFijoPadreCuidador { get; set; }
+
+        [Required(ErrorMessage = "El Telefono Celular es obligatorio")]
+        [Display(Name = "TelefonoCelularPadreCuidador")]
+        [StringLength(100)]
+        public string TelefonoCelularPadreCuidador { get; set; }
+
+        [Required(ErrorMessage = "El OcupacionPadreCuidador es obligatorio")]
+        [Display(Name = "OcupacionPadreCuidador")]
         [StringLength(300)]
-        public string ParentescoME { get; set; }
+        public string OcupacionPadreCuidador { get; set; }
+
+        [Required(ErrorMessage = "El ParentescoPadreCuidador es obligatorio")]
+        [Display(Name = "ParentescoPadreCuidador")]
+        [StringLength(300)]
+        public string ParentescoPadreCuidador { get; set; }
+
+        [Required(ErrorMessage = "El Se encuentra en embarazo? es obligatorio")]
+        [Display(Name = "SeEncuentraEmbarazo")]
+        public bool SeEncuentraEmbarazo { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [Display(Name = "FechaUltimaMestruacion")]
+        public DateTime? FechaUltimaMestruacion { get; set; }
+
+        [Required(ErrorMessage = "El Semanas de Embarazo es obligatorio")]
+        [Display(Name = "SemanasEmbarazo")]
+        [Column(TypeName = "int")]
+        public int SemanasEmbarazo { get; set; }
 
          [ForeignKey("TipodocId")]
         public Tipodoc Tipodoc { get; set; }

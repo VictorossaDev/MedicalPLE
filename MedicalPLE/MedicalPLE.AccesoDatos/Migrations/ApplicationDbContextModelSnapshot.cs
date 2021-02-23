@@ -199,6 +199,9 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("nvarchar(300)")
                         .HasMaxLength(300);
 
+                    b.Property<int>("CedulaPadreCuidador")
+                        .HasColumnType("int");
+
                     b.Property<int>("CiudadId")
                         .HasColumnType("int");
 
@@ -222,6 +225,9 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("FechaNacimiento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaUltimaMestruacion")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("GeneroId")
@@ -262,6 +268,11 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("nvarchar(400)")
                         .HasMaxLength(400);
 
+                    b.Property<string>("NombrePadreCuidador")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
+
                     b.Property<int>("NumeroCedulaMadreME")
                         .HasColumnType("int");
 
@@ -278,12 +289,12 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("nvarchar(300)")
                         .HasMaxLength(300);
 
-                    b.Property<string>("ParentescoACOM")
+                    b.Property<string>("OcupacionPadreCuidador")
                         .IsRequired()
                         .HasColumnType("nvarchar(300)")
                         .HasMaxLength(300);
 
-                    b.Property<string>("ParentescoME")
+                    b.Property<string>("ParentescoACOM")
                         .IsRequired()
                         .HasColumnType("nvarchar(300)")
                         .HasMaxLength(300);
@@ -293,10 +304,21 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("nvarchar(300)")
                         .HasMaxLength(300);
 
+                    b.Property<string>("ParentescoPadreCuidador")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
                     b.Property<string>("ReferidoPor")
                         .IsRequired()
                         .HasColumnType("nvarchar(400)")
                         .HasMaxLength(400);
+
+                    b.Property<bool>("SeEncuentraEmbarazo")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SemanasEmbarazo")
+                        .HasColumnType("int");
 
                     b.Property<string>("TelefonoCelular")
                         .IsRequired()
@@ -323,6 +345,11 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
+                    b.Property<string>("TelefonoCelularPadreCuidador")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
                     b.Property<string>("TelefonoFijo")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
@@ -344,6 +371,11 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasMaxLength(100);
 
                     b.Property<string>("TelefonoFijoPREF")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("TelefonoFijoPadreCuidador")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
