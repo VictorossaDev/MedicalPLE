@@ -42,7 +42,9 @@ namespace MedicalPLE
 
             services.AddSingleton<IEmailSender, EmailSender>();
 
+            // Para la inyeccion de dependencia utilizando el contenedor de trabajo como servicio general
             services.AddScoped<IContenedorTrabajo, ContenedorTrabajo>();
+
             // Importa la inicializacion de la aplicacion cuando se hace por primera vez o se despliega
             services.AddScoped<IInicializadorDB, InicializadorDB>();
             // Runtime para compilacion, en etapa de desarrollo para ir viendo reflejados los cambios

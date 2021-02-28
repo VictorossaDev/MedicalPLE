@@ -37,7 +37,6 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 PacienteEstetica = new Models.PacienteEstetica(),
                 ListaTipodoc = _contenedorTrabajo.Tipodoc.GetListaTipodoc(),
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
-
             };
             return View(pacienteesteticavm);
         }

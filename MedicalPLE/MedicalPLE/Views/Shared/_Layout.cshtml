@@ -19,25 +19,45 @@
 
     @if (User.IsInRole(CNT.Admin))
     {
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Tipodoc" asp-action="Index">Tipo de Documento</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="TipoSangre" asp-action="Index">Tipo de Sangre</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Eps" asp-action="Index">EPS Paciente</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="EstadoCivil" asp-action="Index">Estado Civil</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Genero" asp-action="Index">G�nero</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="TratamientosEsteticos" asp-action="Index">Tratamientos Est�ticos</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Departamento" asp-action="Index">Departamento</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Paciente" asp-action="Index">Paciente</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="SesionTratamientoEstetico" asp-action="Index">Tratamientos Esteticos</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="ImagenesSesion" asp-action="Index">Imagenes</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="PacienteEstetica" asp-action="Index">Paciente Estetica</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Ciudad" asp-action="Index">Ciudad</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Categorias" asp-action="Index">Categor�as</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Articulos" asp-action="Index">Art�culos</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Sliders" asp-action="Index">Sliders</a>
-    <a class="dropdown-item" asp-area="Admin" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
-</div>}
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="dropdown-item">
+            <button onclick="myFunction1()" class="dropbtn">Vacunación</button>
+            <div id="myDropdown1" class="dropdown-content">
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Paciente" asp-action="Index">Paciente</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Articulos" asp-action="Index">Vacunas</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Categorias" asp-action="Index">Categorias</a>
+            </div>
+        </div>
+
+        <div class="dropdown-item">
+            <button onclick="myFunction2()" class="dropbtn">Estética</button>
+            <div id="myDropdown2" class="dropdown-content">
+                <a class="dropdown-item" asp-area="Admin" asp-controller="PacienteEstetica" asp-action="Index">Pacientes</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="TratamientosEsteticos" asp-action="Index">Tratamientos Esteticos</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="SesionTratamientoEstetico" asp-action="Index">Sesiones</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="ImagenesSesion" asp-action="Index">Imagenes</a>
+            </div>
+        </div>
+
+        <div class="dropdown-item">
+            <button onclick="myFunction3()" class="dropbtn">Configuración</button>
+            <div id="myDropdown3" class="dropdown-content">
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Tipodoc" asp-action="Index">Tipo de Documento</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="TipoSangre" asp-action="Index">Tipo de Sangre</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Eps" asp-action="Index">EPS Paciente</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="EstadoCivil" asp-action="Index">Estado Civil</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Genero" asp-action="Index">G�nero</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Departamento" asp-action="Index">Departamento</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Ciudad" asp-action="Index">Ciudad</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Sliders" asp-action="Index">Sliders</a>
+            </div>
+        </div>
+
+        <a class="dropdown-item" asp-area="Admin" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
+
+    </div>}
 
     <div id="main">
         <header>
