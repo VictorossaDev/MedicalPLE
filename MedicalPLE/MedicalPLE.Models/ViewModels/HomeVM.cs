@@ -11,9 +11,7 @@ namespace MedicalPLE.Models.ViewModels
         public IEnumerable<Tipodoc> ListaTipodoc { get; set; }
         public IEnumerable<TipoSangre> ListaTiposangre { get; set; }
         public IEnumerable<Eps> ListaEps { get; set; }
-        public IEnumerable<Departamento> ListaDepartamento { get; set; }
         public IEnumerable<Paciente> ListaPaciente { get; set; }
-        public IEnumerable<Ciudad> ListaCiudad { get; set; }    
         public IEnumerable<Articulo> ListaArticulos { get; set; }
 }
 

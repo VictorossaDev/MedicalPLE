@@ -30,8 +30,6 @@ namespace MedicalPLE.AccesoDatos.Data
 
         public DbSet<TratamientosEsteticos> TratamientosEsteticos { get; set; }
 
-        public DbSet<Departamento> Departamento { get; set; }
-
         public DbSet<Paciente> Paciente { get; set; }
 
         public DbSet<SesionTratamientoEstetico> SesionTratamientoEstetico { get; set; }
@@ -40,8 +38,7 @@ namespace MedicalPLE.AccesoDatos.Data
 
         public DbSet<PacienteEstetica> PacienteEstetica { get; set; }
 
-        public DbSet<Ciudad> Ciudad { get; set; }
-   
+
 
 
          public DbSet<Categoria> Categoria { get; set; }

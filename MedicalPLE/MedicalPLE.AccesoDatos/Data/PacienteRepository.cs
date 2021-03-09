@@ -38,7 +38,9 @@ namespace MedicalPLE.AccesoDatos.Data
             objDesdeDb.GeneroId = paciente.GeneroId;
             objDesdeDb.TipoSangreId = paciente.TipoSangreId;
             objDesdeDb.EpsId = paciente.EpsId;
-            objDesdeDb.CiudadId = paciente.CiudadId;
+            objDesdeDb.Pais = paciente.Pais;
+            objDesdeDb.Departamento = paciente.Departamento;
+            objDesdeDb.Ciudad = paciente.Ciudad;
             objDesdeDb.Direccion = paciente.Direccion;
             objDesdeDb.Barrio = paciente.Barrio;
             objDesdeDb.Ocupacion = paciente.Ocupacion;

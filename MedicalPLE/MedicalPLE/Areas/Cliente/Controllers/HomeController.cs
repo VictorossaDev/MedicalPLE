@@ -29,9 +29,7 @@ namespace MedicalPLE.Controllers
                 ListaTipodoc = _contenedorTrabajo.Tipodoc.GetAll(),
                 ListaTiposangre = _contenedorTrabajo.TipoSangre.GetAll(),
                 ListaEps = _contenedorTrabajo.Eps.GetAll(),
-                ListaDepartamento = _contenedorTrabajo.Departamento.GetAll(),
                 ListaPaciente = _contenedorTrabajo.Paciente.GetAll(),
-                ListaCiudad = _contenedorTrabajo.Ciudad.GetAll(),
                 ListaArticulos = _contenedorTrabajo.Articulo.GetAll()
             };
             return View(homeVm);

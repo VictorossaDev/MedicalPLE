@@ -40,8 +40,6 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
                 ListaTipoSangre = _contenedorTrabajo.TipoSangre.GetListaTipoSangre(),
                 ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
-                ListaCiudad = _contenedorTrabajo.Ciudad.GetListaCiudad(),
-                ListaDepartamento = _contenedorTrabajo.Departamento.GetListaDepartamento(),
             };
             return View(pacientevm);
         }
@@ -59,8 +57,8 @@ namespace MedicalPLE.Areas.Admin.Controllers
 
                 if (pacientevm.Paciente.PacienteId == 0)
                 {
- 
- 
+
+
                     _contenedorTrabajo.Paciente.Add(pacientevm.Paciente);
                     _contenedorTrabajo.Save();
                     return RedirectToAction(nameof(Index));
@@ -95,8 +93,6 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 ListaGenero = _contenedorTrabajo.Genero.GetListaGenero(),
                 ListaTipoSangre = _contenedorTrabajo.TipoSangre.GetListaTipoSangre(),
                 ListaEps = _contenedorTrabajo.Eps.GetListaEps(),
-                ListaCiudad = _contenedorTrabajo.Ciudad.GetListaCiudad(),
-                ListaDepartamento = _contenedorTrabajo.Departamento.GetListaDepartamento(),
 
             };
             if (id != null)
@@ -119,14 +115,13 @@ namespace MedicalPLE.Areas.Admin.Controllers
                 var pacienteDesdeDb = _contenedorTrabajo.Paciente.Get(pacientevm.Paciente.PacienteId);
                 if (archivos.Count() > 0)
                 {
- 
 
                     _contenedorTrabajo.Paciente.Update(pacientevm.Paciente);
                     _contenedorTrabajo.Save();
 
                     return RedirectToAction(nameof(Index));
                 }
- 
+
                 _contenedorTrabajo.Paciente.Update(pacientevm.Paciente);
                 _contenedorTrabajo.Save();
                 return RedirectToAction(nameof(Index));
@@ -141,14 +136,14 @@ namespace MedicalPLE.Areas.Admin.Controllers
             var extension = Path.GetExtension(archivos[0].FileName);
             var nuevaExtension = Path.GetExtension(archivos[0].FileName);
 
- 
+
 
             //subimos nuevamente el archivo
             using (var fileStreams = new FileStream(Path.Combine(subidas, nombreArchivo + nuevaExtension), FileMode.Create))
             {
                 archivos[0].CopyTo(fileStreams);
             }
- 
+
         }
 
 
@@ -158,11 +153,11 @@ namespace MedicalPLE.Areas.Admin.Controllers
             var pacienteDesdeDb = _contenedorTrabajo.Paciente.Get(id);
             string rutaDirectorioPrincipal = _hostingEnvironment.WebRootPath;
 
-  
+
 
             if (pacienteDesdeDb == null)
             {
-                return Json(new { success = false, message = "Error borrando artículo"});
+                return Json(new { success = false, message = "Error borrando artículo" });
             }
 
             _contenedorTrabajo.Paciente.Remove(pacienteDesdeDb);
@@ -176,8 +171,8 @@ namespace MedicalPLE.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new { data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Tipodoc,EstadoCivil,Genero,TipoSangre,Eps,Ciudad") });
-        }        
+            return Json(new { data = _contenedorTrabajo.Paciente.GetAll(includeProperties: "Tipodoc,EstadoCivil,Genero,TipoSangre,Eps") });
+        }
         #endregion
 
     }

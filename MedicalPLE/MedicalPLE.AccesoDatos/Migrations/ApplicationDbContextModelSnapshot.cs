@@ -202,10 +202,17 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     b.Property<int>("CedulaPadreCuidador")
                         .HasColumnType("int");
 
-                    b.Property<int>("CiudadId")
-                        .HasColumnType("int");
+                    b.Property<string>("Ciudad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
 
                     b.Property<string>("Correo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
+
+                    b.Property<string>("Departamento")
                         .IsRequired()
                         .HasColumnType("nvarchar(400)")
                         .HasMaxLength(400);
@@ -293,6 +300,11 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(300)")
                         .HasMaxLength(300);
+
+                    b.Property<string>("Pais")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
 
                     b.Property<string>("ParentescoACOM")
                         .IsRequired()
@@ -387,8 +399,6 @@ namespace MedicalPLE.AccesoDatos.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("PacienteId");
-
-                    b.HasIndex("CiudadId");
 
                     b.HasIndex("EpsId");
 
@@ -809,12 +819,6 @@ namespace MedicalPLE.AccesoDatos.Migrations
 
             modelBuilder.Entity("MedicalPLE.Models.Paciente", b =>
                 {
-                    b.HasOne("MedicalPLE.Models.Ciudad", "Ciudad")
-                        .WithMany()
-                        .HasForeignKey("CiudadId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MedicalPLE.Models.Eps", "Eps")
                         .WithMany()
                         .HasForeignKey("EpsId")

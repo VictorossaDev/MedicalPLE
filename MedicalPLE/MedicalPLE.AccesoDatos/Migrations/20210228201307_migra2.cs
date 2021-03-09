@@ -366,7 +366,9 @@ namespace MedicalPLE.AccesoDatos.Migrations
                     GeneroId = table.Column<int>(nullable: false),
                     TipoSangreId = table.Column<int>(nullable: false),
                     EpsId = table.Column<int>(nullable: false),
-                    CiudadId = table.Column<int>(nullable: false),
+                    Pais = table.Column<string>(maxLength: 400, nullable: false),
+                    Departamento = table.Column<string>(maxLength: 400, nullable: false),
+                    Ciudad = table.Column<string>(maxLength: 400, nullable: false),
                     Direccion = table.Column<string>(maxLength: 400, nullable: false),
                     Barrio = table.Column<string>(maxLength: 300, nullable: false),
                     Ocupacion = table.Column<string>(maxLength: 300, nullable: false),
@@ -403,12 +405,6 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Paciente", x => x.PacienteId);
-                    table.ForeignKey(
-                        name: "FK_Paciente_Ciudad_CiudadId",
-                        column: x => x.CiudadId,
-                        principalTable: "Ciudad",
-                        principalColumn: "CiudadId",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Paciente_Eps_EpsId",
                         column: x => x.EpsId,
@@ -541,11 +537,6 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 column: "SesionTratamientoEsteticoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Paciente_CiudadId",
-                table: "Paciente",
-                column: "CiudadId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Paciente_EpsId",
                 table: "Paciente",
                 column: "EpsId");
@@ -607,6 +598,9 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Ciudad");
+
+            migrationBuilder.DropTable(
                 name: "ImagenesSesion");
 
             migrationBuilder.DropTable(
@@ -628,10 +622,10 @@ namespace MedicalPLE.AccesoDatos.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "SesionTratamientoEstetico");
+                name: "Departamento");
 
             migrationBuilder.DropTable(
-                name: "Ciudad");
+                name: "SesionTratamientoEstetico");
 
             migrationBuilder.DropTable(
                 name: "Eps");
@@ -644,9 +638,6 @@ namespace MedicalPLE.AccesoDatos.Migrations
 
             migrationBuilder.DropTable(
                 name: "PacienteEstetica");
-
-            migrationBuilder.DropTable(
-                name: "Departamento");
 
             migrationBuilder.DropTable(
                 name: "Genero");

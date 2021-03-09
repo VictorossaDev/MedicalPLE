@@ -61,9 +61,20 @@ namespace MedicalPLE.Models
         [Display(Name = "EpsId")]
         public int EpsId { get; set; }
 
-        [Required(ErrorMessage = "El CiudadId es obligatorio")]
-        [Display(Name = "CiudadId")]
-        public int CiudadId { get; set; }
+        [Required(ErrorMessage = "El Campo Pais es obligatorio")]
+        [Display(Name = "Pais")]
+        [StringLength(400)]
+        public string Pais { get; set; }
+
+        [Required(ErrorMessage = "El Campo Departamento o estado es obligatorio")]
+        [Display(Name = "Departamento")]
+        [StringLength(400)]
+        public string Departamento { get; set; }
+
+        [Required(ErrorMessage = "El Campo Ciudad es obligatorio")]
+        [Display(Name = "Ciudad")]
+        [StringLength(400)]
+        public string Ciudad { get; set; }
 
         [Required(ErrorMessage = "El Direccion es obligatorio")]
         [Display(Name = "Direccion")]
@@ -239,8 +250,7 @@ namespace MedicalPLE.Models
         [ForeignKey("EpsId")]
         public Eps Eps { get; set; }
 
-        [ForeignKey("CiudadId")]
-        public Ciudad Ciudad { get; set; }
+
 
 
    }

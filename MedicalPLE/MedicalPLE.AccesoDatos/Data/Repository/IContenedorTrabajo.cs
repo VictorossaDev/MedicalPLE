@@ -15,12 +15,10 @@ namespace MedicalPLE.AccesoDatos.Data.Repository
         IEstadoCivilRepository EstadoCivil { get; }
         IGeneroRepository Genero { get; }
         ITratamientosEsteticosRepository TratamientosEsteticos { get; }
-        IDepartamentoRepository Departamento { get; }
         IPacienteRepository Paciente { get; }
         ISesionTratamientoEsteticoRepository SesionTratamientoEstetico { get; }
         IImagenesSesionRepository ImagenesSesion { get; }
         IPacienteEsteticaRepository PacienteEstetica { get; }
-        ICiudadRepository Ciudad { get; }    
         ICategoriaRepository Categoria { get; }
         IArticuloRepository Articulo { get; }
         ISliderRepository Slider { get; }

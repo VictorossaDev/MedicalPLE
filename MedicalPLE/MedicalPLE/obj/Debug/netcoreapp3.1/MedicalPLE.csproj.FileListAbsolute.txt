@@ -482,12 +482,6 @@ C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categorias\Create.cshtml.g.cs
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categorias\Edit.cshtml.g.cs
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categorias\Index.cshtml.g.cs
-C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Ciudad\Create.cshtml.g.cs
-C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Ciudad\Edit.cshtml.g.cs
-C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Ciudad\Index.cshtml.g.cs
-C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Departamento\Create.cshtml.g.cs
-C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Departamento\Edit.cshtml.g.cs
-C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Departamento\Index.cshtml.g.cs
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Eps\Create.cshtml.g.cs
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Eps\Edit.cshtml.g.cs
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Eps\Index.cshtml.g.cs
