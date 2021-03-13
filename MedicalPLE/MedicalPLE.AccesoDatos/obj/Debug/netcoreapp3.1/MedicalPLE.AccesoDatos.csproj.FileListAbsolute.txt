@@ -12,3 +12,17 @@ C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\n
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.csproj.CopyComplete
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.dll
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.pdb
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.deps.json
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.dll
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.pdb
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.Models.dll
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.Utilidades.dll
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.Models.pdb
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\bin\Debug\netcoreapp3.1\MedicalPLE.Utilidades.pdb
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.csprojAssemblyReference.cache
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.AssemblyInfoInputs.cache
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.AssemblyInfo.cs
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.csproj.CoreCompileInputs.cache
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.csproj.CopyComplete
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.dll
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.AccesoDatos\obj\Debug\netcoreapp3.1\MedicalPLE.AccesoDatos.pdb

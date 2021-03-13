@@ -64,3 +64,11 @@ function Delete(url) {
     });
 }
 
+function() {
+    $("#GeneroIdd").change(function () {
+        var displaycourse = $("#GeneroIdd option:selected").
+    })
+}
+
+
+

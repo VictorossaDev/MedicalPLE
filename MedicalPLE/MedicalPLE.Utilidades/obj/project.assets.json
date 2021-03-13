@@ -594,20 +594,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Victor\\.nuget\\packages\\": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE.Utilidades\\MedicalPLE.Utilidades.csproj",
+      "projectUniqueName": "D:\\Proyectos Empresa\\MedicalPLE\\MedicalPLE\\MedicalPLE.Utilidades\\MedicalPLE.Utilidades.csproj",
       "projectName": "MedicalPLE.Utilidades",
-      "projectPath": "C:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE.Utilidades\\MedicalPLE.Utilidades.csproj",
-      "packagesPath": "C:\\Users\\Victor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Victor\\Desktop\\MedicalPLE\\MedicalPLE\\MedicalPLE.Utilidades\\obj\\",
+      "projectPath": "D:\\Proyectos Empresa\\MedicalPLE\\MedicalPLE\\MedicalPLE.Utilidades\\MedicalPLE.Utilidades.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "D:\\Proyectos Empresa\\MedicalPLE\\MedicalPLE\\MedicalPLE.Utilidades\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

@@ -7,3 +7,12 @@ C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcor
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcoreapp3.1\MedicalPLE.Models.dll
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcoreapp3.1\MedicalPLE.Models.pdb
 C:\Users\Victor\Desktop\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcoreapp3.1\MedicalPLE.Models.csprojAssemblyReference.cache
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.Models\bin\Debug\netcoreapp3.1\MedicalPLE.Models.deps.json
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.Models\bin\Debug\netcoreapp3.1\MedicalPLE.Models.dll
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.Models\bin\Debug\netcoreapp3.1\MedicalPLE.Models.pdb
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcoreapp3.1\MedicalPLE.Models.csprojAssemblyReference.cache
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcoreapp3.1\MedicalPLE.Models.AssemblyInfoInputs.cache
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcoreapp3.1\MedicalPLE.Models.AssemblyInfo.cs
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcoreapp3.1\MedicalPLE.Models.csproj.CoreCompileInputs.cache
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcoreapp3.1\MedicalPLE.Models.dll
+D:\Proyectos Empresa\MedicalPLE\MedicalPLE\MedicalPLE.Models\obj\Debug\netcoreapp3.1\MedicalPLE.Models.pdb

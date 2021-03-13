@@ -14,7 +14,7 @@
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
-    --purple: #593196;
+    --purple: #01b1af;
     --pink: #e83e8c;
     --red: #FC3939;
     --orange: #fd7e14;
@@ -25,7 +25,7 @@
     --white: #fff;
     --gray: #868e96;
     --gray-dark: #343a40;
-    --primary: #593196;
+    --primary: #01b1af;
     --secondary: #A991D4;
     --success: #13B955;
     --info: #009CDC;
@@ -161,13 +161,13 @@ sup {
 }
 
 a {
-    color: #593196;
+    color: #01b1af;
     text-decoration: none;
     background-color: transparent;
 }
 
     a:hover {
-        color: #593196;
+        color: #01b1af;
         text-decoration: underline;
     }
 
@@ -2440,7 +2440,7 @@ pre {
 .form-control:focus {
     color: #444;
     background-color: #fff;
-    border-color: #593196;
+    border-color: #01b1af;
     outline: 0;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(89, 49, 150, 0.25);
     box-shadow: 0 0 0 0.2rem rgba(89, 49, 150, 0.25);
@@ -2961,13 +2961,13 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #593196;
-    border-color: #593196;
+    background-color: #01b1af;
+    border-color: #01b1af;
 }
 
     .btn-primary:hover {
         color: #fff;
-        background-color: #482879;
+        background-color: #91c853;
         border-color: #422470;
     }
 
@@ -2981,8 +2981,8 @@ fieldset:disabled a.btn {
 
     .btn-primary.disabled, .btn-primary:disabled {
         color: #fff;
-        background-color: #593196;
-        border-color: #593196;
+        background-color: #01b1af;
+        border-color: #01b1af;
     }
 
     .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
@@ -3272,14 +3272,14 @@ fieldset:disabled a.btn {
         }
 
 .btn-outline-primary {
-    color: #593196;
-    border-color: #593196;
+    color: #01b1af;
+    border-color: #01b1af;
 }
 
     .btn-outline-primary:hover {
         color: #fff;
-        background-color: #593196;
-        border-color: #593196;
+        background-color: #01b1af;
+        border-color: #01b1af;
     }
 
     .btn-outline-primary:focus, .btn-outline-primary.focus {
@@ -3288,15 +3288,15 @@ fieldset:disabled a.btn {
     }
 
     .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-        color: #593196;
+        color: #01b1af;
         background-color: transparent;
     }
 
     .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
     .show > .btn-outline-primary.dropdown-toggle {
         color: #fff;
-        background-color: #593196;
-        border-color: #593196;
+        background-color: #01b1af;
+        border-color: #01b1af;
     }
 
         .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
@@ -3545,12 +3545,12 @@ fieldset:disabled a.btn {
 
 .btn-link {
     font-weight: 400;
-    color: #593196;
+    color: #01b1af;
     text-decoration: none;
 }
 
     .btn-link:hover {
-        color: #593196;
+        color: #01b1af;
         text-decoration: underline;
     }
 
@@ -3846,13 +3846,13 @@ input[type="button"].btn-block {
     .dropdown-item:hover, .dropdown-item:focus {
         color: #fff;
         text-decoration: none;
-        background-color: #593196;
+        background-color: #01b1af;
     }
 
     .dropdown-item.active, .dropdown-item:active {
         color: #fff;
         text-decoration: none;
-        background-color: #593196;
+        background-color: #01b1af;
     }
 
     .dropdown-item.disabled, .dropdown-item:disabled {
@@ -4173,8 +4173,8 @@ input[type="button"].btn-block {
 
     .custom-control-input:checked ~ .custom-control-label::before {
         color: #fff;
-        border-color: #593196;
-        background-color: #593196;
+        border-color: #01b1af;
+        background-color: #01b1af;
     }
 
     .custom-control-input:focus ~ .custom-control-label::before {
@@ -4183,7 +4183,7 @@ input[type="button"].btn-block {
     }
 
     .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
-        border-color: #593196;
+        border-color: #01b1af;
     }
 
     .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
@@ -4235,8 +4235,8 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-    border-color: #593196;
-    background-color: #593196;
+    border-color: #01b1af;
+    background-color: #01b1af;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
@@ -4323,7 +4323,7 @@ input[type="button"].btn-block {
 }
 
     .custom-select:focus {
-        border-color: #593196;
+        border-color: #01b1af;
         outline: 0;
         -webkit-box-shadow: 0 0 0 0.2rem rgba(89, 49, 150, 0.25);
         box-shadow: 0 0 0 0.2rem rgba(89, 49, 150, 0.25);
@@ -4388,7 +4388,7 @@ input[type="button"].btn-block {
 }
 
     .custom-file-input:focus ~ .custom-file-label {
-        border-color: #593196;
+        border-color: #01b1af;
         -webkit-box-shadow: 0 0 0 0.2rem rgba(89, 49, 150, 0.25);
         box-shadow: 0 0 0 0.2rem rgba(89, 49, 150, 0.25);
     }
@@ -4472,7 +4472,7 @@ input[type="button"].btn-block {
         width: 1rem;
         height: 1rem;
         margin-top: -0.25rem;
-        background-color: #593196;
+        background-color: #01b1af;
         border: 0;
         -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
         transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -4505,7 +4505,7 @@ input[type="button"].btn-block {
 .custom-range::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
-    background-color: #593196;
+    background-color: #01b1af;
     border: 0;
     -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -4541,7 +4541,7 @@ input[type="button"].btn-block {
     margin-top: 0;
     margin-right: 0.2rem;
     margin-left: 0.2rem;
-    background-color: #593196;
+    background-color: #01b1af;
     border: 0;
     -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -4657,7 +4657,7 @@ input[type="button"].btn-block {
     }
 
         .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-            border-color: #593196;
+            border-color: #01b1af;
         }
 
         .nav-tabs .nav-link.disabled {
@@ -4680,7 +4680,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
     color: #fff;
-    background-color: #593196;
+    background-color: #01b1af;
 }
 
 .nav-fill .nav-item {
@@ -5408,14 +5408,14 @@ input[type="button"].btn-block {
     padding: 0.5rem 0.75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: #593196;
+    color: #01b1af;
     background-color: #fff;
     border: 1px solid #EDEDED;
 }
 
     .page-link:hover {
         z-index: 2;
-        color: #593196;
+        color: #01b1af;
         text-decoration: none;
         background-color: #F9F8FC;
         border-color: #EDEDED;
@@ -5435,8 +5435,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #593196;
-    border-color: #593196;
+    background-color: #01b1af;
+    border-color: #01b1af;
 }
 
 .page-item.disabled .page-link {
@@ -5501,7 +5501,7 @@ a.badge:hover, a.badge:focus {
 
 .badge-primary {
     color: #fff;
-    background-color: #593196;
+    background-color: #01b1af;
 }
 
 a.badge-primary:hover, a.badge-primary:focus {
@@ -5828,7 +5828,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     color: #fff;
     text-align: center;
     white-space: nowrap;
-    background-color: #593196;
+    background-color: #01b1af;
     -webkit-transition: width 0.6s ease;
     transition: width 0.6s ease;
 }
@@ -7094,7 +7094,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: #593196 !important;
+    background-color: #01b1af !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -7222,7 +7222,7 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-    border-color: #593196 !important;
+    border-color: #01b1af !important;
 }
 
 .border-secondary {
@@ -11096,7 +11096,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-    color: #593196 !important;
+    color: #01b1af !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -11383,7 +11383,7 @@ a.text-dark:hover, a.text-dark:focus {
     .nav-tabs .nav-link.active,
     .nav-tabs .nav-link.active:hover,
     .nav-tabs .nav-link.active:focus {
-        border-bottom: 1px solid #593196;
+        border-bottom: 1px solid #01b1af;
     }
 
 .nav-tabs .nav-item + .nav-item {
@@ -11435,7 +11435,7 @@ a.text-dark:hover, a.text-dark:focus {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #593196;
+    background-color: #01b1af;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -11478,7 +11478,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .accordionple {
-    background-color: #593196;
+    background-color: #01b1af;
     color: #444;
     cursor: pointer;
     padding: 18px;
@@ -11497,7 +11497,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .accordionple:hover {
-    background-color: gainsboro;
+    background-color: #91c853;
     color: black;
 }
 
@@ -11584,16 +11584,16 @@ a.text-dark:hover, a.text-dark:focus {
 /*Dropdown*/
 
 .dropbtn {
-    background-color: #3498DB;
+    background-color: #01b1af;
     color: white;
     padding: 16px;
-    font-size: 16px;
+    font-size: 1.09375rem;
     border: none;
     cursor: pointer;
 }
 
     .dropbtn:hover, .dropbtn:focus {
-        background-color: #2980B9;
+        background-color: #91c853;
     }
 
 .dropdown {
@@ -11625,6 +11625,8 @@ a.text-dark:hover, a.text-dark:focus {
 .show {
     display: block;
 }
+
+
 
 /*!
  * PLE

@@ -44,8 +44,6 @@ namespace MedicalPLE.Areas.Admin.Controllers
             return View(pacientevm);
         }
 
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(PacienteVM pacientevm)
