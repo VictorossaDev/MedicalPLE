@@ -80,3 +80,17 @@ window.onclick = function (event) {
         }
     }
 }
+
+
+
+function BtnClick() {
+    var value = $("#txtBox").val();
+    $("#lbl").text(value);
+    var mivalue = $("#lbl").value;
+    alert(mivalue);
+}
+
+function callChangefunc(val) {
+    alert(val)
+    //window.location.href = "/Controller/ActionMethod?value=" + val;
+}

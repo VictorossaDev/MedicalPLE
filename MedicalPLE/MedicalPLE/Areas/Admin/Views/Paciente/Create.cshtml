@@ -16,6 +16,11 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-10 offset-1 mt-4">
 
+            <input type="text" id="txtBox" />
+            <label id="lbl"></label>
+            <input type="button" onclick="BtnClick()" id="mybtn" value="Clikeame "/>
+
+
             <button type="button" class="accordionple">Datos Personales</button>
             <div class="panelaccordionple">
                 <br />
@@ -132,7 +137,8 @@
                     </div>
                     <div class="col-4">
                         @Html.DropDownListFor(m => m.Paciente.GeneroId, Model.ListaGenero,
-                        "-Por favor seleccione Genero Paciente-", new { @class = "form-control" })
+                        "-Por favor seleccione Genero Paciente-", new { @class = "form-control" }),
+                        @*new { @onchange="callChangefunc(this.value)"*@
                     </div>
 
 
